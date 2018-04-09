@@ -1,9 +1,16 @@
 page-tutorial {
 
+
+
 .main {
 	background:linear-gradient(#007ADF, #44D0BF);
 	color: white;
 
+
+}
+
+[padding] h2:first-child{
+  margin-top: 50px;
 }
 
 .toolbar-background {
@@ -20,6 +27,7 @@ page-tutorial {
   color:white;
 
 }
+
 
 .button-outline-md {
     border-width: 1px;
@@ -53,8 +61,8 @@ page-tutorial {
     height: 100%;
   }
 
-  slide-title {
-    margin-top: 2.8rem;
+  .slide-title {
+    margin-top: 100px;
   }
 
   .slide-image {

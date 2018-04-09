@@ -15,3 +15,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+	.first-row{
+		background-image: url("../assets/imgs/first-row-bg.png");
+	    background-repeat: repeat-x;
+	    width: 100%;
+	    min-height: 200px;
+	    margin-bottom: 20px;
+	    color:#9CA3AA;
+	}
+
+	.second-row{
+		color:#9CA3AA;
+	}
+
+	.third-row{
+		color:#9CA3AA;
+	}
+
+	::-webkit-scrollbar,
+	*::-webkit-scrollbar {
+	  display: none;
+	}
