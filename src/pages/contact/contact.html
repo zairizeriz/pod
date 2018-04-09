@@ -1,0 +1,53 @@
+<ion-header  no-border>
+  <ion-navbar color="navbar">
+ <ion-title>Expense Activity</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openAddExpenses()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>  
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="first-row">
+    <div class="month-list">
+        <ul>
+            <li>March</li>
+            <li class="selected">April</li>
+            <li>May</li>
+        </ul>
+
+    </div>
+        <div class="total-expenses">
+          <p>RM 1455.90</p>
+          <p>Total Expenses</p>
+        </div>
+    </div>
+  <div class="second-row">
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-start>
+          <div class="outter-circle circle date">
+            <span>30</span> <br/>
+            <span>June</span>
+          </div>
+        </ion-avatar>
+        <h2 style="float: left;">Carls Jr</h2>
+        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
+        <p style="clear:both;">Food and Beverages</p>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <div class="outter-circle circle date">
+            <span>19</span> <br/>
+            <span>Mei</span>
+          </div>
+        </ion-avatar>
+        <h2 style="float: left;">Playstation 4</h2>
+        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
+        <p style="clear:both;">Entertainment</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

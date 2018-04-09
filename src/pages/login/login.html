@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="font">
+      Log in
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="signInUser()">
+    <ion-list>
+    <ion-item>
+      <ion-input type="email" [(ngModel)]="login.email" placeholder ="Email" name="email"></ion-input>
+    </ion-item>
+
+  <ion-item>
+    <ion-input type="password" [(ngModel)]="login.password" placeholder ="Password" name="password">
+    </ion-input>
+  </ion-item>
+
+  <!-- <button ion-button block clear class="forgot-button" (click)="forgotPassword()">{{'Forgot your password?'}}
+  </button> -->
+
+ <!--  <div padding class="third-row">
+  	<button ion-button type="submit" class= "fullwidth"  outline round>Log In</button>
+  </div> -->
+
+  <div class="third-row" padding>
+    <div>
+    <button>Log In</button>
+    </div>
+  </div>  
+
+  
+  </ion-list>
+</form>
+</ion-content>

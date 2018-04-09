@@ -1,0 +1,44 @@
+page-profile-setting {
+	.circle {
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		margin: 0 auto;
+	    text-align: center;
+	    overflow: hidden;
+	    background-color: white;
+	}
+
+	.first-row{
+		padding-top: 10px;
+		min-height: 160px;
+		margin-bottom: 0;
+	}
+	.first-row > div > img{
+		width: inherit;
+		height: inherit;
+	    display:block;
+	    margin:auto;
+
+	}
+
+	.second-row{
+		margin-bottom: 20px;
+	}
+	.acc-name > p{
+		text-align: center;
+		font-size: 18px;
+		color: white;
+		font-weight: bold;
+	}
+	.item {
+		height: 80px; /* <- this can be whatever you need */
+	}
+	.my-label{
+		font-size: 14px;
+		padding-bottom: 10px;
+	}
+	.item-inner input{
+		font-size: 12px;
+	}
+}

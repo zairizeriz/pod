@@ -1,0 +1,8 @@
+{
+  "name": "save4dream",
+  "app_id": "b5b98eb4",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

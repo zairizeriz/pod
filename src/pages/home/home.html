@@ -1,0 +1,40 @@
+<ion-header  no-border>
+  <ion-navbar color="navbar">
+ <ion-title>Goal</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openGoalActivity()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>  
+  </ion-navbar>
+</ion-header>
+
+<ion-content  no-bounce>
+  <div class="first-row">
+    <div class="outter-circle circle">
+      <img src="assets/imgs/iceland.jpg" class="circle">
+    </div>
+    <div class="goal-text">
+      <strong>Iceland Trip</strong>
+    </div>
+  </div>
+  <div class="second-row">
+    <div class="total-savings">
+      <span class="amount text-style">RM 750.00</span><br/>
+      <span class="desc bottom-amount text-style">Total savings</span>
+    </div>
+  </div>
+  <div class="third-row">
+    <div class="col1 target-amount">
+      <span class="text-style">RM 1500</span><br/>
+      <span class="desc text-style">Target amount</span>
+    </div>
+    <div class="col2 target-date">
+      <span class="text-style">July 2018</span><br/>
+      <span class="desc text-style">Target date</span>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+
+</ion-content>

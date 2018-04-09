@@ -1,0 +1,81 @@
+ 
+/*	body{
+		margin: 0px;
+	}*/
+	span{
+		font-size: 12px;
+	}
+	.scroll-content {
+	     padding: 0px; 
+	}	
+	.circle {
+		border-radius: 50%;
+		width: 200px;
+		height: 200px;
+		margin: 0 auto;
+	}
+	.outter-circle{
+		border: solid 10px #4ACCC6;padding: 10px;
+	}
+	.first-row > div > img{
+		width: 160px;
+		height: 160px;
+	}
+
+	.first-row{
+		background-image: url("../assets/imgs/first-row-bg.png");
+	    background-repeat: repeat-x;
+	    width: 100%;
+	    min-height: 200px;
+		padding: 10px;
+	    margin-bottom: 20px;
+	}
+	.goal-text{
+		text-align: center;
+		margin-top: 30px;
+		margin-left: 5px;
+		color: white;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+	}
+
+	.text-style{
+		font-family: Arial, Helvetica, sans-serif;
+		color: #3C4859;
+		text-align: center;
+	}
+	::-webkit-scrollbar,
+	*::-webkit-scrollbar {
+	  display: none;
+	}
+	.second-row{
+		text-align: center;
+	}
+	.third-row{
+		text-align: center;
+		width: 100%;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 20px;
+	}
+
+	.third-row > .col1{
+		float: left;
+		margin-right: 25px;
+		margin-top: 20px;
+	}
+
+	.third-row > .col2{
+		float: left;
+		margin-left: 25px;
+		margin-top: 20px;	
+	}
+
+	.desc{
+		 font-weight: bold;
+		 font-size: 16px;
+	}
+
+
+

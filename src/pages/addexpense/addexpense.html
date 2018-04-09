@@ -1,0 +1,68 @@
+<!--
+  Generated template for the AddexpensePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar hideBackButton color="navbar">
+    <ion-title>Add Expense</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closePage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons> 
+   </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div class="first-row">
+		<ion-grid>
+		  <ion-row>
+		    <ion-col>
+		    </ion-col>
+		    <ion-col>
+			    <ion-item id="input-expense">
+					<ion-input  type="number" value="" placeholder="" style="width: 150px;"></ion-input>
+				</ion-item>
+			</ion-col>
+		    <ion-col>
+		    </ion-col>
+		  </ion-row>
+		</ion-grid>
+  	</div>
+  	<div class="second-row">
+		<ion-list>
+
+		  <ion-item>
+		    <ion-label color="grey" floating>What did you buy?</ion-label>
+		    <ion-input></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+   			<ion-label color="grey" floating>Date</ion-label>
+			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+		  </ion-item>
+
+		<ion-item>
+    		<ion-label>Category</ion-label>
+    		<ion-select [(ngModel)]="categoryId">
+     		 <ion-option *ngFor="let category of categories">{{category.category}}</ion-option>
+    		</ion-select>
+  		</ion-item>
+		  <!-- <ion-item>
+		    <ion-label color="grey" floating>Category</ion-label>
+		    <ion-input></ion-input>
+		  </ion-item> -->
+		</ion-list>  
+	<div class="third-row">
+		<div>
+		<button>Save</button>
+		</div>
+	</div>				
+  	</div>
+
+</ion-content>
