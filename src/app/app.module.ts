@@ -23,6 +23,7 @@ import { NotificationsSettingPage } from '../pages/notifications-setting/notific
 import { ProfileSettingPage } from '../pages/profile-setting/profile-setting';
 import { RewardsPage } from '../pages/rewards/rewards';
 import { TabsPage } from '../pages/tabs/tabs';
+import { VerificationPage } from '../pages/verification/verification';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     NotificationsSettingPage,
     ProfileSettingPage,
     RewardsPage,
-    TabsPage
+    TabsPage,
+    VerificationPage
     
   ],
   imports: [
@@ -66,7 +68,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     NotificationsSettingPage,
     ProfileSettingPage,
     RewardsPage,
-    TabsPage
+    TabsPage,
+    VerificationPage,
     
   ],
   providers: [

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import {RegisterPage} from '../register/register';
+import {VerificationPage} from '../verification/verification';
 
 /**
  * Generated class for the TutorialPage page.
@@ -75,5 +76,10 @@ signIn(){
 register(){
   this.navCtrl.push(RegisterPage);
 }
+
+verification(){
+  this.navCtrl.push(VerificationPage);
+}
+
 
 }
