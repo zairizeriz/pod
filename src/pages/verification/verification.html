@@ -16,10 +16,13 @@
 <ion-content padding>
 	<p>Enter phone number to receive the 6 digit-</p>
 	<p>code</p>
+  <ion-item>
+        <ion-input name="code" value="" placeholder="" style="width: 150px;"></ion-input>
+        </ion-item>
 
-	<div class="third-row" padding>
+	<div class="button-send-code" padding>
     <div>
-    <button>Send Code</button>
+    <button (click)="afterPhoneVerification()">Send Code</button>
     </div>
   </div> 
 

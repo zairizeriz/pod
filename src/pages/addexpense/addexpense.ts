@@ -18,6 +18,7 @@ import { HttpProvider } from '../../providers/http/http';
 export class AddexpensePage {
 
 categories:any;
+goal= {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
@@ -36,5 +37,17 @@ categories:any;
      console.log('List of categories')
    }
    );
+ }
+
+ addExpanseForm(){
+
+  console.log(this.goal);
+
+     this.httpprovider.createGoal(this.goal).then((result) => {
+                
+     },
+         (err) => {
+         console.log(err);
+     });
  }
 }

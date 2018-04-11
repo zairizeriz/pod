@@ -1,6 +1,6 @@
 
 
-.third-row{
+.button-register{
 		text-align: center;
 		width: 100%;
 		align-items: center;
@@ -9,14 +9,14 @@
 	}
 
 
-	.third-row > div{
+	.button-register > div{
 	    border-radius: 50px 50px;
 	    width: 100%;
 	    padding: 2px 2px 2px 2px;
 	    background-image: url("../assets/imgs/gradient-180.png");
 	    background-size: inherit;
 	}
-	.third-row > div > button{
+	.button-register > div > button{
 		font-size: 16px;
 		font-weight: bold;
 	    border-radius: 50px 50px;

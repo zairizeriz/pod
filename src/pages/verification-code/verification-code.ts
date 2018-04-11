@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { VerificationCodePage } from '../verification-code/verification-code'
+import { SignUpCompletePage } from '../sign-up-complete/sign-up-complete'
 
 /**
- * Generated class for the VerificationPage page.
+ * Generated class for the VerificationCodePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,21 +11,21 @@ import { VerificationCodePage } from '../verification-code/verification-code'
 
 @IonicPage()
 @Component({
-  selector: 'page-verification',
-  templateUrl: 'verification.html',
+  selector: 'page-verification-code',
+  templateUrl: 'verification-code.html',
 })
-export class VerificationPage {
+export class VerificationCodePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VerificationPage');
+    console.log('ionViewDidLoad VerificationCodePage');
   }
 
-  afterPhoneVerification() {
+  afterCodeVerification() {
     // this.httpprovider.logout();
-    this.navCtrl.setRoot(VerificationCodePage);
+    this.navCtrl.setRoot(SignUpCompletePage);
   }
 
 }

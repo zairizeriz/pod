@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
+import { HttpProvider } from '../../providers/http/http';
+import {LoginPage} from '../login/login';
 
 /**
  * Generated class for the AccountPage page.
@@ -16,12 +18,22 @@ import { NotificationsSettingPage } from '../notifications-setting/notifications
   templateUrl: 'account.html',
 })
 export class AccountPage {
+  user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
+     this.httpprovider.getUser().then(
+     (response) => {
+       console.log(response)
+       this.user=response
+       console.log(this.user)
+     },
+     err => {
+       console.log(err);
+     },
+   );
   }
 
   profileSetting(){
@@ -33,5 +45,8 @@ export class AccountPage {
   notificationSetting(){
     this.navCtrl.push(NotificationsSettingPage);
   }
-
+logout() {
+    // this.httpprovider.logout();
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

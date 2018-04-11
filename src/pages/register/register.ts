@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import { HttpProvider } from '../../providers/http/http';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {VerificationPage} from '../verification/verification';
 
 @IonicPage()
 @Component({
@@ -37,4 +31,8 @@ registerForm(){
          console.log(err);
      });
  }
+ afterRegister() {
+    // this.httpprovider.logout();
+    this.navCtrl.setRoot(VerificationPage);
+  }
 }

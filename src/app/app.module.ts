@@ -24,6 +24,10 @@ import { ProfileSettingPage } from '../pages/profile-setting/profile-setting';
 import { RewardsPage } from '../pages/rewards/rewards';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VerificationPage } from '../pages/verification/verification';
+import { VerificationCodePage } from '../pages/verification-code/verification-code';
+import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
+import {AddGoalPage} from '../pages/add-goal/add-goal';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { VerificationPage } from '../pages/verification/verification';
     ProfileSettingPage,
     RewardsPage,
     TabsPage,
-    VerificationPage
+    VerificationPage,
+    SignUpCompletePage,
+    AddGoalPage,
+    VerificationCodePage
     
   ],
   imports: [
@@ -50,6 +57,7 @@ import { VerificationPage } from '../pages/verification/verification';
     TranslateModule.forRoot(),
     HttpModule,
     HttpClientModule,
+    FormsModule
   
 
   ],
@@ -70,6 +78,9 @@ import { VerificationPage } from '../pages/verification/verification';
     RewardsPage,
     TabsPage,
     VerificationPage,
+    SignUpCompletePage,
+    AddGoalPage,
+    VerificationCodePage
     
   ],
   providers: [
@@ -77,7 +88,7 @@ import { VerificationPage } from '../pages/verification/verification';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
   ]
 })
 export class AppModule {}

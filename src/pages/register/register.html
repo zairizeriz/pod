@@ -7,15 +7,14 @@
 </ion-header>
 
 <ion-content>
-
   <form (ngSubmit)="registerForm()">
     <ion-list>
     <ion-item>
-      <ion-input type="FirstName" [(ngModel)]="register.first_name" placeholder ="First Name" name="firstName"></ion-input>
+      <ion-input type="text" [(ngModel)]="register.first_name" placeholder ="First Name" name="firstName"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="lastName" [(ngModel)]="register.last_name" placeholder ="Last Name" name="lastName"></ion-input>
+      <ion-input type="text" [(ngModel)]="register.last_name" placeholder ="Last Name" name="lastName"></ion-input>
     </ion-item>
 
   <ion-item>
@@ -27,79 +26,11 @@
     <ion-input type="password" [(ngModel)]="register.password" placeholder ="Password" name="password">
     </ion-input>
   </ion-item>
-
-  <!-- <button ion-button block clear class="forgot-button" (click)="forgotPassword()">{{'Forgot your password?'}}
-  </button> -->
-
-  <div class="third-row" padding>
+  <div class="button-register" padding>
     <div>
-    <button>Sign Up</button>
+    <button (click)="afterRegister()">Sign Up</button>
     </div>
   </div> 
-
-  <!-- <div padding>
-    <button ion-button type="submit" color="dark" class="fullwidth"  outline round>Sign Up</button>
-  </div> -->
   </ion-list>
 </form>
-
-  <!-- <form (ngSubmit)="registerForm()">
-      <ion-item>
-        <ion-label>Name</ion-label>
-        <ion-input type="text" [(ngModel)]="register.name" name="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input type="email"[(ngModel)]="register.email" name="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="register.password" name="password"></ion-input>
-      </ion-item>
-      <button ion-button type="submit" block>Add Todo</button>
-    </form> -->
-
-  <!-- <form  (ngSubmit)="register()">
-  <ion-list>
- <ion-item>
-    <ion-input type="text" [(ngModel)]="register.name" placeholder ="First Name"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input type="text" [(ngModel)]="registerForm.name" name="name" placeholder ="Last Name"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input type="text" [(ngModel)]="registerForm.email" name="email" placeholder ="Email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input type="password" [(ngModel)]="registerForm.password" name="password" placeholder ="Password"></ion-input>
-  </ion-item>
-<div padding>
-    <button ion-button color="dark" class="fullwidth"  outline round  (click)="registerUser()">Sign Up</button>
-  </div>
-</ion-list>
-</form> -->
-<!-- <form class="form" [formGroup]="registerForm"  (submit)="register(registerForm.value)">
-    
-        <ion-item>
-          <ion-label floating>Nama</ion-label>
-          <ion-input type="text" formControlName="name"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label floating>Emel</ion-label>
-          <ion-input type="email" formControlName="email"></ion-input>
-        </ion-item>
-
-          <ion-item>
-            <ion-label floating>Kata Laluan</ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
-          </ion-item>
-        
-
-        <button ion-button color="yayasan" type='submit' full round style="margin-top: 10px; margin-bottom: 15px; text-transform: capitalize;" [disabled]="!registerForm.valid" >Daftar</button>
-   
-      </form> -->
 </ion-content>
