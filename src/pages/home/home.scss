@@ -51,7 +51,7 @@ page-home {
 	.second-row{
 		text-align: center;
 	}
-	.third-row{
+	.last-row{
 		text-align: center;
 		width: 100%;
 		align-items: center;
@@ -60,13 +60,13 @@ page-home {
 		margin-bottom: 20px;
 	}
 
-	.third-row > .col1{
+	.last-row > .col1{
 		float: left;
 		margin-right: 25px;
 		margin-top: 20px;
 	}
 
-	.third-row > .col2{
+	.last-row > .col2{
 		float: left;
 		margin-left: 25px;
 		margin-top: 20px;	

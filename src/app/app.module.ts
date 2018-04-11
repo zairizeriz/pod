@@ -23,11 +23,15 @@ import { NotificationsSettingPage } from '../pages/notifications-setting/notific
 import { ProfileSettingPage } from '../pages/profile-setting/profile-setting';
 import { RewardsPage } from '../pages/rewards/rewards';
 import { TabsPage } from '../pages/tabs/tabs';
+<<<<<<< HEAD
 import { VerificationPage } from '../pages/verification/verification';
 import { VerificationCodePage } from '../pages/verification-code/verification-code';
 import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../pages/add-goal/add-goal';
 import {FormsModule} from '@angular/forms'
+=======
+import { CreateGoalPage } from '../pages/create-goal/create-goal';
+>>>>>>> 76c5d513148532616140e131d177b75121594bcd
 
 @NgModule({
   declarations: [
@@ -45,10 +49,14 @@ import {FormsModule} from '@angular/forms'
     ProfileSettingPage,
     RewardsPage,
     TabsPage,
+<<<<<<< HEAD
     VerificationPage,
     SignUpCompletePage,
     AddGoalPage,
     VerificationCodePage
+=======
+    CreateGoalPage
+>>>>>>> 76c5d513148532616140e131d177b75121594bcd
     
   ],
   imports: [
@@ -77,10 +85,14 @@ import {FormsModule} from '@angular/forms'
     ProfileSettingPage,
     RewardsPage,
     TabsPage,
+<<<<<<< HEAD
     VerificationPage,
     SignUpCompletePage,
     AddGoalPage,
     VerificationCodePage
+=======
+    CreateGoalPage
+>>>>>>> 76c5d513148532616140e131d177b75121594bcd
     
   ],
   providers: [
