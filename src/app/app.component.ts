@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -16,6 +16,14 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      if (window.localStorage.getItem('token') ) {
+        this.rootPage = TabsPage;
+
+      } else {
+        this.rootPage = TutorialPage;
+
+
+      }
     });
   }
 }

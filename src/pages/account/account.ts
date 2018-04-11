@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
 import { HttpProvider } from '../../providers/http/http';
-import {LoginPage} from '../login/login';
+import {TutorialPage} from '../tutorial/tutorial';
 
 /**
  * Generated class for the AccountPage page.
@@ -46,7 +46,7 @@ export class AccountPage {
     this.navCtrl.push(NotificationsSettingPage);
   }
 logout() {
-    // this.httpprovider.logout();
-    this.navCtrl.setRoot(LoginPage);
+    localStorage.removeItem("token");
+    this.navCtrl.setRoot(TutorialPage);
   }
 }

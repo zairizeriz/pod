@@ -75,6 +75,7 @@ export class HttpProvider {
 
      let headers = new Headers();
      headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
      
  
      this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user', {headers: headers})

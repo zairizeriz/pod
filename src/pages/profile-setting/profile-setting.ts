@@ -16,11 +16,12 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'profile-setting.html',
 })
 export class ProfileSettingPage {
-	user = {
-		first_name:'',
-		last_name:'',
-		phone_number:''
-	}
+  user:any;
+	// user = {
+	// 	first_name:'',
+	// 	last_name:'',
+	// 	phone_number:''
+	// }
 	  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
