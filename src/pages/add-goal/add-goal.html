@@ -1,38 +1,62 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Add Goal
-    </ion-title>
-  </ion-navbar>
+<!--
+  Generated template for the AddexpensePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar hideBackButton color="navbar">
+    <ion-title>Add Goal</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closePage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons> 
+   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content>
-
-  <form (ngSubmit)="addGoalForm">
+  <form (ngSubmit)="addGoalForm()">
+          
+    <div class="second-row">
     <ion-list>
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="goal.name" placeholder ="Goal Name" name="goalName"></ion-input>
-    </ion-item>
+
+      <ion-item>
+        <ion-label color="grey" floating>What did you buy?</ion-label>
+        <ion-input [(ngModel)]="goal.goal_name" name="goal_name"></ion-input>
+      </ion-item>
+
+      <ion-item id="input-expense">
+        <ion-label color="grey" floating>Amount</ion-label>
+          <ion-input  type="number" [(ngModel)]="goal.amount" name="amount"></ion-input>
+        </ion-item>
+
+      <ion-item>
+        <ion-label color="grey" floating>Date</ion-label>
+        <!-- <ion-input [(ngModel)]="goal.date" name="date" type="date"></ion-input> -->
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="goal.date" name="date"></ion-datetime>
+      </ion-item>
 
     <ion-item>
-      <ion-input type="text" [(ngModel)]="goal.amount" placeholder ="Amount" name="amount"></ion-input>
-    </ion-item>
-
-  <ion-item>
-    <ion-input type="date"  [(ngModel)]="goal.date" placeholder ="Date" name="date">
-    </ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input type="text" [(ngModel)]="goal.category" placeholder ="Category" name="category">
-    </ion-input>
-  </ion-item>
-
-  <div class="button-goal" padding>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="goal.category_id" name="category_id">
+         <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.category}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label color="grey" floating>Category</ion-label>
+        <ion-input></ion-input>
+      </ion-item> -->
+    </ion-list>  
+  <div>
     <div>
-    <button>Create Goal </button>
+    <button>Save</button>
     </div>
-  </div> 
-  </ion-list>
-</form>
+  </div>        
+    </div>
+  </form>
+
 </ion-content>

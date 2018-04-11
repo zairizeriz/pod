@@ -18,7 +18,7 @@ import { HttpProvider } from '../../providers/http/http';
 export class AddexpensePage {
 
 categories:any;
-goal= {};
+expense= {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
@@ -41,9 +41,9 @@ goal= {};
 
  addExpanseForm(){
 
-  console.log(this.goal);
+  console.log(this.expense);
 
-     this.httpprovider.createGoal(this.goal).then((result) => {
+     this.httpprovider.createExpense(this.expense).then((result) => {
                 
      },
          (err) => {

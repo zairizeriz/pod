@@ -15,19 +15,33 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'add-goal.html',
 })
 export class AddGoalPage {
-	goall= {};
+	goal= {};
+  categories:any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddGoalPage');
+    
+    this.httpprovider.getCategory().subscribe(
+     response => {
+       console.log(response)
+       this.categories=response.data
+     },
+     err => {
+       console.log(err);
+     },
+     ()=>{
+     console.log('List of categories')
+   }
+   );
   }
 addGoalForm(){
 
-  console.log(this.goall);
+  console.log(this.goal);
 
-     this.httpprovider.createGoall(this.goall).then((result) => {
+     this.httpprovider.createGoal(this.goal).then((result) => {
                 
      },
          (err) => {

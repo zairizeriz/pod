@@ -20,33 +20,22 @@
 
     </div>
         <div class="total-expenses">
-          <p>RM 1455.90</p>
-          <p>Total Expenses</p>
+          <p>RM {{totalExpenses}}</p>
+          
         </div>
     </div>
   <div class="second-row">
     <ion-list>
-      <ion-item>
+      <ion-item *ngFor = "let expense of expenses">
         <ion-avatar item-start>
           <div class="outter-circle circle date">
-            <span>30</span> <br/>
-            <span>June</span>
+            <span>{{expense.date | date: 'dd MMM'}}</span> <br/>
+            <!-- <span>June</span> -->
           </div>
         </ion-avatar>
-        <h2 style="float: left;">Carls Jr</h2>
-        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
-        <p style="clear:both;">Food and Beverages</p>
-      </ion-item>
-      <ion-item>
-        <ion-avatar item-start>
-          <div class="outter-circle circle date">
-            <span>19</span> <br/>
-            <span>Mei</span>
-          </div>
-        </ion-avatar>
-        <h2 style="float: left;">Playstation 4</h2>
-        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
-        <p style="clear:both;">Entertainment</p>
+        <h2 style="float: left;">{{expense.expense_name}}</h2>
+        <h4 style="float: right;text-align: right;font-weight: bold;">RM {{expense.amount}}</h4>
+        <p style="clear:both;">{{expense.category_id}}</p>
       </ion-item>
     </ion-list>
   </div>

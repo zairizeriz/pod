@@ -27,7 +27,7 @@
 		    </ion-col>
 		    <ion-col>
 			    <ion-item id="input-expense">
-					<ion-input  type="number" [(ngModel)]="goal.amount" name="amount" value="" placeholder="" style="width: 150px;"></ion-input>
+					<ion-input  type="number" [(ngModel)]="expense.amount" name="amount" value="" placeholder="" style="width: 150px;"></ion-input>
 				</ion-item>
 			</ion-col>
 		    <ion-col>
@@ -40,25 +40,21 @@
 
 		  <ion-item>
 		    <ion-label color="grey" floating>What did you buy?</ion-label>
-		    <ion-input [(ngModel)]="goal.goal_name" name="goal_name"></ion-input>
+		    <ion-input [(ngModel)]="expense.expense_name" name="expense_name"></ion-input>
 		  </ion-item>
 
 		  <ion-item>
    			<ion-label color="grey" floating>Date</ion-label>
-   			<!-- <ion-input [(ngModel)]="goal.date" name="date" type="date"></ion-input> -->
-			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="goal.date" name="date"></ion-datetime>
+   			<!-- <ion-input [(ngModel)]="expense.date" name="date" type="date"></ion-input> -->
+			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="expense.date" name="date"></ion-datetime>
 		  </ion-item>
 
 		<ion-item>
     		<ion-label>Category</ion-label>
-    		<ion-select [(ngModel)]="goal.category_id" name="category_id">
+    		<ion-select [(ngModel)]="expense.category_id" name="category_id">
      		 <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.category}}</ion-option>
     		</ion-select>
   		</ion-item>
-		  <!-- <ion-item>
-		    <ion-label color="grey" floating>Category</ion-label>
-		    <ion-input></ion-input>
-		  </ion-item> -->
 		</ion-list>  
 	<div class="third-row">
 		<div>
@@ -67,5 +63,4 @@
 	</div>				
   	</div>
   </form>
-
 </ion-content>
