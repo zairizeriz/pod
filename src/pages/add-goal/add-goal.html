@@ -1,0 +1,49 @@
+<!--
+  Generated template for the AddexpensePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar hideBackButton color="navbar">
+    <ion-title>Add Goal</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closePage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons> 
+   </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit)="addGoalForm()">      
+  <div class="first-row">
+    <div class="circle" style="border: solid 5px white;padding: 10px;position: relative;">
+      <img src="../assets/icon/camera-icon.png" class="">
+    </div>
+  </div>
+  <div style="padding: 0 10px 10px 10px;">
+  <div class="second-row">
+    <div id="goal-para">
+      <p>
+        I want to save for <a href="">goal name</a>. I'll be needing <a href="">this amount</a>. I want to achieved it by <a href="">this date</a>. My goal's category is, <a href="">choose</a>.
+      </p>
+    </div>
+  </div>
+    <div id="reminder">
+      <p>Please ensure you typed in the right details as you won’t be able to change them after you tap on the Create Goal button.</p>
+    </div> 
+    <div class="third-row">
+      <div class="btn-main-container">
+        <div>
+        <button>Create Goal</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+  </form>
+
+</ion-content>

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { ContactPage } from '../../pages/contact/contact';
-
+import { HomePage } from '../../pages/home/home';
 
 /**
- * Generated class for the AddexpensePage page.
+ * Generated class for the AddGoalPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,20 +12,20 @@ import { ContactPage } from '../../pages/contact/contact';
 
 @IonicPage()
 @Component({
-  selector: 'page-addexpense',
-  templateUrl: 'addexpense.html',
+  selector: 'page-add-goal',
+  templateUrl: 'add-goal.html',
 })
-export class AddexpensePage {
+export class AddGoalPage {
+	goal= {};
+  categories:any;
 
-categories:any;
-expense= {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
- ionViewDidLoad() {
-
-     this.httpprovider.getCategory().subscribe(
+  ionViewDidLoad() {
+    
+    this.httpprovider.getCategory().subscribe(
      response => {
        console.log(response)
        this.categories=response.data
@@ -38,21 +37,21 @@ expense= {};
      console.log('List of categories')
    }
    );
- }
+  }
+addGoalForm(){
 
+  console.log(this.goal);
 
- addExpanseForm(){
-
-  console.log(this.expense);
-
-     this.httpprovider.createExpense(this.expense).then((result) => {
+     this.httpprovider.createGoal(this.goal).then((result) => {
                 
      },
          (err) => {
          console.log(err);
      });
  }
+
  closePage() {
-    this.navCtrl.setRoot(ContactPage);
+    this.navCtrl.setRoot(HomePage);
   }
+
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
 
@@ -17,9 +17,8 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
 	login = {};
-	
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(private alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams, 
   	public httpprovider:HttpProvider) {
   }
 
@@ -36,5 +35,31 @@ console.log(this.login);
          (err) => {
          console.log(err);
      });
+ }
+ 
+ showForgotPassword(){
+let prompt = this.alertCtrl.create({
+  title: 'Enter Your Email',
+  message: "A new password will be sent to your email",
+  inputs: [
+  {
+    name:'email',
+    placeholder:'email'
+  },],
+  buttons:[{
+    text:'Cancel',
+    handler:data =>{
+      console.log('cancel clicked')
+    }
+  },{
+    text:'Submit',
+    handler: data=>{
+      //call user
+    }
+  }
+  ]
+});
+prompt.present();
+
  }
 }

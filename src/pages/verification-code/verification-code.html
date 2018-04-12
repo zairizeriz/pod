@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SMS verification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<p>Enter the 6 digit code</p>
+  <ion-item>
+        <ion-input name="code" value="" placeholder="" style="width: 150px;"></ion-input>
+        </ion-item>
+
+	<div class="send-code" padding>
+    <div>
+    <button (click)="afterCodeVerification()">Verify</button>
+    </div>
+  </div>
+  <div class=".btnAgain" (click)="sendAgain()">
+      <button clear full>Didn’t get the code? We’ll send it again.</button>
+    </div>
+
+</ion-content>

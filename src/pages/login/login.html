@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content>
-
   <form (ngSubmit)="signInUser()">
     <ion-list>
     <ion-item>
@@ -19,20 +18,28 @@
     </ion-input>
   </ion-item>
 
-  <!-- <button ion-button block clear class="forgot-button" (click)="forgotPassword()">{{'Forgot your password?'}}
-  </button> -->
+   
 
- <!--  <div padding class="third-row">
-  	<button ion-button type="submit" class= "fullwidth"  outline round>Log In</button>
-  </div> -->
-
+  
   <div class="btn-main-container" padding>
     <div>
     <button>Log In</button>
     </div>
-  </div>  
 
-  
+    
+    
+  </div>
   </ion-list>
 </form>
+
+
+<div class="btnForgot" (click)="showForgotPassword()">
+      <button clear full>Forgot Password</button>
+    </div> 
 </ion-content>
+<ion-footer padding no-border>
+  <div style="text-align: center">
+    <p>By signing up, you attest that you are at least 18 years old and have read our Terms & Conditions.</p>
+  </div>
+</ion-footer>
+

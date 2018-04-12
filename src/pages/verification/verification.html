@@ -1,0 +1,29 @@
+<!--
+  Generated template for the VerificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SMS verification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<p>Enter phone number to receive the 6 digit-</p>
+	<p>code</p>
+  <ion-item>
+        <ion-input name="code" value="" placeholder="" style="width: 150px;"></ion-input>
+        </ion-item>
+
+	<div class="button-send-code" padding>
+    <div>
+    <button (click)="afterPhoneVerification()">Send Code</button>
+    </div>
+  </div> 
+
+</ion-content>

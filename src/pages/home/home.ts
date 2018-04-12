@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
+import { AddGoalPage } from '../add-goal/add-goal';
 
 @Component({
   selector: 'page-home',
@@ -17,5 +18,8 @@ export class HomePage {
   	this.navCtrl.push(GoalactivityPage);
 
   }
+  addGoal(){
+  this.navCtrl.push(AddGoalPage);
+}
 
 }

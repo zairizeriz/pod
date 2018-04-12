@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import { HttpProvider } from '../../providers/http/http';
+import { AccountPage } from '../../pages/account/account';
 
 /**
  * Generated class for the ProfileSettingPage page.
@@ -17,28 +19,43 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class ProfileSettingPage {
 
 hideMe = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera:Camera) {
+  
+  // user:any;
+  userObj : any;
+	user = {
+    first_name : "",
+    last_name :"",
+    phone_number: "",
+  }
+	  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileSettingPage');
-  }
-	 takePicture(){
-	 	this.hideMe = true;
-		// const options: CameraOptions = {
-		//   quality: 100,
-		//   destinationType: this.camera.DestinationType.DATA_URL,
-		//   encodingType: this.camera.EncodingType.JPEG,
-		//   mediaType: this.camera.MediaType.PICTURE
-		// }
+    this.httpprovider.getUser( ).then(
+     (response) => {
+       console.log(response)
+       this.userObj = response
+       this.user.first_name = this.userObj.first_name;
+       this.user.last_name = this.userObj.last_name;
+       this.user.phone_number = this.userObj.phone_number;
+       console.log(this.user)
+     },
+     err => {
+       console.log(err);
+     },
+   );
 
-		// this.camera.getPicture(options).then((imageData) => {
-		//  // imageData is either a base64 encoded string or a file URI
-		//  // If it's base64:
-		//  let base64Image = 'data:image/jpeg;base64,' + imageData;
-		// }, (err) => {
-		//  // Handle error
-		// });
-	}
+}
+updateForm(){
 
+  console.log(this.user);
+
+     this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
+       this.user.phone_number).then((result) => {
+          this.navCtrl.setRoot(AccountPage);
+     },
+         (err) => {
+         console.log(err);
+     });
+ }
 }

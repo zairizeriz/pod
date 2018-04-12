@@ -23,15 +23,13 @@ import { NotificationsSettingPage } from '../pages/notifications-setting/notific
 import { ProfileSettingPage } from '../pages/profile-setting/profile-setting';
 import { RewardsPage } from '../pages/rewards/rewards';
 import { TabsPage } from '../pages/tabs/tabs';
+import { VerificationPage } from '../pages/verification/verification';
+import { VerificationCodePage } from '../pages/verification-code/verification-code';
+import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
+import {AddGoalPage} from '../pages/add-goal/add-goal';
+import {FormsModule} from '@angular/forms'
 import { CreateGoalPage } from '../pages/create-goal/create-goal';
 
-class CameraMock extends Camera {
-  getPicture(options) {
-    return new Promise((resolve, reject) => {
-      resolve("BASE_64_ENCODED_DATA_GOES_HERE");
-    })
-  }
-}
 
 @NgModule({
   declarations: [
@@ -49,6 +47,10 @@ class CameraMock extends Camera {
     ProfileSettingPage,
     RewardsPage,
     TabsPage,
+    VerificationPage,
+    SignUpCompletePage,
+    AddGoalPage,
+    VerificationCodePage,
     CreateGoalPage
     
   ],
@@ -58,6 +60,7 @@ class CameraMock extends Camera {
     TranslateModule.forRoot(),
     HttpModule,
     HttpClientModule,
+    FormsModule
   
 
   ],
@@ -77,6 +80,10 @@ class CameraMock extends Camera {
     ProfileSettingPage,
     RewardsPage,
     TabsPage,
+    VerificationPage,
+    SignUpCompletePage,
+    AddGoalPage,
+    VerificationCodePage,
     CreateGoalPage
     
   ],
@@ -85,7 +92,7 @@ class CameraMock extends Camera {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
   ]
 })
 export class AppModule {}

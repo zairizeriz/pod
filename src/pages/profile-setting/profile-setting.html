@@ -1,15 +1,9 @@
-<!--
-  Generated template for the ProfileSettingPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-border>
 
   <ion-navbar color="navbar">
     <ion-title>Profile Setting</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="saveProfile()">
+      <button ion-button icon-only (click)="updateForm()">
         Save
       </button>
     </ion-buttons>  
@@ -24,29 +18,32 @@
 			<a href="" (click)="takePicture()"><img class="" src="assets/imgs/default-profile.png"><img *ngIf="hideMe" class="camera-plus" src="assets/icon/camera-icon.png"></a>
 			
 		</div>
+		<div class="acc-name">
+			<p>{{user.first_name}}</p>
+		</div>
+
 <!-- 		<div class="acc-name">
 			<p>Alex Wong</p>
 		</div> -->
 	</div>
 	<div class="second-row">
-	    <form>
+	    
 		  <ion-item>
 		    <ion-label color="grey" floating  class="my-label">First Name</ion-label>
-		    <ion-input></ion-input>
+		    <ion-input [(ngModel)]="user.first_name"></ion-input>
 		  </ion-item>
 		  <ion-item>
 		    <ion-label color="grey" floating  class="my-label">Last Name</ion-label>
-		    <ion-input></ion-input>
+		    <ion-input [(ngModel)]="user.last_name"></ion-input>
 		  </ion-item>
-		  <ion-item>
-		    <ion-label color="grey" floating  class="my-label">Password</ion-label>
+		  <!-- <ion-item>
+		    <ion-label color="grey" floating  class="my-label">{{user?.}}</ion-label>
 		    <ion-input type="password"></ion-input>
-		  </ion-item>
+		  </ion-item> -->
 		  <ion-item>
-		    <ion-label color="grey" floating  class="my-label">Phone Number</ion-label>
-		    <ion-input type="number"></ion-input>
+		    <ion-label color="grey" floating  class="my-label">Phone</ion-label>
+		    <ion-input [(ngModel)]="user.phone_number"></ion-input>
 		  </ion-item>
-
-	    </form>		
+	
 	</div>
 </ion-content>

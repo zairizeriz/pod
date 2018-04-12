@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
-
+import { HttpProvider } from '../../providers/http/http';
+import {TutorialPage} from '../tutorial/tutorial';
+import { ModalController } from 'ionic-angular';
 /**
  * Generated class for the AccountPage page.
  *
@@ -16,12 +18,23 @@ import { NotificationsSettingPage } from '../notifications-setting/notifications
   templateUrl: 'account.html',
 })
 export class AccountPage {
+  user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider,
+    public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
+     this.httpprovider.getUser().then(
+     (response) => {
+       console.log(response)
+       this.user=response
+       console.log(this.user)
+     },
+     err => {
+       console.log(err);
+     },
+   );
   }
 
   profileSetting(){
@@ -33,5 +46,12 @@ export class AccountPage {
   notificationSetting(){
     this.navCtrl.push(NotificationsSettingPage);
   }
+logout() {
+    localStorage.removeItem("token");
+    // this.navCtrl.setRoot(TutorialPage);
+    let homeModal = this.modalCtrl.create(TutorialPage);
+   homeModal.present();
 
+
+  }
 }

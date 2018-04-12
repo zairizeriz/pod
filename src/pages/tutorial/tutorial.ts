@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import {RegisterPage} from '../register/register';
+import {VerificationPage} from '../verification/verification';
+import {SignUpCompletePage} from '../sign-up-complete/sign-up-complete';
+import {AddGoalPage} from '../add-goal/add-goal';
 
 /**
  * Generated class for the TutorialPage page.
@@ -75,5 +78,19 @@ signIn(){
 register(){
   this.navCtrl.push(RegisterPage);
 }
+
+verification(){
+  this.navCtrl.push(VerificationPage);
+}
+
+signUpComplete(){
+  this.navCtrl.push(SignUpCompletePage);
+}
+
+createGoal(){
+  this.navCtrl.push(AddGoalPage);
+}
+
+
 
 }

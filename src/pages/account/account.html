@@ -19,7 +19,7 @@
 			<img class="" src="assets/imgs/default-profile.png">
 		</div>
 		<div class="acc-name">
-			<p>Alex Wong</p>
+			<p>{{user?.first_name}}</p>
 		</div>
 	</div>
 	<div class="second-row">
@@ -37,7 +37,7 @@
 	</div>
 	<div class="third-row">
 		<div>
-		<button>Log Out</button>
+		<button (click)="logout()">Log Out</button>
 		</div>
 	</div>
 

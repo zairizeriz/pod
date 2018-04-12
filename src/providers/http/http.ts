@@ -39,6 +39,57 @@ export class HttpProvider {
          });
    });
  }
+ 
+// forgotPassword(email: string) {
+//         return Observable.fromPromise(this.firebase.auth().sendPasswordResetEmail(email));
+//     }
+
+ logout() {
+        this.token.remove('id_token');
+        this.token = null;
+    }
+
+
+ getUser(){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/user', {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getExpenseActivity(){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user', {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
  registerUser(details){
 
    return new Promise((resolve, reject) => {
@@ -59,8 +110,88 @@ export class HttpProvider {
    });
  }
 
+ updateUserInfo(first_name,last_name,phone_number){
+
+let data = {
+  first_name : first_name,
+  last_name : last_name,
+  phone_number : phone_number
+}
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+ 
+      console.log(window.localStorage.getItem('token'))
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/user/edit', data, {headers:headers})
+     .subscribe(res => {
+     
+       let data = res.json();
+       console.log(data);
+       resolve(data);
+     
+     }, (err) => {
+       reject(err);
+     });   
+   });
+ }
+
+
+
  getCategory(){
    return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories")
    .map(res => res.json())
  }
+
+ createGoal(details){
+
+   return new Promise((resolve, reject) => {
+
+     // let token_headers = new Headers();
+     // token_headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     headers.append('Content-Type','application/json');
+
+     console.log('here')
+      console.log(headers);
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/goal/create', JSON.stringify(details), {headers:headers})
+     .subscribe(res => {
+       let data = res;
+       // let data = res.json();
+       console.log(data);
+       resolve(data);
+     
+     }, (err) => {
+       reject(err);
+     });   
+   });
+ }
+
+ createExpense(details){
+
+   return new Promise((resolve, reject) => {
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     headers.append('Content-Type','application/json');
+
+     console.log('here')
+      console.log(headers);
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/expense/create', JSON.stringify(details), {headers:headers})
+     .subscribe(res => {
+       let data = res;
+       // let data = res.json();
+       console.log(data);
+       resolve(data);
+     
+     }, (err) => {
+       reject(err);
+     });   
+   });
+ // getUserInfo(){
+ //   return this.http.get("https://pod-api-mdr.herokuapp.com/api/user/edit")
+ //   .map(res => res.json())
+ // }
+}
 }
