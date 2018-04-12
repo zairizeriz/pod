@@ -40,6 +40,7 @@ expense= {};
    );
  }
 
+
  addExpanseForm(){
 
   console.log(this.expense);

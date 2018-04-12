@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 import { HttpProvider } from '../../providers/http/http';
 import { AccountPage } from '../../pages/account/account';
 
@@ -16,6 +17,9 @@ import { AccountPage } from '../../pages/account/account';
   templateUrl: 'profile-setting.html',
 })
 export class ProfileSettingPage {
+
+hideMe = false;
+  
   // user:any;
   userObj : any;
 	user = {

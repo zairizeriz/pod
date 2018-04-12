@@ -19,44 +19,31 @@
 
 
 <ion-content>
-  <form (ngSubmit)="addGoalForm()">
-          
-    <div class="second-row">
-    <ion-list>
-
-      <ion-item>
-        <ion-label color="grey" floating>What did you buy?</ion-label>
-        <ion-input [(ngModel)]="goal.goal_name" name="goal_name"></ion-input>
-      </ion-item>
-
-      <ion-item id="input-expense">
-        <ion-label color="grey" floating>Amount</ion-label>
-          <ion-input  type="number" [(ngModel)]="goal.amount" name="amount"></ion-input>
-        </ion-item>
-
-      <ion-item>
-        <ion-label color="grey" floating>Date</ion-label>
-        <!-- <ion-input [(ngModel)]="goal.date" name="date" type="date"></ion-input> -->
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="goal.date" name="date"></ion-datetime>
-      </ion-item>
-
-    <ion-item>
-        <ion-label>Category</ion-label>
-        <ion-select [(ngModel)]="goal.category_id" name="category_id">
-         <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.category}}</ion-option>
-        </ion-select>
-      </ion-item>
-      <!-- <ion-item>
-        <ion-label color="grey" floating>Category</ion-label>
-        <ion-input></ion-input>
-      </ion-item> -->
-    </ion-list>  
-  <div class="button-goal">
-    <div>
-    <button (click)="closePage()">Save</button>
+  <form (ngSubmit)="addGoalForm()">      
+  <div class="first-row">
+    <div class="circle" style="border: solid 5px white;padding: 10px;position: relative;">
+      <img src="../assets/icon/camera-icon.png" class="">
     </div>
-  </div>        
+  </div>
+  <div style="padding: 0 10px 10px 10px;">
+  <div class="second-row">
+    <div id="goal-para">
+      <p>
+        I want to save for <a href="">goal name</a>. I'll be needing <a href="">this amount</a>. I want to achieved it by <a href="">this date</a>. My goal's category is, <a href="">choose</a>.
+      </p>
     </div>
+  </div>
+    <div id="reminder">
+      <p>Please ensure you typed in the right details as you won’t be able to change them after you tap on the Create Goal button.</p>
+    </div> 
+    <div class="third-row">
+      <div class="btn-main-container">
+        <div>
+        <button>Create Goal</button>
+        </div>
+      </div>
+    </div> 
+  </div>
   </form>
 
 </ion-content>
