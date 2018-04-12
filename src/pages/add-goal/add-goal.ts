@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
+import { HomePage } from '../../pages/home/home';
 
 /**
  * Generated class for the AddGoalPage page.
@@ -48,5 +49,9 @@ addGoalForm(){
          console.log(err);
      });
  }
+
+ closePage() {
+    this.navCtrl.setRoot(HomePage);
+  }
 
 }

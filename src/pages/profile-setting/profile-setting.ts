@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-
+import { AccountPage } from '../../pages/account/account';
 
 /**
  * Generated class for the ProfileSettingPage page.
@@ -16,12 +16,8 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'profile-setting.html',
 })
 export class ProfileSettingPage {
-  user:any;
-	// user = {
-	// 	first_name:'',
-	// 	last_name:'',
-	// 	phone_number:''
-	// }
+  // user:any;
+	user = {}
 	  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
@@ -42,8 +38,9 @@ updateForm(){
 
   console.log(this.user);
 
-     this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,this.user.phone_number).then((result) => {
-                console.log("ok")
+     this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
+       this.user.phone_number).then((result) => {
+          this.navCtrl.setRoot(AccountPage);
      },
          (err) => {
          console.log(err);

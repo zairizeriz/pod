@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
+import { ContactPage } from '../../pages/contact/contact';
 
 
 /**
@@ -50,4 +51,7 @@ expense= {};
          console.log(err);
      });
  }
+ closePage() {
+    this.navCtrl.setRoot(ContactPage );
+  }
 }
