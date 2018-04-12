@@ -4,7 +4,7 @@ import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
 import { HttpProvider } from '../../providers/http/http';
 import {TutorialPage} from '../tutorial/tutorial';
-
+import { ModalController } from 'ionic-angular';
 /**
  * Generated class for the AccountPage page.
  *
@@ -20,7 +20,8 @@ import {TutorialPage} from '../tutorial/tutorial';
 export class AccountPage {
   user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider,
+    public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -47,6 +48,10 @@ export class AccountPage {
   }
 logout() {
     localStorage.removeItem("token");
-    this.navCtrl.setRoot(TutorialPage);
+    // this.navCtrl.setRoot(TutorialPage);
+    let homeModal = this.modalCtrl.create(TutorialPage);
+   homeModal.present();
+
+
   }
 }
