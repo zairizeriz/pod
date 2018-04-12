@@ -17,7 +17,12 @@ import { AccountPage } from '../../pages/account/account';
 })
 export class ProfileSettingPage {
   // user:any;
-	user = {}
+  userObj : any;
+	user = {
+    first_name : "",
+    last_name :"",
+    phone_number: "",
+  }
 	  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
@@ -25,7 +30,10 @@ export class ProfileSettingPage {
     this.httpprovider.getUser( ).then(
      (response) => {
        console.log(response)
-       this.user =response
+       this.userObj = response
+       this.user.first_name = this.userObj.first_name;
+       this.user.last_name = this.userObj.last_name;
+       this.user.phone_number = this.userObj.phone_number;
        console.log(this.user)
      },
      err => {
