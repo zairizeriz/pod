@@ -21,7 +21,8 @@
 <ion-content>
 	<div class="first-row">
 		<div class="acc-img circle">
-			<img class="" src="assets/imgs/default-profile.png">
+			<a href="" (click)="takePicture()"><img class="" src="assets/imgs/default-profile.png"><img *ngIf="hideMe" class="camera-plus" src="assets/icon/camera-icon.png"></a>
+			
 		</div>
 <!-- 		<div class="acc-name">
 			<p>Alex Wong</p>

@@ -5,6 +5,12 @@ page-home {
 	span{
 		font-size: 18px;
 	}
+
+	@font-face{
+		font-family: Montserrat-Light;
+		src: url(../font/Montserrat-Light.tff)format("tff");
+		font-weight: 400
+	}
 	.scroll-content {
 	     padding: 0px; 
 	}	
@@ -40,9 +46,19 @@ page-home {
 	}
 
 	.text-style{
-		font-family: Arial, Helvetica, sans-serif;
+
+		font-family: 'Montserrat-Bold'!important;
 		color: #3C4859;
 		text-align: center;
+		font-size: 18pt;
+	}
+
+	.text-style2{
+
+		font-family: 'Montserrat-Light' !important;
+		color: #3C4859;
+		text-align: center;
+		font-size: 14pt;
 	}
 	::-webkit-scrollbar,
 	*::-webkit-scrollbar {
@@ -50,6 +66,8 @@ page-home {
 	}
 	.second-row{
 		text-align: center;
+		margin-bottom: 20px;
+		margin-top: 10px;
 	}
 	.last-row{
 		text-align: center;

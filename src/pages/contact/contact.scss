@@ -1,8 +1,14 @@
 page-contact {
 
+	font-family: "Montserrat-Bold";
+
 	h4{
 		color: #545F6D;
 
+	}
+
+	h2, p, span{
+		font-family: "Montserrat-Light";
 	}
 
 	.first-row{
@@ -17,7 +23,7 @@ page-contact {
         display: flex;
         justify-content: center;
         color: white;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 50;
         overflow-x: scroll;
         
@@ -51,7 +57,7 @@ page-contact {
 		margin: 0 auto;
 	}
 	.outter-circle{
-		border: solid 5px #4ACCC6;padding: 6px;
+		border: solid 3px #4ACCC6;padding: 6px;
 		
 	}
 	.date {

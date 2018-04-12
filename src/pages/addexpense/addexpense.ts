@@ -37,4 +37,8 @@ categories:any;
    }
    );
  }
+
+ closePage(){
+   this.navCtrl.pop();
+ }
 }
