@@ -3,7 +3,8 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
+import { AddGoalPage } from '../pages/add-goal/add-goal';
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,13 +18,22 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       if (window.localStorage.getItem('token') ) {
-        this.rootPage = TabsPage;
+        this.rootPage = TutorialPage;
 
       } else {
-        this.rootPage = TutorialPage;
+        this.rootPage = AddGoalPage;
 
 
       }
+
+      // if (window.localStorage.getItem('token') ) {
+      //   this.rootPage = TabsPage;
+
+      // } else {
+      //   this.rootPage = TutorialPage;
+
+
+      // }
     });
   }
 }

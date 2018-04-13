@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ViewController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http';
-import { AccountPage } from '../../pages/account/account';
+// import { AccountPage } from '../../pages/account/account';
 
 /**
  * Generated class for the ProfileSettingPage page.
@@ -27,7 +27,8 @@ hideMe = false;
     last_name :"",
     phone_number: "",
   }
-	  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
+	  constructor(public navCtrl: NavController, public navParams: NavParams,
+      public viewCtrl:ViewController, public httpprovider:HttpProvider) {
   }
 
   ionViewDidLoad() {
@@ -52,10 +53,11 @@ updateForm(){
 
      this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
        this.user.phone_number).then((result) => {
-          this.navCtrl.setRoot(AccountPage);
+          this.viewCtrl.dismiss();
      },
          (err) => {
          console.log(err);
      });
  }
+ 
 }

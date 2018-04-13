@@ -27,8 +27,7 @@ import { VerificationPage } from '../pages/verification/verification';
 import { VerificationCodePage } from '../pages/verification-code/verification-code';
 import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../pages/add-goal/add-goal';
-import {FormsModule} from '@angular/forms'
-import { CreateGoalPage } from '../pages/create-goal/create-goal';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -51,7 +50,6 @@ import { CreateGoalPage } from '../pages/create-goal/create-goal';
     SignUpCompletePage,
     AddGoalPage,
     VerificationCodePage,
-    CreateGoalPage
     
   ],
   imports: [
@@ -83,8 +81,7 @@ import { CreateGoalPage } from '../pages/create-goal/create-goal';
     VerificationPage,
     SignUpCompletePage,
     AddGoalPage,
-    VerificationCodePage,
-    CreateGoalPage
+    VerificationCodePage
     
   ],
   providers: [

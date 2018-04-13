@@ -5,6 +5,7 @@ import { NotificationsSettingPage } from '../notifications-setting/notifications
 import { HttpProvider } from '../../providers/http/http';
 import {TutorialPage} from '../tutorial/tutorial';
 import { ModalController } from 'ionic-angular';
+
 /**
  * Generated class for the AccountPage page.
  *
@@ -37,15 +38,6 @@ export class AccountPage {
    );
   }
 
-  profileSetting(){
-
-  	this.navCtrl.push(ProfileSettingPage);
-
-  }
-
-  notificationSetting(){
-    this.navCtrl.push(NotificationsSettingPage);
-  }
 logout() {
     localStorage.removeItem("token");
     // this.navCtrl.setRoot(TutorialPage);
@@ -54,4 +46,21 @@ logout() {
 
 
   }
+  presentProfileModal() {
+   let profileModal = this.modalCtrl.create(ProfileSettingPage);
+   profileModal.onDidDismiss(() => {
+      this.ionViewDidLoad();
+    });
+   profileModal.present();
+ }
+
+ presentNotification() {
+   let profileModal = this.modalCtrl.create(NotificationsSettingPage);
+   profileModal.present();
+ }
+
+ // present() {
+ //   let profileModal = this.modalCtrl.create(ProfileSettingPage);
+ //   profileModal.present();
+ // }
 }

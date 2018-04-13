@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AddexpensePage } from '../addexpense/addexpense';
 import { HttpProvider } from '../../providers/http/http';
+import { ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-contact',
@@ -12,7 +13,8 @@ export class ContactPage {
 	expenses : any;
 	totalExpenses=0;
 
-  constructor(public navCtrl: NavController, public httpprovider:HttpProvider,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController,public modalCtrl: ModalController
+   ,public httpprovider:HttpProvider,public loadingCtrl: LoadingController) {
 
   }
 //   presentLoadingDefault() {
@@ -49,8 +51,16 @@ export class ContactPage {
 
 }
 
-  openAddExpenses(){
-  	this.navCtrl.push(AddexpensePage);
-  }
+  // openAddExpenses(){
+  // 	this.navCtrl.push(AddexpensePage);
+  // }
+
+  presentProfileModal() {
+   let profileModal = this.modalCtrl.create(AddexpensePage);
+   profileModal.onDidDismiss(() => {
+      this.ionViewDidLoad();
+    });
+   profileModal.present();
+ }
 
 }

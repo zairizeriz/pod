@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { ContactPage } from '../../pages/contact/contact';
+// import { ContactPage } from '../../pages/contact/contact';
+import { ViewController } from 'ionic-angular'
 
 
 /**
@@ -21,7 +22,7 @@ export class AddexpensePage {
 categories:any;
 expense= {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, public viewCtrl:ViewController, public navParams: NavParams, public httpprovider: HttpProvider) {
   }
 
  ionViewDidLoad() {
@@ -46,13 +47,19 @@ expense= {};
   console.log(this.expense);
 
      this.httpprovider.createExpense(this.expense).then((result) => {
+       this.viewCtrl.dismiss();
                 
      },
          (err) => {
          console.log(err);
      });
  }
- closePage() {
-    this.navCtrl.setRoot(ContactPage);
-  }
+ // closePage() {
+ //    this.navCtrl.setRoot(ContactPage);
+ //  }
+
+  dismissModal() {
+    this.viewCtrl.dismiss();
+   
+ }
 }

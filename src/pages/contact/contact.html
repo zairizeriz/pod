@@ -2,7 +2,7 @@
   <ion-navbar color="navbar">
  <ion-title>Expense Activity</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openAddExpenses()">
+      <button ion-button icon-only (click)="presentProfileModal()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>  
@@ -20,7 +20,7 @@
 
     </div>
         <div class="total-expenses">
-          <p>RM {{totalExpenses}}</p>
+          <p>RM {{totalExpenses | number: '1.2-2'}}</p>
           
         </div>
     </div>
