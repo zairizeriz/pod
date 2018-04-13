@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpProvider } from '../../providers/http/http';
 
 /**
  * Generated class for the GoalactivityPage page.
@@ -14,12 +15,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'goalactivity.html',
 })
 export class GoalactivityPage {
+  goals:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GoalactivityPage');
-  }
+   this.httpprovider.getGoal().then(
+     (response) => {
+       console.log(response)
+       this.goals = response
+       for(let index = 0; index < this.goals.length; index++) {
+         
+    }
+       console.log(this.goals)
 
+       
+
+     },
+     err => {
+       console.log(err);
+     },
+   );
+}
 }

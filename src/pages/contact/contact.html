@@ -33,26 +33,9 @@
             <!-- <span>June</span> -->
           </div>
         </ion-avatar>
-<!-- <<<<<<< HEAD
-        <h2 style="float: left;font-size: 16px;">Carls Jr</h2>
-        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
-        <p style="clear:both;font-size: 12px;">Food and Beverages</p>
-      </ion-item>
-      <ion-item>
-        <ion-avatar item-start>
-          <div class="outter-circle circle date">
-            <span>19</span> <br/>
-            <span>Mei</span>
-          </div>
-        </ion-avatar>
-        <h2 style="float: left;font-size: 16px;">Playstation 4</h2>
-        <h4 style="float: right;text-align: right;font-weight: bold;">RM 28.80</h4>
-        <p style="clear:both;font-size: 12px;">Entertainment</p>
-=======
         <h2 style="float: left;">{{expense.expense_name}}</h2>
         <h4 style="float: right;text-align: right;font-weight: bold;">RM {{expense.amount}}</h4>
-        <p style="clear:both;">{{expense.category_id}}</p>
->>>>>>> 8cb91a619efebe4a8a2debc684ad589d3315d205 -->
+        <p style="clear:both;" [style.color]="expense.category.color">{{expense.category.category}}</p>
       </ion-item>
     </ion-list>
   </div>

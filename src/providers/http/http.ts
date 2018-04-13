@@ -90,6 +90,27 @@ export class HttpProvider {
        });
    });
  }
+
+ getGoal(){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities', {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
  registerUser(details){
 
    return new Promise((resolve, reject) => {
