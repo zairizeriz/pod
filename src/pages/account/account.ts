@@ -21,6 +21,7 @@ import { LoadingController } from 'ionic-angular';
 })
 export class AccountPage {
   user:any;
+  image:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider,public modalCtrl: ModalController, 
@@ -39,6 +40,7 @@ export class AccountPage {
        console.log(response)
        loading.dismiss();
        this.user=response
+       this.image=this.user.user_image
        console.log(this.user)
      },
      err => {

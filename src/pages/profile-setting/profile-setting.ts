@@ -23,7 +23,8 @@ export class ProfileSettingPage {
 
   hideMe = false;
   image:any;
-  
+  base64:string;
+
   // user:any;
   userObj : any;
 	user = {
@@ -95,6 +96,7 @@ this.camera.getPicture(options).then((imageData) => {
 
  let base64Image = 'data:image/jpeg;base64,' + imageData;
  this.image = base64Image;
+ this.base64 = base64Image;
 }, (err) => {
  // Handle error
 });
