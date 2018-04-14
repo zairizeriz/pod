@@ -131,9 +131,10 @@ export class HttpProvider {
    });
  }
 
- updateUserInfo(first_name,last_name,phone_number){
+ updateUserInfo(image,first_name,last_name,phone_number){
 
 let data = {
+  user_image : image,
   first_name : first_name,
   last_name : last_name,
   phone_number : phone_number

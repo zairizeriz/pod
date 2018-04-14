@@ -74,7 +74,7 @@ updateForm(){
   console.log(this.user);
   toast.dismiss();
 
-     this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
+     this.httpprovider.updateUserInfo(this.image,this.user.first_name,this.user.last_name,
        this.user.phone_number).then((result) => {
           this.viewCtrl.dismiss();
      },
