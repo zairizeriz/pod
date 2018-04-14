@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http';
+import { LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 // import { AccountPage } from '../../pages/account/account';
 
 /**
@@ -28,13 +30,21 @@ hideMe = false;
     phone_number: "",
   }
 	  constructor(public navCtrl: NavController, public navParams: NavParams,
-      public viewCtrl:ViewController, public httpprovider:HttpProvider) {
+      public viewCtrl:ViewController, public httpprovider:HttpProvider,
+      public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
     this.httpprovider.getUser( ).then(
      (response) => {
        console.log(response)
+       loading.dismiss();
        this.userObj = response
        this.user.first_name = this.userObj.first_name;
        this.user.last_name = this.userObj.last_name;
@@ -48,8 +58,16 @@ hideMe = false;
 
 }
 updateForm(){
+  let toast = this.toastCtrl.create({
+    message: 'Profile was updated successfully',
+    duration: 10000,
+    position: 'middle'
+  });
+
+  toast.present();
 
   console.log(this.user);
+  toast.dismiss();
 
      this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
        this.user.phone_number).then((result) => {

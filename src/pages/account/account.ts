@@ -5,6 +5,7 @@ import { NotificationsSettingPage } from '../notifications-setting/notifications
 import { HttpProvider } from '../../providers/http/http';
 import {TutorialPage} from '../tutorial/tutorial';
 import { ModalController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the AccountPage page.
@@ -21,14 +22,22 @@ import { ModalController } from 'ionic-angular';
 export class AccountPage {
   user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider,
-    public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public httpprovider:HttpProvider,public modalCtrl: ModalController, 
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
      this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
+       loading.dismiss();
        this.user=response
        console.log(this.user)
      },

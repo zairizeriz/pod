@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { ViewController } from 'ionic-angular'
+import { ViewController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 
 /**
@@ -20,14 +21,22 @@ export class GoalactivityPage {
   goals:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public viewCtrl:ViewController ,public httpprovider:HttpProvider) {
+    public viewCtrl:ViewController ,public httpprovider:HttpProvider,
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
    this.httpprovider.getGoal().then(
      (response) => {
        console.log(response)
        this.goals = response
+       loading.dismiss();
        for(let index = 0; index < this.goals.length; index++) {
          
     }
