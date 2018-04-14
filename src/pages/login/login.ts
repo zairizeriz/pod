@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
+// import { AddGoalPage } from '../add-goal/add-goal';
+// import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -18,6 +21,7 @@ import { LoadingController } from 'ionic-angular';
 })
 export class LoginPage {
 	login = {};
+  rootPage:any;
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
@@ -42,9 +46,18 @@ let loading = this.loadingCtrl.create({
          let toast = this.toastCntrl.create({
            message: 'Email and Password did not match. Please try again.',
            duration:3000,
-           position: 'middle'
+           position: 'bottom'
          });
          toast.present();
+
+      //   if (this.httpprovider.getGoal()) {
+      //   this.rootPage = HomePage;
+
+      // } else {
+      //   this.rootPage = AddGoalPage;
+
+
+      // }
 
 
        }else{
