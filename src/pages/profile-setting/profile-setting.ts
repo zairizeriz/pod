@@ -22,7 +22,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class ProfileSettingPage {
 
   hideMe = false;
-  base64Image:any;
+  image:any;
   
   // user:any;
   userObj : any;
@@ -92,7 +92,9 @@ updateForm(){
 this.camera.getPicture(options).then((imageData) => {
  // imageData is either a base64 encoded string or a file URI
  // If it's base64:
- this.base64Image = 'data:image/jpeg;base64,' + imageData;
+
+ let base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.image = base64Image;
 }, (err) => {
  // Handle error
 });

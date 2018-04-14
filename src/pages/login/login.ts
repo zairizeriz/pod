@@ -5,6 +5,7 @@ import { TabsPage } from '../tabs/tabs';
 import { AddGoalPage } from '../add-goal/add-goal';
 import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 /**
@@ -26,7 +27,7 @@ export class LoginPage {
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
-   public toastCntrl:ToastController, public loadingCtrl: LoadingController) {
+   public toastCntrl:ToastController, public loadingCtrl: LoadingController, private iab: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -105,4 +106,7 @@ let prompt = this.alertCtrl.create({
 prompt.present();
 
  }
+ inAppButtonClick(){
+  const browser = this.iab.create('http://usepod.com/privacy-policy'); 
+}
 }
