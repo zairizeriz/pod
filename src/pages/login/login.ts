@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
-// import { AddGoalPage } from '../add-goal/add-goal';
-// import { HomePage } from '../home/home';
+import { AddGoalPage } from '../add-goal/add-goal';
+import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
 
 
@@ -22,6 +22,7 @@ import { LoadingController } from 'ionic-angular';
 export class LoginPage {
 	login = {};
   rootPage:any;
+  goal:any;
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
@@ -50,18 +51,26 @@ let loading = this.loadingCtrl.create({
          });
          toast.present();
 
-      //   if (this.httpprovider.getGoal()) {
-      //   this.rootPage = HomePage;
-
-      // } else {
-      //   this.rootPage = AddGoalPage;
-
-
-      // }
-
-
        }else{
-         this.navCtrl.setRoot(TabsPage)
+         this.httpprovider.getGoal( ).then(
+         (response) => {
+           
+           this.goal = response
+           console.log(this.goal.length)
+           if (this.goal.length == 0) {
+              this.navCtrl.setRoot(AddGoalPage);
+            } else {
+              this.navCtrl.setRoot(TabsPage);
+              
+            }
+         },
+         err => {
+           console.log(err);
+         },
+       );
+
+         
+         // this.navCtrl.setRoot(TabsPage)
        }
                 
      },

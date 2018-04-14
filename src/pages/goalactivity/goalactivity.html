@@ -27,7 +27,7 @@
           </div>
         </ion-avatar>
         <!-- <p class="list-text"><span>RM 10</span> has been added to your goal savings</p> -->
-        <p class="list-text"><span>RM {{goal.amount}}</span> {{goal.description}}</p>
+        <p class="list-text" [innerHtml]=goal.description></p>
 
       </ion-item>
       <!-- <ion-item text-wrap>
