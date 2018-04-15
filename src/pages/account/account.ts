@@ -53,7 +53,7 @@ export class AccountPage {
 logout() {
   let alert = this.alertCtrl.create({
     title: 'Confirm logout',
-    message: 'Are you sure to logout?',
+    message: 'Are you sure to leave?',
     buttons: [
       {
         text: 'No',
@@ -67,10 +67,14 @@ logout() {
         text: 'Yes',
         role: 'Yes',
         handler: () => {
+          let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
           localStorage.removeItem("token");
-    // this.navCtrl.setRoot(TutorialPage);
     let homeModal = this.modalCtrl.create(TutorialPage);
    homeModal.present();
+   loading.dismiss();
           console.log('Yes clicked');
         }
       }
