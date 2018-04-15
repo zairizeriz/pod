@@ -60,6 +60,7 @@ let loading = this.loadingCtrl.create({
            console.log(this.goal.length)
            if (this.goal.length == 0) {
               this.navCtrl.setRoot(AddGoalPage);
+
             } else {
               this.navCtrl.setRoot(TabsPage);
               
