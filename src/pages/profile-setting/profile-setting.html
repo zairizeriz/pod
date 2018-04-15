@@ -2,6 +2,11 @@
 
   <ion-navbar color="navbar">
     <ion-title>Profile Setting</ion-title>
+        <ion-buttons left>
+      <button ion-button icon-only (click)="goBack()">
+        <span class="btn-back-nav"></span>
+      </button>
+    </ion-buttons> 
     <ion-buttons end>
       <button ion-button icon-only (click)="updateForm()">
         Save
