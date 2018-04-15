@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsPage } from '../pages/tabs/tabs';
+// import { AddGoalPage } from '../pages/add-goal/add-goal';
 @Component({
   templateUrl: 'app.html'
 })
@@ -16,6 +17,15 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      // if (window.localStorage.getItem('token') ) {
+      //   this.rootPage = TutorialPage;
+
+      // } else {
+      //   this.rootPage = AddGoalPage;
+
+
+      // }
+
       if (window.localStorage.getItem('token') ) {
         this.rootPage = TabsPage;
 

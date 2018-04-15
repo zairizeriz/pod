@@ -22,8 +22,8 @@
 	    min-height: 200px;
 	    margin-bottom: 20px;
 	    color:#9CA3AA;
-	    border-bottom-left-radius:50%;
-	    border-bottom-right-radius:50%;
+		border-bottom-left-radius: 200px 20px;
+		border-bottom-right-radius: 200px 20px;
     }
 
 	.second-row{
@@ -115,6 +115,14 @@
 
 
 	}
-.bar {
-    background-size: 100% 0px;
-}
+	.bar {
+	    background-size: 100% 0px;
+	}
+
+	.toolbar-title-md{
+		text-align:center;
+		font-family: "Montserrat-Bold";
+/*		margin-left: 40px;*/
+		color: black;
+		font-size: 16px;
+	}

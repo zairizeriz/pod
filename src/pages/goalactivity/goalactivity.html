@@ -8,23 +8,29 @@
 
   <ion-navbar color="navbar-white">
     <ion-title>Goal Activity</ion-title>
+   <ion-buttons start>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 	
 
 <ion-content padding>
-   <ion-list no-lines>
-      <ion-item text-wrap>
+   <ion-list>
+      <ion-item text-wrap *ngFor = "let goal of goals">
         <ion-avatar item-start>
           <div class="outter-circle circle date">
-            <span>30</span> <br/>
-            <span>June</span>
+            <span>{{goal.created_at| date: 'dd MMM'}}</span> <br/>
           </div>
         </ion-avatar>
-        <p class="list-text"><span>RM 10</span> has been added to your goal savings</p>
+        <!-- <p class="list-text"><span>RM 10</span> has been added to your goal savings</p> -->
+        <p class="list-text"><span>RM {{goal.amount}}</span> {{goal.description}}</p>
+
       </ion-item>
-      <ion-item text-wrap>
+      <!-- <ion-item text-wrap>
         <ion-avatar item-start>
           <div class="outter-circle circle date">
             <span>19</span> <br/>
@@ -33,6 +39,6 @@
           
         </ion-avatar>
         <p class="list-text"><span>RM 100</span> has been added to your goal savings</p>
-      </ion-item>
+      </ion-item> -->
     </ion-list>
 </ion-content>

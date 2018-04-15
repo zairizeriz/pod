@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,8 +19,9 @@ import { TabsPage } from '../tabs/tabs';
 export class LoginPage {
 	login = {};
 
-  constructor(private alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams, 
-  	public httpprovider:HttpProvider) {
+  constructor(private alertCtrl:AlertController, public navCtrl: NavController,
+   public navParams: NavParams, public httpprovider:HttpProvider, 
+   public toastCntrl:ToastController, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -27,14 +29,33 @@ export class LoginPage {
   }
 signInUser(){
 console.log(this.login);
+let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
 
+  loading.present();
      this.httpprovider.loginUser(this.login).then((result) => {
-       this.navCtrl.setRoot(TabsPage)
+ loading.dismiss();
+       if (result['response'] === 'error'){
+       console.log('lalu')
+         let toast = this.toastCntrl.create({
+           message: 'Email and Password did not match. Please try again.',
+           duration:3000,
+           position: 'middle'
+         });
+         toast.present();
+
+
+       }else{
+         this.navCtrl.setRoot(TabsPage)
+       }
                 
      },
          (err) => {
          console.log(err);
      });
+
  }
  
  showForgotPassword(){

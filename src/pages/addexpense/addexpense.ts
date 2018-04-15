@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { ContactPage } from '../../pages/contact/contact';
+// import { ContactPage } from '../../pages/contact/contact';
+import { ViewController } from 'ionic-angular'
+import { ToastController } from 'ionic-angular';
 
 
 /**
@@ -21,7 +23,9 @@ export class AddexpensePage {
 categories:any;
 expense= {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, public viewCtrl:ViewController, 
+    public navParams: NavParams, public httpprovider: HttpProvider,
+    private toastCtrl: ToastController) {
   }
 
  ionViewDidLoad() {
@@ -44,15 +48,29 @@ expense= {};
  addExpanseForm(){
 
   console.log(this.expense);
+  let toast = this.toastCtrl.create({
+    message: 'Expense was added successfully',
+    duration: 10000,
+    position: 'middle'
+  });
+
+  toast.present();
+  toast.dismiss();
 
      this.httpprovider.createExpense(this.expense).then((result) => {
+       this.viewCtrl.dismiss();
                 
      },
          (err) => {
          console.log(err);
      });
  }
- closePage() {
-    this.navCtrl.setRoot(ContactPage);
-  }
+ // closePage() {
+ //    this.navCtrl.setRoot(ContactPage);
+ //  }
+
+  dismissModal() {
+    this.viewCtrl.dismiss();
+   
+ }
 }

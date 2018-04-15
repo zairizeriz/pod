@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { HomePage } from '../../pages/home/home';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the AddGoalPage page.
@@ -20,7 +21,8 @@ export class AddGoalPage {
   categories:any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public httpprovider:HttpProvider, private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -41,7 +43,14 @@ export class AddGoalPage {
 addGoalForm(){
 
   console.log(this.goal);
+  let toast = this.toastCtrl.create({
+    message: 'Goal was added successfully',
+    duration: 10000,
+    position: 'middle'
+  });
 
+  toast.present();
+  toast.dismiss();
      this.httpprovider.createGoal(this.goal).then((result) => {
                 
      },

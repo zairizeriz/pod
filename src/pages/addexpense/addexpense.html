@@ -9,7 +9,7 @@
   <ion-navbar hideBackButton color="navbar">
     <ion-title>Add Expense</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="closePage()">
+      <button ion-button icon-only (click)="dismissModal()">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons> 
@@ -19,7 +19,7 @@
 
 
 <ion-content>
-	<form (ngSubmit)="addExpanseForm()">
+	<form>
 	<div class="first-row">
 		<ion-grid>
 		  <ion-row>
@@ -44,13 +44,13 @@
 		  </ion-item>
 
 		  <ion-item>
-   			<ion-label color="grey" floating>Date</ion-label>
-   			<!-- <ion-input [(ngModel)]="expense.date" name="date" type="date"></ion-input> -->
+   			<ion-label color="grey" fixed>Date</ion-label>
 			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="expense.date" name="date"></ion-datetime>
+			<!-- <ion-input type="date" [(ngModel)]="expense.date" name="date"></ion-input> -->
 		  </ion-item>
 
 		<ion-item>
-    		<ion-label>Category</ion-label>
+    		<ion-label color="grey" floating>Category</ion-label>
     		<ion-select [(ngModel)]="expense.category_id" name="category_id">
      		 <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.category}}</ion-option>
     		</ion-select>
@@ -58,7 +58,7 @@
 		</ion-list>  
 	<div class="third-row">
 		<div>
-		<button (click)="closePage()">Save</button>
+		<button (click)="addExpanseForm()">Save</button>
 		</div>
 	</div>				
   	</div>
