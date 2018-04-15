@@ -67,14 +67,9 @@ logout() {
         text: 'Yes',
         role: 'Yes',
         handler: () => {
-          let loading = this.loadingCtrl.create({
-    spinner: 'ios',
-    content: 'Loading Please Wait...'
-  });
           localStorage.removeItem("token");
     let homeModal = this.modalCtrl.create(TutorialPage);
    homeModal.present();
-   loading.dismiss();
           console.log('Yes clicked');
         }
       }
