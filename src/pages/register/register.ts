@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import { HttpProvider } from '../../providers/http/http';
 import {VerificationPage} from '../verification/verification';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -13,8 +15,9 @@ export class RegisterPage {
   
   register = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder:FormBuilder, 
-    public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public formBuilder:FormBuilder, public httpprovider:HttpProvider, 
+    private iab: InAppBrowser, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -35,4 +38,14 @@ registerForm(){
     // this.httpprovider.logout();
     this.navCtrl.setRoot(VerificationPage);
   }
+  inAppButtonClick(){
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
+  const browser = this.iab.create('http://usepod.com/privacy-policy'); 
+  loading.dismiss();
+}
 }

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
 import { AddGoalPage } from '../add-goal/add-goal';
-import { HomePage } from '../home/home';
+// import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
@@ -107,6 +107,13 @@ prompt.present();
 
  }
  inAppButtonClick(){
+   let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
   const browser = this.iab.create('http://usepod.com/privacy-policy'); 
+  loading.dismiss();
 }
 }
