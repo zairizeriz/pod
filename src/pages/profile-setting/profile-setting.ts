@@ -82,6 +82,7 @@ updateForm(){
          (err) => {
          console.log(err);
      });
+       this.navCtrl.pop();
  }
  openCamera(){
      const options: CameraOptions = {
@@ -101,6 +102,8 @@ this.camera.getPicture(options).then((imageData) => {
  // Handle error
 });
 }
-
+  goBack(){
+    this.navCtrl.pop();
+  }
 }
 
