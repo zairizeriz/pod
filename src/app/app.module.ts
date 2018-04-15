@@ -29,7 +29,9 @@ import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../pages/add-goal/add-goal';
 import {FormsModule} from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { GoalNamePage } from '../pages/goal-name/goal-name';
+import { GoalTargetAmountPage } from '../pages/goal-target-amount/goal-target-amount';
+import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     SignUpCompletePage,
     AddGoalPage,
     VerificationCodePage,
+    GoalNamePage,
+    GoalTargetAmountPage,
+    GoalDueDatePage    
     
   ],
   imports: [
@@ -82,8 +87,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     VerificationPage,
     SignUpCompletePage,
     AddGoalPage,
-    VerificationCodePage
-    
+    VerificationCodePage,
+    GoalNamePage,
+    GoalTargetAmountPage,
+    GoalDueDatePage
   ],
   providers: [
   Camera,
