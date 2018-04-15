@@ -1,0 +1,23 @@
+page-goal-due-date {
+
+		#input-expense{
+		background-color: transparent;
+	}
+
+	.first-row{
+		background-image: none;
+	      font-style: "Montserrat-Light";		
+
+	}
+	.first-row ion-input {
+
+	  input {
+	    text-align: center;
+	   	font-family: "Montserrat-Light";
+	    /* IF YOU ALSO WANT TO PUSH PLACHEHOLDER TO THE RIGHT USE THE FOLLOWING, IF NOT JUST DELETE THE ::-webkit-input-placeholder*/
+	    ::-webkit-input-placeholder {
+	      text-align: center;
+	    }
+	  }
+	}
+}
