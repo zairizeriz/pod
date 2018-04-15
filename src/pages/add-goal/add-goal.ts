@@ -61,8 +61,4 @@ addGoalForm(){
      });
  }
 
- dismiss() {
-   this.viewCtrl.dismiss();
- }
-
 }
