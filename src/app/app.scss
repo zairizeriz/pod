@@ -22,7 +22,9 @@
 	    min-height: 200px;
 	    margin-bottom: 20px;
 	    color:#9CA3AA;
-	}
+	    border-bottom-left-radius:50%;
+	    border-bottom-right-radius:50%;
+    }
 
 	.second-row{
 		color:#9CA3AA;
@@ -79,35 +81,40 @@
 	}*/
 
 	ion-icon {
-    &[class*="appname-"] {
-        // Instead of using the font-based icons
-        // We're applying SVG masks
-        mask-size: contain;
-        mask-position: 50% 50%;
-        mask-repeat: no-repeat;
-        background: currentColor;
-        width: 1em;
-        height: 1em;
-    }
-    // custom icons
-    &[class*="appname-activity"] {
-        mask-image: url(../assets/icon/activity.png);
-    }
-    &[class*="appname-goal"] {
-        mask-image: url(../assets/icon/goal.png);
-    }
-    &[class*="appname-group"] {
-        mask-image: url(../assets/icon/group.png);
-    }
-    &[class*="appname-rewards"] {
-        mask-image: url(../assets/icon/rewards.png);
-    }
+	    &[class*="appname-"] {
+	        // Instead of using the font-based icons
+	        // We're applying SVG masks
+	        mask-size: contain;
+	        mask-position: 50% 50%;
+	        mask-repeat: no-repeat;
+	        background: currentColor;
+	        width: 1em;
+	        height: 1em;
+	    }
+	    // custom icons
+	    &[class*="appname-activity"] {
+	        mask-image: url(../assets/icon/activity.png);
+	    }
+	    &[class*="appname-goal"] {
+	        mask-image: url(../assets/icon/goal.png);
+	    }
+	    &[class*="appname-group"] {
+	        mask-image: url(../assets/icon/group.png);
+	    }
+	    &[class*="appname-rewards"] {
+	        mask-image: url(../assets/icon/rewards.png);
+	    }
 
-    .font-montserrat-bold{
-    	font-family: "Montserrat-Bold";
-    }
+	    .font-montserrat-bold{
+	    	font-family: "Montserrat-Bold";
+	    }
 
-    .font-montserrat-light{
-    	font-family: "Montserrat-Light";
-    }
+	    .font-montserrat-light{
+	    	font-family: "Montserrat-Light";
+	    }
+
+
+	}
+.bar {
+    background-size: 100% 0px;
 }
