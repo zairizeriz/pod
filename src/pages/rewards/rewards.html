@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="navbar">
+  <ion-navbar color="pure-white">
     <ion-title>Rewards</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
-
+	<ion-list *ngIf="items">
+	  <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+	    {{ item }}
+	  </button>  
+	</ion-list>
+	<div class="alert-no-rewards" *ngIf="!items">
+	    <p>Opps! Its look likes you don't have any rewards yet</p>
+	</div>
+	<div class="box-possible-rewards">
+		<h2><p>Browse possible rewards</p></h2>
+	</div>
+	<ion-card>
+	  <img src="../assets/imgs/iceland.jpg"/>
+	  <ion-card-content>
+	    <ion-card-title>
+	      Nine Inch Nails Live
+	      </ion-card-title>
+	    <p>
+	      The most popular industrial group ever, and largely
+	      responsible for bringing the music to a mass audience.
+	    </p>
+	  </ion-card-content>
+	</ion-card>	
 </ion-content>

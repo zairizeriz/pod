@@ -1,4 +1,5 @@
 page-home {
+	color:black;
 /*	body{
 		margin: 0px;
 	}*/
@@ -6,11 +7,9 @@ page-home {
 		font-size: 18px;
 	}
 
-	@font-face{
-		font-family: Montserrat-Light;
-		src: url(../font/Montserrat-Light.tff)format("tff");
-		font-weight: 400
-	}
+	.toolbar-title-md{
+	margin-left:30px;
+	}	
 	.scroll-content {
 	     padding: 0px; 
 	}	
@@ -29,18 +28,17 @@ page-home {
 	}
 
 	.first-row{
-		background-image: url("../assets/imgs/first-row-bg.png");
+		background-image: none;
 	    background-repeat: repeat-x;
 	    width: 100%;
 	    min-height: 200px;
-		padding: 10px;
-	    margin-bottom: 20px;
+
 	}
 	.goal-text{
 		text-align: center;
 		margin-top: 30px;
 		margin-left: 5px;
-		color: white;
+		color: black;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
 	}
@@ -48,7 +46,6 @@ page-home {
 	.text-style{
 
 		font-family: 'Montserrat-Bold'!important;
-		color: #3C4859;
 		text-align: center;
 		font-size: 18pt;
 	}
@@ -56,7 +53,6 @@ page-home {
 	.text-style2{
 
 		font-family: 'Montserrat-Light' !important;
-		color: #3C4859;
 		text-align: center;
 		font-size: 14pt;
 	}
@@ -67,7 +63,7 @@ page-home {
 	.second-row{
 		text-align: center;
 		margin-bottom: 20px;
-		margin-top: 10px;
+		color: black;
 	}
 	.last-row{
 		text-align: center;
