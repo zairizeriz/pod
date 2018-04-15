@@ -28,6 +28,7 @@ import { VerificationCodePage } from '../pages/verification-code/verification-co
 import {SignUpCompletePage} from '../pages/sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../pages/add-goal/add-goal';
 import {FormsModule} from '@angular/forms';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import {FormsModule} from '@angular/forms';
     TranslateModule.forRoot(),
     HttpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   
 
   ],
@@ -90,6 +91,7 @@ import {FormsModule} from '@angular/forms';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

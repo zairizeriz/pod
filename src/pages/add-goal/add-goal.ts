@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import { HomePage } from '../../pages/home/home';
+// import { HomePage } from '../../pages/home/home';
 import { ToastController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the AddGoalPage page.
@@ -22,7 +23,8 @@ export class AddGoalPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public httpprovider:HttpProvider, private toastCtrl: ToastController) {
+    public httpprovider:HttpProvider, private toastCtrl: ToastController, 
+    public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
@@ -59,8 +61,8 @@ addGoalForm(){
      });
  }
 
- closePage() {
-    this.navCtrl.setRoot(HomePage);
-  }
+ dismiss() {
+   this.viewCtrl.dismiss();
+ }
 
 }

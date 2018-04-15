@@ -5,6 +5,7 @@ import {RegisterPage} from '../register/register';
 import {VerificationPage} from '../verification/verification';
 import {SignUpCompletePage} from '../sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../add-goal/add-goal';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the TutorialPage page.
@@ -53,7 +54,8 @@ slides = [
           }
         ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public loadingCtrl: LoadingController) {
   	
    
         
@@ -61,6 +63,13 @@ slides = [
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
+  loading.dismiss();
     console.log('ionViewDidLoad TutorialPage');
   }
 

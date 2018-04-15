@@ -6,6 +6,7 @@ import { HttpProvider } from '../../providers/http/http';
 import {TutorialPage} from '../tutorial/tutorial';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the AccountPage page.
@@ -21,10 +22,11 @@ import { LoadingController } from 'ionic-angular';
 })
 export class AccountPage {
   user:any;
+  image:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider,public modalCtrl: ModalController, 
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -39,6 +41,7 @@ export class AccountPage {
        console.log(response)
        loading.dismiss();
        this.user=response
+       this.image=this.user.user_image
        console.log(this.user)
      },
      err => {
@@ -48,10 +51,34 @@ export class AccountPage {
   }
 
 logout() {
-    localStorage.removeItem("token");
-    // this.navCtrl.setRoot(TutorialPage);
+  let alert = this.alertCtrl.create({
+    title: 'Confirm logout',
+    message: 'Are you sure to leave?',
+    buttons: [
+      {
+        text: 'No',
+        role: 'No',
+        handler: () => {
+          this.navCtrl.setRoot(AccountPage);
+          console.log('No clicked');
+        }
+      },
+      {
+        text: 'Yes',
+        role: 'Yes',
+        handler: () => {
+          localStorage.removeItem("token");
     let homeModal = this.modalCtrl.create(TutorialPage);
    homeModal.present();
+          console.log('Yes clicked');
+        }
+      }
+    ]
+  });
+  alert.present();
+
+
+    
 
 
   }

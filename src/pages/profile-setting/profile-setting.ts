@@ -4,6 +4,7 @@ import { ViewController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http';
 import { LoadingController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 // import { AccountPage } from '../../pages/account/account';
 
 /**
@@ -20,8 +21,10 @@ import { ToastController } from 'ionic-angular';
 })
 export class ProfileSettingPage {
 
-hideMe = false;
-  
+  hideMe = false;
+  image:any;
+  base64:string;
+
   // user:any;
   userObj : any;
 	user = {
@@ -31,8 +34,11 @@ hideMe = false;
   }
 	  constructor(public navCtrl: NavController, public navParams: NavParams,
       public viewCtrl:ViewController, public httpprovider:HttpProvider,
-      public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
+      public loadingCtrl: LoadingController, private toastCtrl: ToastController,
+      private camera: Camera) {
   }
+
+
 
   ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
@@ -69,7 +75,7 @@ updateForm(){
   console.log(this.user);
   toast.dismiss();
 
-     this.httpprovider.updateUserInfo(this.user.first_name,this.user.last_name,
+     this.httpprovider.updateUserInfo(this.image,this.user.first_name,this.user.last_name,
        this.user.phone_number).then((result) => {
           this.viewCtrl.dismiss();
      },
@@ -77,5 +83,24 @@ updateForm(){
          console.log(err);
      });
  }
- 
+ openCamera(){
+     const options: CameraOptions = {
+  quality: 70,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
 }
+this.camera.getPicture(options).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+
+ let base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.image = base64Image;
+ this.base64 = base64Image;
+}, (err) => {
+ // Handle error
+});
+}
+
+}
+
