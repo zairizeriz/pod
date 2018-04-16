@@ -47,7 +47,7 @@ export class ProfileSettingPage {
   });
 
   loading.present();
-    this.httpprovider.getUser( ).then(
+    this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
        loading.dismiss();
@@ -97,12 +97,13 @@ this.camera.getPicture(options).then((imageData) => {
  // If it's base64:
 
  this.base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.user.user_image=this.base64Image
 }, (err) => {
  // Handle error
 });
 }
-  goBack(){
-    this.navCtrl.pop();
-  }
+  // goBack(){
+  //   this.navCtrl.pop();
+  // }
 }
 
