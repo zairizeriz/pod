@@ -131,10 +131,10 @@ export class HttpProvider {
    });
  }
 
- updateUserInfo(image,first_name,last_name,phone_number){
+ updateUserInfo(user_image,first_name,last_name,phone_number){
 
 let data = {
-  user_image : image,
+  user_image : user_image,
   first_name : first_name,
   last_name : last_name,
   phone_number : phone_number
