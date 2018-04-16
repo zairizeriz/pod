@@ -25,7 +25,7 @@ export class VerificationPage {
 
   afterPhoneVerification() {
     // this.httpprovider.logout();
-    this.navCtrl.setRoot(VerificationCodePage);
+    this.navCtrl.push(VerificationCodePage);
   }
 
 }

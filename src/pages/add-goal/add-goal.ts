@@ -4,6 +4,7 @@ import { HttpProvider } from '../../providers/http/http';
 // import { HomePage } from '../../pages/home/home';
 import { ToastController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
+import{ GoalNamePage } from '../goal-name/goal-name'
 
 /**
  * Generated class for the AddGoalPage page.
@@ -60,5 +61,9 @@ addGoalForm(){
          console.log(err);
      });
  }
+ goalName() {
+    // this.httpprovider.logout();
+    this.navCtrl.setRoot(GoalNamePage);
+  }
 
 }

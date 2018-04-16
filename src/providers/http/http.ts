@@ -118,8 +118,8 @@ export class HttpProvider {
      let headers = new Headers();
      headers.append('Content-Type','application/json');
       console.log(details);
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/register', JSON.stringify(details), {headers:headers})
-     .subscribe(res => {
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/register', 
+     JSON.stringify(details), {headers:headers}).subscribe(res => {
      
        let data = res.json();
        console.log(data);
