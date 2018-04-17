@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
 import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
-import { GoalDueDatePage } from '../goal-due-date/goal-due-date';
+import { GoalCompletePage } from '../goal-complete/goal-complete';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class HomePage {
 }
 
 goPage(){
-  this.navCtrl.push(GoalDueDatePage);
+  this.navCtrl.push(GoalCompletePage);
 }
 
 }
