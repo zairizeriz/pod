@@ -9,8 +9,16 @@ page-tutorial {
 
 }
 
+h2{
+  font-family: "Montserrat-Bold";
+}
+
 [padding] h2:first-child{
   margin-top: 50px;
+}
+
+.slides{
+  margin-top: 40px;
 }
 
 .toolbar-background {
@@ -25,6 +33,8 @@ page-tutorial {
 .button{
   width:45%;
   color:white;
+  font-family: "Montserrat-Bold";
+  font-size: 15px;
 
 }
 
@@ -76,13 +86,18 @@ page-tutorial {
   }
 
   p {
+    font-family:"Montserrat-Regular";
     padding: 0 40px;
     font-size: 14px;
     line-height: 1.5;
     color: #FFFFFF;
+    margin-top: 20px;
 
     b {
       color: #000000;
     }
+  }
+  .swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: 30px;
   }
 }

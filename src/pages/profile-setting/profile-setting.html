@@ -20,8 +20,8 @@
 <ion-content>
 	<div class="first-row">
 		<div class="acc-img circle">
-			<img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!image">
-			<img (click)="openCamera()" class="camera-plus" src="{{image}}" *ngIf="image">
+			<img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!user.user_image">
+			<img (click)="openCamera()" class="camera-plus" src="{{user.user_image}}" *ngIf="user.user_image">
 			
 		</div>
 		<div class="acc-name">
@@ -37,12 +37,6 @@
 		  <ion-item>
 		    <ion-label color="grey" floating  class="my-label">First Name</ion-label>
 		    <ion-input [(ngModel)]="user.first_name"></ion-input>
-		  </ion-item>
-
-
-		  	<ion-item>
-		    <ion-label color="grey" floating  class="my-label">First Name</ion-label>
-		    <ion-input [(ngModel)]="base64"></ion-input>
 		  </ion-item>
 
 		  <ion-item>

@@ -7,29 +7,32 @@
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="registerForm()">
+  <form [formGroup]="todo" (submit)="registerForm(todo.value)">
     <ion-list>
     <ion-item>
-      <ion-input type="text" [(ngModel)]="register.first_name" placeholder ="First Name" name="firstName"></ion-input>
+      <ion-input type="text" placeholder ="First Name" formControlName ="first_name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="text" [(ngModel)]="register.last_name" placeholder ="Last Name" name="lastName"></ion-input>
+      <ion-input type="text" placeholder ="Last Name" formControlName="last_name"></ion-input>
     </ion-item>
 
   <ion-item>
-    <ion-input type="email" [(ngModel)]="register.email" placeholder ="Email" name="email">
+    <ion-input type="email" placeholder ="Email" formControlName="email">
     </ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input type="password" [(ngModel)]="register.password" placeholder ="Password" name="password">
-    </ion-input>
+    <ion-input type="password" placeholder ="Password" formControlName ="password">
+    </ion-input> 
   </ion-item>
+  <div style="text-align: center">
+    <a style="color: #000000;"> 8 characters, 1 uppercase, 1 lowercase, 1 number</a>
+  </div>
   <div class="button-register" padding>
     <div>
      <!--  <button (click)="afterRegister()">Sign Up</button> -->
-    <button (click)="registerForm()">Sign Up</button>
+    <button type='submit' [disabled]="!todo.valid">Sign Up</button>
     </div>
   </div> 
   </ion-list>

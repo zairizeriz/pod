@@ -48,7 +48,22 @@ export class HttpProvider {
         this.token.remove('id_token');
         this.token = null;
     }
+getCode(phone_number){
+  let data={phone_number:phone_number}
+   return new Promise((resolve, reject) => {
 
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',data)
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
 
  getUser(){
    return new Promise((resolve, reject) => {
@@ -118,8 +133,8 @@ export class HttpProvider {
      let headers = new Headers();
      headers.append('Content-Type','application/json');
       console.log(details);
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/register', JSON.stringify(details), {headers:headers})
-     .subscribe(res => {
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/register', 
+     JSON.stringify(details), {headers:headers}).subscribe(res => {
      
        let data = res.json();
        console.log(data);
@@ -131,10 +146,10 @@ export class HttpProvider {
    });
  }
 
- updateUserInfo(image,first_name,last_name,phone_number){
+ updateUserInfo(user_image,first_name,last_name,phone_number){
 
 let data = {
-  user_image : image,
+  user_image : user_image,
   first_name : first_name,
   last_name : last_name,
   phone_number : phone_number

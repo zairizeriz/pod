@@ -7,6 +7,7 @@ import {TutorialPage} from '../tutorial/tutorial';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the AccountPage page.
@@ -26,7 +27,8 @@ export class AccountPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider,public modalCtrl: ModalController, 
-    public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
+    public loadingCtrl: LoadingController, private alertCtrl: AlertController,
+    private iab: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -99,4 +101,14 @@ logout() {
  //   let profileModal = this.modalCtrl.create(ProfileSettingPage);
  //   profileModal.present();
  // }
+ inAppButtonClick(){
+   let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
+  const browser = this.iab.create('http://usepod.com/privacy-policy'); 
+  loading.dismiss();
+}
 }

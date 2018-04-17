@@ -74,7 +74,11 @@
 	src: url('../assets/font/Montserrat-Light.ttf');
 	font-weight: 200
 	}
-
+	@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('../assets/font/Montserrat-Regular.ttf');
+	font-weight: 200
+	}
 /*	.ion-ios-customicon-outline,
 	.ion-ios-customicon,.ion-md-customicon,.ion-md-customicon-outline {
 	  content: url('../assets/icon/activityNoActive.png');
@@ -132,6 +136,9 @@
 	}
 	.btn-back-nav{
 		background-image: url("../assets/icon/back-icon.png");
+		background-repeat: no-repeat;
+		margin: 10px 0 0;
+    	min-width: 15px;		
 	}
 	.btn-edit-goal{
 		background-image: url("../assets/icon/share-icon.png");
@@ -139,4 +146,22 @@
 		display: inline-block;
 		height: 14px;
 		width: 20px;
+	}
+
+	ion-buttons left .bar-button-default > .button-inner{
+
+		background-image: url("../assets/icon/back-icon.png") !important;
+		background-repeat: no-repeat;
+		margin: 10px 0 0;
+    	min-width: 15px;
+	}
+
+	ion-buttons left .bar-button-default > .button-inner > ion-icon{
+		display:none;
+	}
+
+	.back-button-text {
+    display: none;
+    -webkit-box-align: center;
+    align-items: center;
 	}

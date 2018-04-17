@@ -22,8 +22,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class ProfileSettingPage {
 
   hideMe = false;
-  image:any;
-  base64:string;
+  base64Image:any;
 
   // user:any;
   userObj : any;
@@ -31,6 +30,7 @@ export class ProfileSettingPage {
     first_name : "",
     last_name :"",
     phone_number: "",
+    user_image:"",
   }
 	  constructor(public navCtrl: NavController, public navParams: NavParams,
       public viewCtrl:ViewController, public httpprovider:HttpProvider,
@@ -47,7 +47,7 @@ export class ProfileSettingPage {
   });
 
   loading.present();
-    this.httpprovider.getUser( ).then(
+    this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
        loading.dismiss();
@@ -55,6 +55,7 @@ export class ProfileSettingPage {
        this.user.first_name = this.userObj.first_name;
        this.user.last_name = this.userObj.last_name;
        this.user.phone_number = this.userObj.phone_number;
+       this.user.user_image = this.userObj.user_image;
        console.log(this.user)
      },
      err => {
@@ -75,7 +76,7 @@ updateForm(){
   console.log(this.user);
   toast.dismiss();
 
-     this.httpprovider.updateUserInfo(this.image,this.user.first_name,this.user.last_name,
+     this.httpprovider.updateUserInfo(this.user.user_image,this.user.first_name,this.user.last_name,
        this.user.phone_number).then((result) => {
           this.viewCtrl.dismiss();
      },
@@ -95,15 +96,14 @@ this.camera.getPicture(options).then((imageData) => {
  // imageData is either a base64 encoded string or a file URI
  // If it's base64:
 
- let base64Image = 'data:image/jpeg;base64,' + imageData;
- this.image = base64Image;
- this.base64 = base64Image;
+ this.base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.user.user_image=this.base64Image
 }, (err) => {
  // Handle error
 });
 }
-  goBack(){
-    this.navCtrl.pop();
-  }
+  // goBack(){
+  //   this.navCtrl.pop();
+  // }
 }
 

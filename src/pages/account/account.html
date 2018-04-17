@@ -17,7 +17,7 @@
 	<div class="first-row">
 		<div class="acc-img circle">
 			<img class="camera-plus" src="assets/imgs/logo.png" *ngIf="!image">
-			<img class="camera-plus" src="{{image}}" *ngIf="image">
+			<img class="camera-plus" src="{{user.user_image}}" *ngIf="image">
 		</div>
 		<div class="acc-name">
 			<p>{{user?.first_name}}</p>
@@ -31,7 +31,7 @@
 		  <button ion-item (click)="presentNotification()">
 		  	Notification
 		  </button>
-		  <button ion-item (click)="termsSetting()">
+		  <button ion-item (click)="inAppButtonClick()">
 		  	Terms and Conditions
 		  </button>
 		</ion-list>

@@ -3,9 +3,11 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage } from '../tabs/tabs';
 import { AddGoalPage } from '../add-goal/add-goal';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 // import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 
 /**
@@ -24,12 +26,16 @@ export class LoginPage {
 	login = {};
   rootPage:any;
   goal:any;
+  
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
-   public toastCntrl:ToastController, public loadingCtrl: LoadingController, private iab: InAppBrowser) {
-  }
+   public toastCntrl:ToastController, public loadingCtrl: LoadingController, 
+   private iab: InAppBrowser) {
 
+
+ 
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
@@ -83,28 +89,7 @@ let loading = this.loadingCtrl.create({
  }
  
  showForgotPassword(){
-let prompt = this.alertCtrl.create({
-  title: 'Enter Your Email',
-  message: "A new password will be sent to your email",
-  inputs: [
-  {
-    name:'email',
-    placeholder:'email'
-  },],
-  buttons:[{
-    text:'Cancel',
-    handler:data =>{
-      console.log('cancel clicked')
-    }
-  },{
-    text:'Submit',
-    handler: data=>{
-      //call user
-    }
-  }
-  ]
-});
-prompt.present();
+this.navCtrl.setRoot(ForgotPasswordPage);
 
  }
  inAppButtonClick(){

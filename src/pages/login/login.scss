@@ -41,4 +41,33 @@ page-login{
 		background-color: transparent;
 		color: #44D0BF;
 	}
+
+	.toolbar-title{
+		font-family:"Montserrat-Bold";
+	}
+
+	#footer{
+		font-size:12px;
+		text-align:center;
+		padding:10px;
+	}
+
+	#footer > a{
+		font-family:"Montserrat-Light";
+	}
+	#footer > b{
+		font-family:"Montserrat-Bold";
+	}	
+
+	ion-input {
+
+	  input {
+	   	font-family: "Montserrat-Light";
+	    /* IF YOU ALSO WANT TO PUSH PLACHEHOLDER TO THE RIGHT USE THE FOLLOWING, IF NOT JUST DELETE THE ::-webkit-input-placeholder*/
+	    ::-webkit-input-placeholder {
+	      text-align: center;
+	    }
+	  }
+	}
+
 }
