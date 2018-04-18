@@ -65,7 +65,7 @@ export class ProfileSettingPage {
 }
 updateForm(){
   let toast = this.toastCtrl.create({
-    message:this.user.user_image ,
+    message:'User successfully updated' ,
     duration: 10000,
     position: 'middle'
   });
@@ -78,7 +78,7 @@ updateForm(){
      this.httpprovider.updateUserInfo(
      this.user.first_name,this.user.last_name,
      this.user.phone_number,this.user.user_image).then((result) => {
-     this.viewCtrl.dismiss();
+     // this.viewCtrl.dismiss();
      },
          (err) => {
          console.log(err);
@@ -103,6 +103,10 @@ this.camera.getPicture(options).then((imageData) => {
  // Handle error
 });
 }
+
+goBack(){
+    this.navCtrl.pop();
+  }
 }
 
 // private getBlob(b64Data:string, contentType:string, sliceSize:number= 512) {
@@ -128,7 +132,5 @@ this.camera.getPicture(options).then((imageData) => {
 //     let blob = new Blob(byteArrays, {type: contentType});
 //     return blob;
 
-  // goBack(){
-  //   this.navCtrl.pop();
-  // }
+  
 

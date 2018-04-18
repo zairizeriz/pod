@@ -20,7 +20,7 @@
 <ion-content>
 	<div class="first-row">
 		<div class="acc-img circle">
-			<!-- <img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!user.user_image"> -->
+			<img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!user.user_image">
 			<img (click)="openCamera()" class="camera-plus" src="{{user.user_image}}" *ngIf="user.user_image">
 			
 		</div>
