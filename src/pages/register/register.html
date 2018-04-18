@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar>
+<ion-header no-border>
+  <ion-navbar color="pure-white">
     <ion-title>
       Create Account
     </ion-title>
@@ -29,12 +29,17 @@
   <div style="text-align: center">
     <a style="color: #000000;"> 8 characters, 1 uppercase, 1 lowercase, 1 number</a>
   </div>
-  <div class="button-register" padding>
+<!--   <div class="button-register" padding>
     <div>
-     <!--  <button (click)="afterRegister()">Sign Up</button> -->
+      <button (click)="afterRegister()">Sign Up</button>
     <button type='submit' [disabled]="!todo.valid">Sign Up</button>
     </div>
-  </div> 
+  </div> -->
+  <div class="btn-main-container" padding>
+    <div>
+      <button type='submit' [disabled]="!todo.valid">Sign Up</button>
+    </div>    
+  </div>   
   </ion-list>
 </form>
 </ion-content>

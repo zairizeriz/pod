@@ -1,0 +1,24 @@
+page-goal-category {
+	h2{
+		color:#44D0BF;
+
+	}
+	ion-content{
+		color:#44D0BF;
+	}
+	.toolbar-title {
+	    font-family: "Montserrat-Bold";
+	}	
+	.item-ios [item-start] {
+	     margin: 12px 0 0 0; 
+	}
+	.item-block:last-child{
+		border-bottom: none !important;
+	}
+	.item-block:first-child{
+		border-top: none !important;
+	}
+	.item-ios ion-avatar img {
+    	border-radius: 0%;
+    }		
+}

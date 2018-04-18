@@ -1,0 +1,37 @@
+page-goal-complete {
+
+	ion-content.goal-complete{
+		background-image:"../assets/imgs/first-row-bg.png"
+	}
+	.content {
+		background-image:url("../assets/imgs/first-row-bg.png");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}	
+
+	#first-row{
+		text-align: center;
+		color: white;
+		font-size: 18px;
+		margin-top: 40px;
+	}
+
+	#first-row > h2{
+		font-family: "Montserrat-Bold";
+	}
+
+	#first-row > p{
+		font-family: "Montserrat-Light";
+	}
+
+	#second-row{
+		text-align: center;
+		margin-top: 180px;
+	}
+
+	#second-row > p{
+		font-family: "Montserrat-Bold";
+		color: white;
+		font-size: 16px;
+	}
+}

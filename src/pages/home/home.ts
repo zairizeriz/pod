@@ -3,9 +3,13 @@ import { NavController } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
 // import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
+<<<<<<< HEAD
 import { LoadingController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 // import { GoalDueDatePage } from '../goal-due-date/goal-due-date';
+=======
+import { GoalCompletePage } from '../goal-complete/goal-complete';
+>>>>>>> 2de477f216c4444320e00a160079be78e0d607dd
 
 
 @Component({
@@ -68,8 +72,14 @@ export class HomePage {
 //   this.navCtrl.push(AddGoalPage);
 // }
 
+<<<<<<< HEAD
 // goPage(){
 //   this.navCtrl.push(GoalDueDatePage);
 // }
+=======
+goPage(){
+  this.navCtrl.push(GoalCompletePage);
+}
+>>>>>>> 2de477f216c4444320e00a160079be78e0d607dd
 
 }
