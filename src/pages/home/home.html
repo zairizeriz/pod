@@ -11,9 +11,13 @@
 
 <ion-content  no-bounce>
   <div class="first-row">
-    <div class="outter-circle circle">
+    <!-- <div class="outter-circle circle">
       <img src={{goalsHome.goal_image}} class="circle">
+    </div> -->
+    <div class="circle-container" style="width: 200px; margin: 0 auto">
+      <ks-circle-progress [options]="circleOptions"></ks-circle-progress>
     </div>
+    <img src={{goalsHome.goal_image}} class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
     <div class="goal-text">
       <span class="btn-edit-goal"></span><strong>{{goalsHome.goal_name}}</strong>
     </div>
