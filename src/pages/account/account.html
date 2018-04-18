@@ -16,8 +16,8 @@
 <ion-content no-bounce>
 	<div class="first-row">
 		<div class="acc-img circle">
-			<img class="camera-plus" src="assets/imgs/logo.png" *ngIf="!image">
-			<img class="camera-plus" src="{{user.user_image}}" *ngIf="image">
+			<!-- <img class="camera-plus" src="assets/imgs/logo.png" *ngIf={{image}}>
+ -->			<img class="camera-plus" src="{{image}}">
 		</div>
 		<div class="acc-name">
 			<p>{{user?.first_name}}</p>

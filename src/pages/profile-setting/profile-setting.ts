@@ -23,7 +23,6 @@ export class ProfileSettingPage {
 
   hideMe = false;
   base64Image:any;
-
   // user:any;
   userObj : any;
 	user = {
@@ -66,7 +65,7 @@ export class ProfileSettingPage {
 }
 updateForm(){
   let toast = this.toastCtrl.create({
-    message: 'Profile was updated successfully',
+    message:this.user.user_image ,
     duration: 10000,
     position: 'middle'
   });
@@ -76,9 +75,10 @@ updateForm(){
   console.log(this.user);
   toast.dismiss();
 
-     this.httpprovider.updateUserInfo(this.user.user_image,this.user.first_name,this.user.last_name,
-       this.user.phone_number).then((result) => {
-          this.viewCtrl.dismiss();
+     this.httpprovider.updateUserInfo(
+     this.user.first_name,this.user.last_name,
+     this.user.phone_number,this.user.user_image).then((result) => {
+     this.viewCtrl.dismiss();
      },
          (err) => {
          console.log(err);
@@ -97,13 +97,38 @@ this.camera.getPicture(options).then((imageData) => {
  // If it's base64:
 
  this.base64Image = 'data:image/jpeg;base64,' + imageData;
- this.user.user_image=this.base64Image
+ this.user.user_image = imageData
+ console.log(this.user.user_image)
 }, (err) => {
  // Handle error
 });
 }
+}
+
+// private getBlob(b64Data:string, contentType:string, sliceSize:number= 512) {
+//     contentType = contentType || '';
+//     sliceSize = sliceSize || 512;
+
+//     let byteCharacters = atob(b64Data);
+//     let byteArrays = [];
+
+//     for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+//         let slice = byteCharacters.slice(offset, offset + sliceSize);
+
+//         let byteNumbers = new Array(slice.length);
+//         for (let i = 0; i < slice.length; i++) {
+//             byteNumbers[i] = slice.charCodeAt(i);
+//         }
+
+//         let byteArray = new Uint8Array(byteNumbers);
+
+//         byteArrays.push(byteArray);
+//     }
+
+//     let blob = new Blob(byteArrays, {type: contentType});
+//     return blob;
+
   // goBack(){
   //   this.navCtrl.pop();
   // }
-}
 

@@ -114,7 +114,30 @@ getCode(phone_number){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities', {headers: headers})
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities',
+      {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getGoalHome(){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user',
+      {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -146,13 +169,14 @@ getCode(phone_number){
    });
  }
 
- updateUserInfo(user_image,first_name,last_name,phone_number){
+ updateUserInfo(first_name,last_name,phone_number,user_image){
 
 let data = {
-  user_image : user_image,
+  
   first_name : first_name,
   last_name : last_name,
-  phone_number : phone_number
+  phone_number : phone_number,
+  user_image : user_image
 }
    return new Promise((resolve, reject) => {
 
@@ -164,7 +188,7 @@ let data = {
      .subscribe(res => {
      
        let data = res.json();
-       console.log(data);
+       console.log('data');
        resolve(data);
      
      }, (err) => {
