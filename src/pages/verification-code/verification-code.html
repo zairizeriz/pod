@@ -8,18 +8,27 @@
 
 
 <ion-content padding>
+  <div>
 	<p>Enter the 6 digit code</p>
+  </div>
+  <form (submit)="verify()">
+    <ion-list>
   <ion-item>
-        <ion-input name="code" value="" placeholder="" style="width: 150px;"></ion-input>
-        </ion-item>
+        <ion-input type="verified" [(ngModel)]="code" name="verified" placeholder="Verification Code" style="width: 150px;"></ion-input>
+  </ion-item>
+
+  
 
 	<div class="send-code" padding>
     <div>
-    <button (click)="afterCodeVerification()">Verify</button>
+    <button type='submit'>Verify</button>
     </div>
   </div>
+  </ion-list>
+  </form>
   <div class=".btnAgain" (click)="sendAgain()">
       <a style="color: #000000;">Didn’t get the code? We’ll send it again.</a>
     </div>
+
 
 </ion-content>

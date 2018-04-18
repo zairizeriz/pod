@@ -48,17 +48,42 @@ export class HttpProvider {
         this.token.remove('id_token');
         this.token = null;
     }
-getCode(phone_number){
-  let data={phone_number:phone_number}
-   return new Promise((resolve, reject) => {
 
-  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',data)
+getCode(data){
+  return new Promise((resolve, reject) => {
+  let headers = new Headers();
+       headers.append('Content-Type', 'application/json');
+
+  
+   console.log(data)
+   
+
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',JSON.stringify(data), {headers: headers})
        .map(
          res => res.json())
        .subscribe(
          data => {
-           resolve(data.data);
-           console.log('data')
+           resolve(data.user);
+           console.log(data.user)
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getCodeVerify(data){
+  
+  return new Promise((resolve, reject) => {
+  let headers = new Headers();
+       headers.append('Content-Type', 'application/json');
+   console.log(data)
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verify',JSON.stringify(data), {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data);
+           // console.log(data.user)
        }, (err) => {
          reject(err);
        });
