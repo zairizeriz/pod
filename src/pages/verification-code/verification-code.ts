@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignUpCompletePage } from '../sign-up-complete/sign-up-complete';
 import { HttpProvider } from '../../providers/http/http';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the VerificationCodePage page.
@@ -19,7 +20,8 @@ export class VerificationCodePage {
   currentUser
   code:any;
   user:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public httpprovider:HttpProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,public httpprovider:HttpProvider,public loadingCtrl: LoadingController) {
    this.currentUser=this.navParams.get('user')
     console.log(this.currentUser)
   }
@@ -35,6 +37,12 @@ export class VerificationCodePage {
   // }
 
   verify(){
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
 
     let data = {
       user_id : this.currentUser.id,
@@ -49,6 +57,7 @@ export class VerificationCodePage {
        // console.log(this.user)
        // console.log(this.phone_number)
        // console.log(this.email)
+       loading.dismiss();
      },
      err => {
        console.log(err);
