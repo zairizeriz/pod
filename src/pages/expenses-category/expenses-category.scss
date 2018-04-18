@@ -1,9 +1,8 @@
 page-expenses-category {
     .square{
-        background-color: yellow;
         width: inherit;
         display: inline-block;
-        padding: 15px;
+        padding: 13px;
         text-align: center;
         font-size: 14px;
         margin: 10px 10px 10px 10px;
@@ -17,6 +16,8 @@ page-expenses-category {
     }
     
     ul{
+    	margin: 0 auto;
+    	padding: 0;
         text-align: center;
     }
     ul,li{

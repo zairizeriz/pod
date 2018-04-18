@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera';
-import { ProgressBarModule } from 'angular2-progressbar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -39,7 +38,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
   declarations: [
     MyApp,
     LoginPage,
-    RegisterPage,
+    RegisterPage, 
     TutorialPage,
     AboutPage,
     AccountPage,
@@ -68,7 +67,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    ProgressBarModule,
+  
 
   ],
   bootstrap: [IonicApp],

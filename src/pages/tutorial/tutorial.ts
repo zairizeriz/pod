@@ -5,7 +5,7 @@ import {RegisterPage} from '../register/register';
 import {VerificationPage} from '../verification/verification';
 import {SignUpCompletePage} from '../sign-up-complete/sign-up-complete';
 import {AddGoalPage} from '../add-goal/add-goal';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular'; 
 
 /**
  * Generated class for the TutorialPage page.
