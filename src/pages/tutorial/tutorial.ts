@@ -47,11 +47,7 @@ slides = [
           {
             description:"Get rewarded once you have achieved your desired goal",
             image: 'assets/imgs/onboard3@3x.png',	
-          },
-          {
-            description:"Connect with friends and family to achieve common goals",
-            image: 'assets/imgs/onboard4@3x.png',
-          }
+           }
         ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,

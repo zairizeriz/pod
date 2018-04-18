@@ -41,10 +41,11 @@ export class AccountPage {
      this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
-       loading.dismiss();
+       
        this.user=response
        this.image=this.user.user_image
        console.log(this.user)
+       loading.dismiss();
      },
      err => {
        console.log(err);

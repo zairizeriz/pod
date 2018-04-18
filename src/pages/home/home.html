@@ -11,11 +11,15 @@
 
 <ion-content  no-bounce>
   <div class="first-row">
-    <div class="outter-circle circle">
-      <img src="assets/imgs/iceland.jpg" class="circle">
+    <!-- <div class="outter-circle circle">
+      <img src={{goalsHome.goal_image}} class="circle">
+    </div> -->
+    <div class="circle-container" style="width: 200px; margin: 0 auto">
+      <ks-circle-progress [options]="circleOptions"></ks-circle-progress>
     </div>
+    <img src={{goalsHome.goal_image}} class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
     <div class="goal-text">
-      <span class="btn-edit-goal"></span><strong>Iceland Trip</strong>
+      <span class="btn-edit-goal"></span><strong>{{goalsHome.goal_name}}</strong>
     </div>
   </div>
   <div class="second-row">
@@ -26,11 +30,11 @@
   </div>
   <div class="last-row">
     <div class="col1 target-amount">
-      <span class="text-style">RM 1500</span><br/>
+      <span class="text-style"><a style="color: #000000;">RM </a>{{goalsHome.amount}}</span><br/>
       <span class="desc text-style2">Target amount</span>
     </div>
     <div class="col2 target-date">
-      <span class="text-style">July 2018</span><br/>
+      <span class="text-style">{{goalsHome.date| date: 'MMM yyyy'}}</span><br/>
       <span class="desc text-style2">Target date</span>
     </div>
     <!-- <div style="clear: both;"></div>

@@ -48,17 +48,42 @@ export class HttpProvider {
         this.token.remove('id_token');
         this.token = null;
     }
-getCode(phone_number){
-  let data={phone_number:phone_number}
-   return new Promise((resolve, reject) => {
 
-  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',data)
+getCode(data){
+  return new Promise((resolve, reject) => {
+  let headers = new Headers();
+       headers.append('Content-Type', 'application/json');
+
+  
+   console.log(data)
+   
+
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',JSON.stringify(data), {headers: headers})
        .map(
          res => res.json())
        .subscribe(
          data => {
-           resolve(data.data);
-           console.log('data')
+           resolve(data.user);
+           console.log(data.user)
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getCodeVerify(data){
+  
+  return new Promise((resolve, reject) => {
+  let headers = new Headers();
+       headers.append('Content-Type', 'application/json');
+   console.log(data)
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verify',JSON.stringify(data), {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data);
+           // console.log(data.user)
        }, (err) => {
          reject(err);
        });
@@ -114,7 +139,30 @@ getCode(phone_number){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities', {headers: headers})
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities',
+      {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getGoalHome(){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user',
+      {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -146,13 +194,14 @@ getCode(phone_number){
    });
  }
 
- updateUserInfo(user_image,first_name,last_name,phone_number){
+ updateUserInfo(first_name,last_name,phone_number,user_image){
 
 let data = {
-  user_image : user_image,
+  
   first_name : first_name,
   last_name : last_name,
-  phone_number : phone_number
+  phone_number : phone_number,
+  user_image : user_image
 }
    return new Promise((resolve, reject) => {
 
@@ -164,7 +213,7 @@ let data = {
      .subscribe(res => {
      
        let data = res.json();
-       console.log(data);
+       console.log('data');
        resolve(data);
      
      }, (err) => {

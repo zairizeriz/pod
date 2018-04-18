@@ -4,7 +4,10 @@ import { HttpProvider } from '../../providers/http/http';
 // import { HomePage } from '../../pages/home/home';
 import { ToastController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
-import{ GoalNamePage } from '../goal-name/goal-name'
+import{ GoalNamePage } from '../goal-name/goal-name';
+import{ GoalTargetAmountPage } from '../goal-target-amount/goal-target-amount';
+import{ GoalDueDatePage } from '../goal-due-date/goal-due-date';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the AddGoalPage page.
@@ -21,11 +24,12 @@ import{ GoalNamePage } from '../goal-name/goal-name'
 export class AddGoalPage {
 	goal= {};
   categories:any;
+  base64Image:any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider, private toastCtrl: ToastController, 
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,private camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -63,7 +67,34 @@ addGoalForm(){
  }
  goalName() {
     // this.httpprovider.logout();
-    this.navCtrl.setRoot(GoalNamePage);
+    this.navCtrl.push(GoalNamePage);
   }
 
+  goalTargetAmount() {
+    // this.httpprovider.logout();
+    this.navCtrl.push(GoalTargetAmountPage);
+  }
+
+  goalTargetDate() {
+    // this.httpprovider.logout();
+    this.navCtrl.push(GoalDueDatePage);
+  }
+openCamera(){
+     const options: CameraOptions = {
+  quality: 70,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+this.camera.getPicture(options).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+
+ this.base64Image = 'data:image/jpeg;base64,' + imageData;
+ // this.user.user_image = imageData
+ // console.log(this.user.user_image)
+}, (err) => {
+ // Handle error
+});
+}
 }
