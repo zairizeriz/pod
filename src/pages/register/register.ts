@@ -49,7 +49,7 @@ todo : FormGroup;
   console.log(this.todo.value);
 
      this.httpprovider.registerUser(this.todo.value).then((result) => {
-     this.navCtrl.push(VerificationPage);           
+     this.navCtrl.push(VerificationPage,{email:this.todo.value.email});           
      },
          (err) => {
          console.log(err);

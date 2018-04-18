@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerificationCodePage } from '../verification-code/verification-code';
 import { HttpProvider } from '../../providers/http/http';
+import { LoadingController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 /**
@@ -18,13 +19,19 @@ import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 })
 export class VerificationPage {
-  code = {}
+  code = {
+    email:"",
+    phone_number:""
+  }
   user:any;
+  email
 
   // todo : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public httpprovider:HttpProvider, public formBuilder:FormBuilder) {
+    public httpprovider:HttpProvider, public formBuilder:FormBuilder, 
+    public loadingCtrl: LoadingController) {
+
 
     // this.todo = this.formBuilder.group({
       
@@ -36,7 +43,10 @@ export class VerificationPage {
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad VerificationPage');
+        this.code.email=this.navParams.get('email')
+
   }
 
   // afterPhoneVerification() {
@@ -45,6 +55,12 @@ export class VerificationPage {
   // }
 
   getphone(user){
+let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
 
     this.httpprovider.getCode(this.code).then(
      (response) => {
@@ -54,6 +70,7 @@ export class VerificationPage {
        // console.log(this.user)
        // console.log(this.phone_number)
        // console.log(this.email)
+       loading.dismiss();
      },
      err => {
        console.log(err);

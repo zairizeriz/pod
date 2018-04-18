@@ -15,18 +15,18 @@
 
 <ion-content padding>
   <div>
-	<p>Enter phone number and email to receive the 6 digit-</p>
+	<p>Enter phone number to receive the 6 digit-</p>
 	<p>code</p>
   </div>
   <form (submit)="getphone()">
     <ion-list>
   <ion-item>
-        <ion-input type="phone_number" [(ngModel)]="code.phone_number" name="phone_number" placeholder="Phone Number" style="width: 150px;"></ion-input>
+       +60  <ion-input type="tel" [(ngModel)]="code.phone_number" name="phone_number" placeholder="Phone Number" style="width: 150px;"></ion-input>
   </ion-item>
 
-  <ion-item>
+  <!-- <ion-item>
         <ion-input type="email" [(ngModel)]="code.email" name="email" placeholder="Email" style="width: 150px;"></ion-input>
-  </ion-item>
+  </ion-item> -->
 	<div class="button-send-code" padding>
     <div>
     <button type='submit'>Send Code</button>
