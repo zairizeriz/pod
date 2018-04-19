@@ -14,15 +14,21 @@
 
 
 <ion-content padding>
+	<form (submit)="targetGoalName()">
 	<div class="first-row">
 		<ion-grid>
 		  <ion-row>
 		    <ion-col>
 			    <ion-item id="input-expense">
-					<ion-input  type="text" name="amount" value="" placeholder="Goal Name" style="width: 150px;"></ion-input>
+					<ion-input [(ngModel)]="goal_name" type="text" name="goal_name" value="" placeholder="Goal Name" style="width: 150px;"></ion-input>
 				</ion-item>
 			</ion-col>
 		  </ion-row>
 		</ion-grid>
   	</div>
+  	<div>
+      <button type='submit'>Continue</button>
+    </div>
+  	</form>
+  	 
 </ion-content>

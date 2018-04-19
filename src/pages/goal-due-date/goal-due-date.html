@@ -14,15 +14,20 @@
 
 
 <ion-content padding>
+	<form (submit)="targetGoalDueDate()">
 	<div class="first-row">
 		<ion-grid>
 		  <ion-row>
 		    <ion-col>
 			    <ion-item id="input-expense">
-					<ion-datetime name="amount" value="" placeholder="Date" style="width: 150px;"></ion-datetime>
+					<ion-input [(ngModel)]="due_date" type= "date" name="due_date" value="" placeholder="Date" style="width: 150px;"></ion-input>
 				</ion-item>
 			</ion-col>
 		  </ion-row>
 		</ion-grid>
   	</div>
+  	<div>
+      <button type='submit'>Continue</button>
+    </div>
+  </form>
 </ion-content>

@@ -59,12 +59,12 @@ let loading = this.loadingCtrl.create({
          toast.present();
 
        }else{
-         this.httpprovider.getGoal( ).then(
+         this.httpprovider.getGoalHome( ).then(
          (response) => {
            
            this.goal = response
-           console.log(this.goal.length)
-           if (this.goal.length == 0) {
+           console.log(this.goal)
+           if (this.goal == 'No Goal') {
               this.navCtrl.setRoot(AddGoalPage);
 
             } else {

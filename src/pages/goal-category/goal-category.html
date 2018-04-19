@@ -15,13 +15,13 @@
 
 <ion-content padding>
 <ion-list>
-  <ion-item>
+  <ion-item *ngFor="let category of categories" (click)="targetGoalCategory(category.id)">
     <ion-avatar item-start>
       <img src="../assets/icon/travel.png" style="width: 25px;height: 20px;">
     </ion-avatar>
-    <h2>Travel</h2>
+    <h2>{{category.category}}</h2>
   </ion-item>
-   <ion-item>
+   <!-- <ion-item>
     <ion-avatar item-start>
       <img src="../assets/icon/gadgets.png" style="width: 25px;height: 20px;">
     </ion-avatar>
@@ -38,6 +38,6 @@
       <img src="../assets/icon/others.png" style="width: 25px;height: 20px;">
     </ion-avatar>
     <h2>Others</h2>
-  </ion-item>   
+  </ion-item>  --> 
 </ion-list>
 </ion-content>

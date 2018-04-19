@@ -224,11 +224,15 @@ let data = {
 
 
 
- getCategory(){
-   return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories")
+ getCategoryExpense(){
+   return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories/expense")
    .map(res => res.json())
  }
 
+ getCategoryGoal(){
+   return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories/goal")
+   .map(res => res.json())
+ }
  createGoal(details){
 
    return new Promise((resolve, reject) => {

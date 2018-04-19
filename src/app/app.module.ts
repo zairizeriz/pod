@@ -33,7 +33,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { GoalNamePage } from '../pages/goal-name/goal-name';
 import { GoalTargetAmountPage } from '../pages/goal-target-amount/goal-target-amount';
 import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
+import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     GoalNamePage,
     GoalTargetAmountPage,
     GoalDueDatePage,
+    GoalCategoryPage,
     ForgotPasswordPage    
     
   ],
@@ -94,6 +97,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     GoalNamePage,
     GoalTargetAmountPage,
     GoalDueDatePage,
+    GoalCategoryPage,
     ForgotPasswordPage
   ],
   providers: [

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
 // import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
@@ -19,6 +19,9 @@ import {
   templateUrl: 'home.html'
 })
 export class HomePage {
+  goal = {
+    goal_name:""
+  }
 
   @ViewChild(CircleProgressComponent) circleComp: CircleProgressComponent;
 
@@ -49,11 +52,12 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
     public modalCtrl: ModalController, public loadingCtrl: LoadingController, 
-    public httpprovider:HttpProvider) {
+    public httpprovider:HttpProvider,public navParams: NavParams) {
 
   }
 
   ionViewDidLoad() {
+    this.goal.goal_name=this.navParams.get('goal_name')
 
     this.circleComp.animate(0.8);
     

@@ -4,6 +4,7 @@ import { HttpProvider } from '../../providers/http/http';
 import {VerificationPage} from '../verification/verification';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @IonicPage()
@@ -23,7 +24,8 @@ todo : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public formBuilder:FormBuilder, public httpprovider:HttpProvider, 
-    private iab: InAppBrowser, public loadingCtrl: LoadingController) {
+    private iab: InAppBrowser, public loadingCtrl: LoadingController, 
+    private toastCtrl: ToastController) {
 
      this.todo = this.formBuilder.group({
       first_name: new FormControl('', Validators.compose([Validators.required])),
@@ -49,9 +51,27 @@ todo : FormGroup;
   console.log(this.todo.value);
 
      this.httpprovider.registerUser(this.todo.value).then((result) => {
-     this.navCtrl.push(VerificationPage,{email:this.todo.value.email});           
+
+       let response = result;
+       console.log(response);
+       if(response == 'Email already exists')
+       { console.log('lalu')
+         let toast = this.toastCtrl.create({
+          message: 'Email already exists',
+           duration: 3000,
+          position: 'bottom'
+
+  });
+         toast.present();
+
+       }
+       else{
+         this.navCtrl.push(VerificationPage,{email:this.todo.value.email});
+       }
+                  
      },
          (err) => {
+         console.log('lalu');
          console.log(err);
      });
  }

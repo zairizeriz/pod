@@ -30,7 +30,7 @@ expense= {};
 
  ionViewDidLoad() {
 
-     this.httpprovider.getCategory().subscribe(
+     this.httpprovider.getCategoryExpense().subscribe(
      response => {
        console.log(response)
        this.categories=response.data
