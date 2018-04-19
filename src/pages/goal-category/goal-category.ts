@@ -46,17 +46,12 @@ expense= {};
    );
   }
 
-targetGoalCategory(category_id){
+targetGoalCategory(category_id,cat_name){
 
    window.localStorage.setItem('category_id', category_id);
-    console.log(window.localStorage);
-
-     // this.navCtrl.push(AddGoalPage,{goal_name:this.goal_name,
-     //  amount:this.amount, due_date:this.due_date, category_id:category_id})   
-     // console.log(this.goal_name)  
-     // console.log(this.amount)   
-     // console.log(this.due_date)
-     // console.log(category_id)    
+   window.localStorage.setItem('cat_name', cat_name);
+    this.navCtrl.pop()
+ 
     
 
 }

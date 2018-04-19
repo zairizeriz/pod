@@ -18,8 +18,8 @@
   <form (ngSubmit)="addGoalForm()">      
   <div class="first-row">
     <div class="circle" style="border: solid 5px white;padding: 10px;position: relative;">
-      <img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!goal_image">
-      <img (click)="openCamera()" class="camera-plus" src="{{goal_image}}" *ngIf="goal_image">
+      <img (click)="openCamera()" class="camera-plus circle-image" src="assets/imgs/logo.png" *ngIf="!goal_image">
+      <img (click)="openCamera()" class="camera-plus circle-image" src="{{goal_image}}" *ngIf="goal_image">
       <!-- <img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png"> -->
       <!-- <img (click)="openCamera()" class="camera-plus" src="{{base64Image}}"> -->
     </div>
@@ -28,7 +28,7 @@
   <div class="second-row">
     <div id="goal-para">
       <p>
-        I want to save for <b style="color: #44D0BF;" (click)="goalName()">goal name</b>. I'll be needing <b style="color: #44D0BF;" (click)="goalTargetAmount()">this amount</b>. I want to achieved it by <b style="color: #44D0BF;" (click)="goalTargetDate()">this date</b>. My goal's category is, <b style="color: #44D0BF;" (click)="goalTargetCategory()">choose</b>.
+        I want to save for <b style="color: #44D0BF;" (click)="goalName()">{{goal_name}}</b>. I'll be needing <b style="color: #44D0BF;" (click)="goalTargetAmount()">{{amount}}</b>. I want to achieved it by <b style="color: #44D0BF;" (click)="goalTargetDate()">{{due_date}}</b>. My goal's category is, <b style="color: #44D0BF;" (click)="goalTargetCategory()">{{category_name}}</b>.
       </p>
     </div>
   </div>

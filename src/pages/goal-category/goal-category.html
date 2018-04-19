@@ -15,7 +15,7 @@
 
 <ion-content padding>
 <ion-list>
-  <ion-item *ngFor="let category of categories" (click)="targetGoalCategory(category.id)">
+  <ion-item *ngFor="let category of categories" (click)="targetGoalCategory(category.id, category.category)">
     <ion-avatar item-start>
       <img src="../assets/icon/travel.png" style="width: 25px;height: 20px;">
     </ion-avatar>
