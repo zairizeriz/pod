@@ -34,6 +34,7 @@ import { GoalTargetAmountPage } from '../pages/goal-target-amount/goal-target-am
 import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { ProgressBarModule } from 'angular2-progressbar';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     HttpModule,
     HttpClientModule,
     FormsModule,
+    ProgressBarModule
   
 
   ],
