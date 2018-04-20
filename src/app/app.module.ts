@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera';
+import { ProgressBarModule } from 'angular2-progressbar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -34,7 +35,6 @@ import { GoalTargetAmountPage } from '../pages/goal-target-amount/goal-target-am
 import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
-import { ProgressBarModule } from 'angular2-progressbar';
 
 
 @NgModule({
@@ -71,7 +71,9 @@ import { ProgressBarModule } from 'angular2-progressbar';
     HttpModule,
     HttpClientModule,
     FormsModule,
+    BrowserModule, 
     ProgressBarModule
+
   
 
   ],

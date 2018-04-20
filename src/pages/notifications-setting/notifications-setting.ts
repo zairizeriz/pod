@@ -15,10 +15,13 @@ import { ViewController } from 'ionic-angular'
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
+<<<<<<< HEAD
   summary : any
   milestones : any;
   savings : any;
   expenses : any;
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   	public viewCtrl:ViewController) {
@@ -38,5 +41,7 @@ export class NotificationsSettingPage {
     window.localStorage.setItem('savings', this.savings)
     window.localStorage.setItem('expenses', this.expenses)
    this.viewCtrl.dismiss();
+ 
+
  }
 }
