@@ -15,14 +15,11 @@ import { ViewController } from 'ionic-angular'
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
-<<<<<<< HEAD
   summary : any
   milestones : any;
   savings : any;
   expenses : any;
-
-
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   	public viewCtrl:ViewController) {
   }
