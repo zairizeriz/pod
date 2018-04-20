@@ -97,8 +97,8 @@ this.camera.getPicture(options).then((imageData) => {
  // If it's base64:
 
  this.base64Image = 'data:image/jpeg;base64,' + imageData;
- this.user.user_image = imageData
- console.log(this.user.user_image)
+ this.user.user_image = this.base64Image
+
 }, (err) => {
  // Handle error
 });

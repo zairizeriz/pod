@@ -22,24 +22,23 @@
   <form>
   <ion-item>
     <ion-label>Goal Milestones</ion-label>
-    <ion-toggle [(ngModel)]="toggleGMValue" name="toggleGMValue" value=""></ion-toggle>  
-  </ion-item>
-  <!--   <ion-item>
-    <ion-label [(ngModel)]="toggleSAValue" name="toggleSAValue" value="">Savings Activity</ion-label>
-    <ion-toggle></ion-toggle>
+
+    <ion-toggle [(ngModel)]="milestones"></ion-toggle>
   </ion-item>
     <ion-item>
-    <ion-label [(ngModel)]="toggleDSValue" name="toggleDSValue" value="">Daily Summary</ion-label>
-    <ion-toggle></ion-toggle>
+    <ion-label>Savings Activity</ion-label>
+    <ion-toggle [(ngModel)]="savings"></ion-toggle>
   </ion-item>
     <ion-item>
-    <ion-label [(ngModel)]="toggleERValue" name="toggleERValue" value="">Expenses Reminder</ion-label>
-    <ion-toggle></ion-toggle>
-  </ion-item> -->
-  {{toggleGMValue}}
-  <!-- {{toggleSAValue}}
-  {{toggleDSValue}}
-  {{toggleERValue}} -->
+    <ion-label>Daily Summary</ion-label>
+    <ion-toggle [(ngModel)]="summary"></ion-toggle>
+  </ion-item>
+    <ion-item>
+    <ion-label>Expenses Reminder</ion-label>
+    <ion-toggle [(ngModel)]="expenses"></ion-toggle>
+  </ion-item>
+
 </form>
 
+\
 </ion-content>

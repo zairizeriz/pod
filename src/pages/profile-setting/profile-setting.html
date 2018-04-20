@@ -1,7 +1,7 @@
 <ion-header no-border>
 
   <ion-navbar color="navbar">
-    <ion-title>Profile Setting</ion-title>
+    <ion-title>Profile Settings</ion-title>
         <ion-buttons left>
       <button ion-button icon-only (click)="goBack()">
         <span class="btn-back-nav"></span>
@@ -50,7 +50,7 @@
 		  </ion-item> -->
 		  <ion-item>
 		    <ion-label color="grey" floating  class="my-label">Phone</ion-label>
-		    <ion-input [(ngModel)]="user.phone_number"></ion-input>
+		    <ion-input [(ngModel)]="user.phone_number" type="tel"></ion-input>
 		  </ion-item>
 	
 	</div>

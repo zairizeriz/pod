@@ -15,22 +15,33 @@ import { ViewController } from 'ionic-angular'
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
-  toggleValue:any;
-  toggleGMValue: boolean = false;
-  // toggleSAValue: boolean = false;
-  // toggleDSValue: boolean = false;
-  // toggleERValue: boolean = false;
+<<<<<<< HEAD
+  summary : any
+  milestones : any;
+  savings : any;
+  expenses : any;
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   	public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificationsSettingPage');
+       this.summary =  window.localStorage.getItem('summary')  ? window.localStorage.getItem('summary') : false  
+       this.milestones = window.localStorage.getItem('milestones') ? window.localStorage.getItem('milestones') : false
+       this.savings = window.localStorage.getItem('savings') ? window.localStorage.getItem('savings') : false
+       this.expenses = window.localStorage.getItem('expenses') ? window.localStorage.getItem('expenses') : false
+ 
   }
   dismiss() {
+    window.localStorage.setItem('summary', this.summary)
+    window.localStorage.setItem('milestones', this.milestones)
+    window.localStorage.setItem('savings', this.savings)
+    window.localStorage.setItem('expenses', this.expenses)
    this.viewCtrl.dismiss();
-   this.toggleValue= this.toggleGMValue;
-   window.localStorage.setItem('toggleGMValue', this.toggleValue);
+ 
 
  }
 }
