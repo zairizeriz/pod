@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.subtera.pod" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.subtera.pod" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/0.05">
     <name>pod</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description>pod savings</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
