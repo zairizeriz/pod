@@ -29,7 +29,7 @@ export class GoalTargetAmountPage {
 targetGoalAmount(value){
 
    window.localStorage.setItem('amount', this.amount);
-    console.log(window.localStorage);
+    this.navCtrl.pop()  
 
      // this.navCtrl.push(GoalDueDatePage,{goal_name:this.goal_name, amount:this.amount})   
      // console.log(this.goal_name)  

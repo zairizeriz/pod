@@ -26,37 +26,36 @@ export class LoginPage {
 	login = {};
   rootPage:any;
   goal:any;
+
   
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
    public toastCntrl:ToastController, public loadingCtrl: LoadingController, 
    private iab: InAppBrowser) {
-
-
- 
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-signInUser(){
-console.log(this.login);
-let loading = this.loadingCtrl.create({
-    spinner: 'ios',
-    content: 'Loading Please Wait...'
-  });
+  signInUser(){
+  console.log(this.login);
+  let loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Loading Please Wait...'
+    });
 
   loading.present();
      this.httpprovider.loginUser(this.login).then((result) => {
- loading.dismiss();
-       if (result['response'] === 'error'){
-       console.log('lalu')
-         let toast = this.toastCntrl.create({
-           message: 'Email and Password did not match. Please try again.',
-           duration:3000,
-           position: 'bottom'
-         });
-         toast.present();
+   loading.dismiss();
+         if (result['response'] === 'error'){
+         console.log('lalu')
+           let toast = this.toastCntrl.create({
+             message: 'Email and Password did not match. Please try again.',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
 
        }else{
          this.httpprovider.getGoalHome( ).then(
@@ -68,24 +67,18 @@ let loading = this.loadingCtrl.create({
               this.navCtrl.setRoot(AddGoalPage);
 
             } else {
-              this.navCtrl.setRoot(TabsPage);
-              
+              this.navCtrl.setRoot(TabsPage); 
             }
          },
          err => {
            console.log(err);
          },
        );
-
-         
-         // this.navCtrl.setRoot(TabsPage)
-       }
-                
+       }          
      },
          (err) => {
          console.log(err);
      });
-
  }
  
  showForgotPassword(){

@@ -9,7 +9,6 @@ page-add-goal{
 		justify-content: center;
 	}
 
-
 	.button-goal > div{
 	    border-radius: 50px 50px;
 	    width: 100%;
@@ -78,8 +77,11 @@ page-add-goal{
 
 	.first-row > div > img {
 	    position: absolute;
-	    top: 55px;
-	    left: 50px;
+	    left: 0px;
+	    top: 0px;
+	    height:154px;
+	    width:154px;
+	    border-radius: 50%;
     }
 
     #goal-para{

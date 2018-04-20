@@ -71,7 +71,9 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule, ProgressBarModule
+    BrowserModule, 
+    ProgressBarModule
+
   
 
   ],

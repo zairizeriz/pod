@@ -19,20 +19,27 @@
 
 
 <ion-content padding>
+  <form>
   <ion-item>
     <ion-label>Goal Milestones</ion-label>
+    <ion-toggle [(ngModel)]="toggleGMValue" name="toggleGMValue" value=""></ion-toggle>  
+  </ion-item>
+  <!--   <ion-item>
+    <ion-label [(ngModel)]="toggleSAValue" name="toggleSAValue" value="">Savings Activity</ion-label>
     <ion-toggle></ion-toggle>
   </ion-item>
     <ion-item>
-    <ion-label>Savings Activity</ion-label>
+    <ion-label [(ngModel)]="toggleDSValue" name="toggleDSValue" value="">Daily Summary</ion-label>
     <ion-toggle></ion-toggle>
   </ion-item>
     <ion-item>
-    <ion-label>Daily Summary</ion-label>
+    <ion-label [(ngModel)]="toggleERValue" name="toggleERValue" value="">Expenses Reminder</ion-label>
     <ion-toggle></ion-toggle>
-  </ion-item>
-    <ion-item>
-    <ion-label>Expenses Reminder</ion-label>
-    <ion-toggle></ion-toggle>
-  </ion-item>
+  </ion-item> -->
+  {{toggleGMValue}}
+  <!-- {{toggleSAValue}}
+  {{toggleDSValue}}
+  {{toggleERValue}} -->
+</form>
+
 </ion-content>

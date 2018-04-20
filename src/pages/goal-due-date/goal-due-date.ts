@@ -32,7 +32,7 @@ export class GoalDueDatePage {
 
     window.localStorage.setItem('due_date', this.due_date);
     console.log(window.localStorage);
-
+  this.navCtrl.pop()
 
      // this.navCtrl.push(GoalCategoryPage,{goal_name:this.goal_name,
      //  amount:this.amount, due_date:this.due_date})   

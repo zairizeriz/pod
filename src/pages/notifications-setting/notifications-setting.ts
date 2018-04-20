@@ -15,7 +15,11 @@ import { ViewController } from 'ionic-angular'
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
-
+  toggleValue:any;
+  toggleGMValue: boolean = false;
+  // toggleSAValue: boolean = false;
+  // toggleDSValue: boolean = false;
+  // toggleERValue: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   	public viewCtrl:ViewController) {
   }
@@ -25,5 +29,8 @@ export class NotificationsSettingPage {
   }
   dismiss() {
    this.viewCtrl.dismiss();
+   this.toggleValue= this.toggleGMValue;
+   window.localStorage.setItem('toggleGMValue', this.toggleValue);
+
  }
 }

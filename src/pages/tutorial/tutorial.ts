@@ -58,9 +58,6 @@ slides = [
        
   }
 
-  ionViewDidLoad() {
-  }
-
 signIn(){
   this.navCtrl.push(LoginPage);
 }
