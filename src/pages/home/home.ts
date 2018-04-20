@@ -45,7 +45,8 @@ export class HomePage {
     goal_name : "",
     amount :"",
     date :"",
-    goal_image:""
+    goal_image:"",
+    current_amount:0
 
 
   }
@@ -59,8 +60,6 @@ export class HomePage {
   ionViewDidLoad() {
     this.goal.goal_name=this.navParams.get('goal_name')
 
-    this.circleComp.animate(0.8);
-    
     let loading = this.loadingCtrl.create({
     spinner: 'ios',
     content: 'Loading Please Wait...'
@@ -76,13 +75,12 @@ export class HomePage {
        this.goalsHome.amount = this.homeGoal.amount;
        this.goalsHome.date = this.homeGoal.date;
        this.goalsHome.goal_image = this.homeGoal.goal_image;
-       console.log(this.goalsHome)
-        {
-         
-    }
-       console.log(this.goalsHome)
-
-       
+       if (this.homeGoal.current_amount){
+         this.goalsHome.current_amount = this.homeGoal.current_amount
+       }
+       let currentvalue = this.homeGoal.current_amount/this.homeGoal.amount
+      this.circleComp.animate(currentvalue);
+    
 
      },
      err => {
