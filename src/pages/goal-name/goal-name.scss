@@ -8,8 +8,8 @@ page-goal-name {
 
 	.first-row{
 		background-image: none;
-	      font-style: "Montserrat-Light";		
-
+		font-style: "Montserrat-Light";	
+		text-align: center;	
 	}
 	.first-row ion-input {
 
@@ -21,9 +21,26 @@ page-goal-name {
 	      text-align: center;
 	    }
 	  }
+
 	}
-	.first-row .roundbutton {
+
+	#input-expense{
+		margin-bottom: 30px;
+	}
+
+	a.roundbutton{
+		text-decoration: none;
+	   	font-size: 18px;
+
+	}
+	.roundbutton {
 		color: black !important;
 		border-color: black !important;
-	}	
+	   	font-family: "Montserrat-Bold";
+	   	text-align: center;
+	}
+
+	.text-input{
+		color: #44d0bf !important;
+	}
 }

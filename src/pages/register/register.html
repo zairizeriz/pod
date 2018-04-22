@@ -26,8 +26,8 @@
     <ion-input type="password" placeholder ="Password" formControlName ="password">
     </ion-input> 
   </ion-item>
-  <div style="text-align: center">
-    <a style="color: #000000;"> 8 characters, 1 uppercase, 1 lowercase, 1 number</a>
+  <div>
+    <span id="reminder"> 8 characters, 1 uppercase, 1 lowercase, 1 number</span>
   </div>
 <!--   <div class="button-register" padding>
     <div>
@@ -44,7 +44,7 @@
 </form>
 </ion-content>
 <<ion-footer padding no-border>
-  <div style="text-align: center">
-    <a style="color: #000000;"> By signing up, you attest that you are at least 18 years old and have read our </a><b style="color: #000000;" (click)="inAppButtonClick()">Terms & Conditions.</b>
+  <div style="text-align: center;font-size: 10px;font-family: 'Montserrat-Light';">
+    <span style="color: #000000;"> By signing up, you attest that you are at least 18 years old and have read our </span><a style="color: black;text-decoration: underline;" (click)="inAppButtonClick()"><b>Terms & Conditions.</b></a>
   </div>
 </ion-footer>

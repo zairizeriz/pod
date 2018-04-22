@@ -15,6 +15,20 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+	//tabbar background
+
+	.tabbar{
+		background-color: white !important;
+	}
+
+	.tab-button[aria-selected="true"] {
+		color: #44d0bf !important;
+	}
+
+	.tab-button[aria-selected="true"] .tab-button-icon{
+		color: #44d0bf !important;
+	}
 	.first-row{
 		background-image: url("../assets/imgs/first-row-bg.png");
 	    background-repeat: repeat-x;
@@ -132,7 +146,10 @@
 	}
 
 	.toolbar-title {
-		font-size: 16px;
+		text-align:center !important;
+		font-family: "Montserrat-Bold" !important;
+		font-size: 16px !important;
+
 	}
 	.btn-back-nav{
 		background-image: url("../assets/icon/back-icon.png");
