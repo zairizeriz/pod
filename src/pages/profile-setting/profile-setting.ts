@@ -37,7 +37,30 @@ export class ProfileSettingPage {
       private camera: Camera) {
   }
 
+  updateForm(){
+  let toast = this.toastCtrl.create({
+    message:'User successfully updated' ,
+    duration: 3000,
+    position: 'middle'
+  });
 
+  toast.present();
+
+  console.log(this.user);
+   toast.present();
+  
+
+     this.httpprovider.updateUserInfo(
+     this.user.first_name,this.user.last_name,
+     this.user.phone_number,this.user.user_image).then((result) => {
+     // this.viewCtrl.dismiss();
+     toast.dismiss();
+     },
+         (err) => {
+         console.log(err);
+     });
+       this.navCtrl.pop();
+ }
 
   ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
@@ -49,13 +72,14 @@ export class ProfileSettingPage {
     this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
-       loading.dismiss();
+       
        this.userObj = response
        this.user.first_name = this.userObj.first_name;
        this.user.last_name = this.userObj.last_name;
        this.user.phone_number = this.userObj.phone_number;
        this.user.user_image = this.userObj.user_image;
        console.log(this.user)
+       loading.dismiss();
      },
      err => {
        console.log(err);
@@ -63,28 +87,7 @@ export class ProfileSettingPage {
    );
 
 }
-updateForm(){
-  let toast = this.toastCtrl.create({
-    message:'User successfully updated' ,
-    duration: 10000,
-    position: 'middle'
-  });
 
-  toast.present();
-
-  console.log(this.user);
-  toast.dismiss();
-
-     this.httpprovider.updateUserInfo(
-     this.user.first_name,this.user.last_name,
-     this.user.phone_number,this.user.user_image).then((result) => {
-     // this.viewCtrl.dismiss();
-     },
-         (err) => {
-         console.log(err);
-     });
-       this.navCtrl.pop();
- }
  openCamera(){
      const options: CameraOptions = {
   quality: 70,

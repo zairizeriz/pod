@@ -1,15 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
+import { EditGoalPage } from '../edit-goal/edit-goal';
 // import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import {
-  ShapeOptions,
-  LineProgressComponent,
-  CircleProgressComponent,
-  SemiCircleProgressComponent} from 'angular2-progressbar';
+import {ShapeOptions,LineProgressComponent,CircleProgressComponent,SemiCircleProgressComponent} from 'angular2-progressbar';
 // import { GoalDueDatePage } from '../goal-due-date/goal-due-date';
 
 
@@ -69,7 +66,7 @@ export class HomePage {
    this.httpprovider.getGoalHome().then(
      (response) => {
        console.log(response)
-       loading.dismiss();
+       
        this.homeGoal = response
        this.goalsHome.goal_name = this.homeGoal.goal_name;
        this.goalsHome.amount = this.homeGoal.amount;
@@ -81,7 +78,7 @@ export class HomePage {
        let currentvalue = this.homeGoal.current_amount/this.homeGoal.amount
       this.circleComp.animate(currentvalue);
     
-
+      loading.dismiss();
      },
      err => {
        console.log(err);
@@ -91,6 +88,14 @@ export class HomePage {
 
    presentProfileModal() {
    let profileModal = this.modalCtrl.create(GoalactivityPage);
+   profileModal.present();
+ }
+
+ editGoal() {
+   let profileModal = this.modalCtrl.create(EditGoalPage);
+   profileModal.onDidDismiss(() => {
+      this.ionViewDidLoad();
+    });
    profileModal.present();
  }
 //   addGoal(){

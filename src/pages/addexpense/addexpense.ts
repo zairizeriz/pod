@@ -21,7 +21,12 @@ import { ToastController } from 'ionic-angular';
 export class AddexpensePage {
 
 categories:any;
-expense= {};
+expense= {
+  amount:'',
+  expense_name:'',
+  date:'',
+  category_id:'',
+};
 
   constructor(public navCtrl: NavController, public viewCtrl:ViewController, 
     public navParams: NavParams, public httpprovider: HttpProvider,
@@ -44,13 +49,27 @@ expense= {};
    );
  }
 
+ dismissModal() {
+    this.viewCtrl.dismiss();
+   }
+
 
  addExpanseForm(){
+   if (this.expense.expense_name === "" || this.expense.category_id === "" || this.expense.amount === "" || this.expense.date === "") {
+      console.log('lalu')
+           let toast = this.toastCtrl.create({
+             message: 'Please fill required',
+             duration:3000,
+             position: 'middle'
+           });
+           toast.present();
+    }
+    else{
 
   console.log(this.expense);
   let toast = this.toastCtrl.create({
     message: 'Expense was added successfully',
-    duration: 10000,
+    duration: 3000,
     position: 'middle'
   });
 
@@ -69,8 +88,6 @@ expense= {};
  //    this.navCtrl.setRoot(ContactPage);
  //  }
 
-  dismissModal() {
-    this.viewCtrl.dismiss();
-   
- }
+  
+}
 }

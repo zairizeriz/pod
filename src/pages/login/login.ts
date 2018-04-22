@@ -23,9 +23,13 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-	login = {};
+	login = {
+    email:'',
+    password:''
+  };
   rootPage:any;
   goal:any;
+  login2:any;
 
   
 
@@ -38,7 +42,19 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-  signInUser(){
+  signInUser() {
+    // this.login2=this.login
+
+    if (this.login.email === "" || this.login.password === "") {
+      console.log('lalu')
+           let toast = this.toastCntrl.create({
+             message: 'Please fill required',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
+    }
+    else{
   console.log(this.login);
   let loading = this.loadingCtrl.create({
       spinner: 'ios',
@@ -79,6 +95,7 @@ export class LoginPage {
          (err) => {
          console.log(err);
      });
+   }
  }
  
  showForgotPassword(){
