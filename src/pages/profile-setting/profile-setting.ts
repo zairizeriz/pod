@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular'
 import { HttpProvider } from '../../providers/http/http';
 import { LoadingController } from 'ionic-angular';
@@ -34,7 +34,7 @@ export class ProfileSettingPage {
 	  constructor(public navCtrl: NavController, public navParams: NavParams,
       public viewCtrl:ViewController, public httpprovider:HttpProvider,
       public loadingCtrl: LoadingController, private toastCtrl: ToastController,
-      private camera: Camera) {
+      private camera: Camera, private alertCtrl: AlertController) {
   }
 
   updateForm(){
@@ -87,8 +87,14 @@ export class ProfileSettingPage {
    );
 
 }
-
- openCamera(){
+presentConfirm() {
+  let alert = this.alertCtrl.create({
+    title: 'Choose your photo from:',
+    buttons: [
+      {
+        text: 'Camera',
+        role: 'Camera',
+        handler: () => {
      const options: CameraOptions = {
   quality: 70,
   destinationType: this.camera.DestinationType.DATA_URL,
@@ -105,6 +111,36 @@ this.camera.getPicture(options).then((imageData) => {
 }, (err) => {
  // Handle error
 });
+}
+      },
+      {
+        text: 'Gallery',
+        role: 'Gallery',
+        handler: () => {
+     const options: CameraOptions = {
+  quality: 70,
+  sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+this.camera.getPicture(options).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+
+ 
+ this.base64Image = 'data:image/jpeg;base64,' + imageData;
+ this.user.user_image = this.base64Image
+ // this.user.user_image = imageData
+ // console.log(this.user.user_image)
+}, (err) => {
+ // Handle error
+});
+}
+      }
+    ]
+  });
+  alert.present();
 }
 
 goBack(){

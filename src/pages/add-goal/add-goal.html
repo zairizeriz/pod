@@ -18,8 +18,8 @@
   <form (ngSubmit)="addGoalForm()">      
   <div class="first-row">
     <div class="circle" style="border: solid 5px white;padding: 10px;position: relative;">
-      <img (click)="openCamera()" class="camera-plus circle-image" src="assets/imgs/logo.png" *ngIf="!goal_image">
-      <img (click)="openCamera()" class="camera-plus circle-image" src="{{goal_image}}" *ngIf="goal_image">
+      <img (click)="photoMethod()" class="camera-plus circle-image" src="assets/imgs/logo.png" *ngIf="!goal_image">
+      <img (click)="photoMethod()" class="camera-plus circle-image" src="{{goal_image}}" *ngIf="goal_image">
       <!-- <img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png"> -->
       <!-- <img (click)="openCamera()" class="camera-plus" src="{{base64Image}}"> -->
     </div>
