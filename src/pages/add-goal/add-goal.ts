@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 // import { HomePage } from '../../pages/home/home';
 import { ToastController } from 'ionic-angular';
@@ -47,7 +47,7 @@ export class AddGoalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider, private toastCtrl: ToastController, 
     public viewCtrl:ViewController,private camera: Camera, 
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, private alertCtrl: AlertController) {
     
   }
 
@@ -134,7 +134,15 @@ console.log(goal)
     this.navCtrl.push(GoalCategoryPage);
   }
 
-openCamera(){
+
+  photoMethod() {
+  let alert = this.alertCtrl.create({
+    title: 'Choose your photo from:',
+    buttons: [
+      {
+        text: 'Camera',
+        role: 'Camera',
+        handler: () => {
      const options: CameraOptions = {
   quality: 70,
   destinationType: this.camera.DestinationType.DATA_URL,
@@ -154,6 +162,37 @@ this.camera.getPicture(options).then((imageData) => {
 }, (err) => {
  // Handle error
 });
+}
+      },
+      {
+        text: 'Gallery',
+        role: 'Gallery',
+        handler: () => {
+     const options: CameraOptions = {
+  quality: 70,
+  sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE
+}
+this.camera.getPicture(options).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+
+ 
+ this.goal_image = 'data:image/jpeg;base64,' + imageData;
+ this.goal.goal_image = this.goal_image
+ console.log(this.goal_image)
+ // this.user.user_image = imageData
+ // console.log(this.user.user_image)
+}, (err) => {
+ // Handle error
+});
+}
+      }
+    ]
+  });
+  alert.present();
 }
 // addGoalForm(){
 
