@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera';
 import { ProgressBarModule } from 'angular2-progressbar';
-
+import {LocalNotifications} from "@ionic-native/local-notifications";
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -112,7 +112,8 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
-    InAppBrowser
+    InAppBrowser,
+    LocalNotifications
   ]
 })
 export class AppModule {}

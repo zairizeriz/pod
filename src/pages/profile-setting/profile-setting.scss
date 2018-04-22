@@ -24,22 +24,26 @@ page-profile-setting {
 
 	.second-row{
 		margin-bottom: 20px;
+
 	}
 	.acc-name > p{
 		text-align: center;
 		font-size: 18px;
 		color: white;
-		font-weight: bold;
+		font-family: "Montserrat-bold" !important;
 	}
 	.item {
 		height: 80px; /* <- this can be whatever you need */
 	}
 	.my-label{
-		font-size: 14px;
+		font-size: 15px;
 		padding-bottom: 10px;
+		font-family: "Montserrat-Bold" !important;
 	}
 	.item-inner input{
-		font-size: 12px;
+		font-size: 15px;
+		font-family: "Montserrat-Light" !important;
+
 	}
 	.acc-img{
 		position: relative;
@@ -47,6 +51,11 @@ page-profile-setting {
 
 	.profile-img{
 		position: relative;
+	}
+
+	.button-inner{
+		font-family: "Montserrat-Light" !important;
+		margin-right:10px;
 	}
 
 
