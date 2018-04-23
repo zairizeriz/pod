@@ -8,7 +8,7 @@ import { LoadingController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import {ShapeOptions,LineProgressComponent,CircleProgressComponent,SemiCircleProgressComponent} from 'angular2-progressbar';
 // import { GoalDueDatePage } from '../goal-due-date/goal-due-date';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 @Component({
@@ -50,8 +50,25 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
     public modalCtrl: ModalController, public loadingCtrl: LoadingController, 
-    public httpprovider:HttpProvider,public navParams: NavParams) {
+    public httpprovider:HttpProvider,public navParams: NavParams,
+    public localNotifications: LocalNotifications) {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth();
+    let day = new Date().getDate();
+    let time1 = new Date(year, month, day, 0, 1, 0, 0);
+    let time2 = new Date(year, month, day, 5, 0, 0, 0);
 
+
+this.localNotifications.schedule({
+    title: 'Hey, don\'t forget to save some cash!',
+    text: 'You\'ve goal to achieve.',
+    trigger: { at: time1 }
+});
+this.localNotifications.schedule({
+    title: 'Hey, don\'t forget to save some cash!',
+    text: 'You\'ve goal to achieve.',
+    trigger: { at: time2 }
+});
   }
 
   ionViewDidLoad() {
