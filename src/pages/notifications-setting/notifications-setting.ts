@@ -15,6 +15,12 @@ import { ViewController } from 'ionic-angular'
   templateUrl: 'notifications-setting.html',
 })
 export class NotificationsSettingPage {
+  // noti={
+  //   summary :'',
+  // milestones :'',
+  // savings : '',
+  // expenses : ''
+  // }
   summary : any
   milestones : any;
   savings : any;

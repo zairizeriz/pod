@@ -56,7 +56,7 @@ export class HomePage {
     let month = new Date().getMonth();
     let day = new Date().getDate();
     let time1 = new Date(year, month, day, 0, 1, 0, 0);
-    let time2 = new Date(year, month, day, 5, 0, 0, 0);
+    let time2 = new Date(year, month, day, 20, 0, 0, 0);
 
 
 this.localNotifications.schedule({

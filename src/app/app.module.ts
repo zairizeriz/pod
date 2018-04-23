@@ -36,6 +36,9 @@ import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { EditGoalPage } from '../pages/edit-goal/edit-goal';
+import { RulesPage } from '../pages/rules/rules';
+import {CardPaymentPage} from '../pages/card-payment/card-payment';
+import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
 
 
 @NgModule({
@@ -63,7 +66,10 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
     GoalDueDatePage,
     GoalCategoryPage,
     ForgotPasswordPage,
-    EditGoalPage    
+    EditGoalPage,
+    RulesPage,
+    CardPaymentPage,
+    SuccessPaymentPage   
     
   ],
   imports: [
@@ -104,7 +110,10 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
     GoalDueDatePage,
     GoalCategoryPage,
     ForgotPasswordPage,
-    EditGoalPage
+    EditGoalPage,
+    RulesPage,
+    CardPaymentPage,
+    SuccessPaymentPage
   ],
   providers: [
   Camera,
