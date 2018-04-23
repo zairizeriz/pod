@@ -22,6 +22,11 @@ export class GoalCategoryPage {
   category_id:any;
   categories:any;
 expense= {};
+catImages=[
+"assets/imgs/travel@3x.png",
+"assets/imgs/fashion@3x.png",
+"assets/imgs/gadgets@3x.png",
+"assets/imgs/others@3x.png"]
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public httpprovider: HttpProvider) {

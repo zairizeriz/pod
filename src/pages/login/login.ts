@@ -99,7 +99,7 @@ export class LoginPage {
  }
  
  showForgotPassword(){
-this.navCtrl.setRoot(ForgotPasswordPage);
+this.navCtrl.push(ForgotPasswordPage);
 
  }
  inAppButtonClick(){
