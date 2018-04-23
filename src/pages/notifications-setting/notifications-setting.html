@@ -19,20 +19,24 @@
 
 
 <ion-content padding>
+  <form>
   <ion-item>
     <ion-label>Goal Milestones</ion-label>
-    <ion-toggle></ion-toggle>
+
+    <ion-toggle [(ngModel)]="milestones"></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Savings Activity</ion-label>
-    <ion-toggle></ion-toggle>
+    <ion-toggle [(ngModel)]="savings"></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Daily Summary</ion-label>
-    <ion-toggle></ion-toggle>
+    <ion-toggle [(ngModel)]="summary"></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Expenses Reminder</ion-label>
-    <ion-toggle></ion-toggle>
+    <ion-toggle [(ngModel)]="expenses"></ion-toggle>
   </ion-item>
+
+</form>
 </ion-content>

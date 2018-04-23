@@ -58,24 +58,6 @@ slides = [
        
   }
 
-  ionViewDidLoad() {
-    let loading = this.loadingCtrl.create({
-    spinner: 'ios',
-    content: 'Loading Please Wait...'
-  });
-
-  loading.present();
-  loading.dismiss();
-    console.log('ionViewDidLoad TutorialPage');
-  }
-
-  startApp() {
-    this.navCtrl.setRoot('WelcomePage', {}, {
-      animate: true,
-      direction: 'forward'
-    });
-
-}
 signIn(){
   this.navCtrl.push(LoginPage);
 }

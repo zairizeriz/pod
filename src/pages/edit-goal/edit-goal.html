@@ -1,0 +1,46 @@
+<ion-header no-border>
+
+  <ion-navbar color="navbar">
+    <ion-title>Goal Settings</ion-title>
+        <ion-buttons left>
+      <button ion-button icon-only (click)="goBack()">
+        <span class=""></span>
+      </button>
+    </ion-buttons> 
+    <ion-buttons end>
+      <button ion-button icon-only (click)="updateGoalForm()">
+        Save
+      </button>
+    </ion-buttons>  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	
+	<div class="">
+	    
+		  <!-- <ion-item>
+		    <ion-label color="grey" floating  class="">Goal Name</ion-label>
+		    <ion-input [(ngModel)]="user.goal_name"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label color="grey" floating  class="">Target Date</ion-label>
+		    <ion-input [(ngModel)]="user.target_date"></ion-input>
+		  </ion-item>
+ -->
+		  <ion-item>
+		    <ion-label color="grey" floating  class="">Target Amount</ion-label>
+		    <ion-input [(ngModel)]="goal.amount"></ion-input>
+		  </ion-item>
+		  
+		  <!-- <ion-item>
+		    <ion-label color="grey" floating  class="">Current Amount</ion-label>
+		    <ion-input [(ngModel)]="user.current_amount" type="tel"></ion-input>
+		  </ion-item> -->
+	
+	</div>
+	
+</ion-content>

@@ -19,12 +19,12 @@
     </div>
     <img src={{goalsHome.goal_image}} class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
     <div class="goal-text">
-      <span class="btn-edit-goal"></span><strong>{{goalsHome.goal_name}}</strong>
+      <span class="btn-edit-goal" (click)="editGoal()"></span><strong>{{goalsHome.goal_name}}</strong>
     </div>
   </div>
   <div class="second-row">
     <div class="total-savings">
-      <span class="amount text-style">RM 750.00</span><br/>
+      <span class="amount text-style">RM {{goalsHome.current_amount}}</span><br/>
       <span class="desc bottom-amount text-style2">Current saving</span>
     </div>
   </div>

@@ -1,17 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
+import { EditGoalPage } from '../edit-goal/edit-goal';
 // import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
-import {
-  ShapeOptions,
-  LineProgressComponent,
-  CircleProgressComponent,
-  SemiCircleProgressComponent} from 'angular2-progressbar';
+import {ShapeOptions,LineProgressComponent,CircleProgressComponent,SemiCircleProgressComponent} from 'angular2-progressbar';
 // import { GoalDueDatePage } from '../goal-due-date/goal-due-date';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 @Component({
@@ -45,22 +42,38 @@ export class HomePage {
     goal_name : "",
     amount :"",
     date :"",
-    goal_image:""
+    goal_image:"",
+    current_amount:0
 
 
   }
 
   constructor(public navCtrl: NavController, 
     public modalCtrl: ModalController, public loadingCtrl: LoadingController, 
-    public httpprovider:HttpProvider,public navParams: NavParams) {
+    public httpprovider:HttpProvider,public navParams: NavParams,
+    public localNotifications: LocalNotifications) {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth();
+    let day = new Date().getDate();
+    let time1 = new Date(year, month, day, 0, 1, 0, 0);
+    let time2 = new Date(year, month, day, 5, 0, 0, 0);
 
+
+this.localNotifications.schedule({
+    title: 'Hey, don\'t forget to save some cash!',
+    text: 'You\'ve goal to achieve.',
+    trigger: { at: time1 }
+});
+this.localNotifications.schedule({
+    title: 'Hey, don\'t forget to save some cash!',
+    text: 'You\'ve goal to achieve.',
+    trigger: { at: time2 }
+});
   }
 
   ionViewDidLoad() {
     this.goal.goal_name=this.navParams.get('goal_name')
 
-    this.circleComp.animate(0.8);
-    
     let loading = this.loadingCtrl.create({
     spinner: 'ios',
     content: 'Loading Please Wait...'
@@ -70,20 +83,19 @@ export class HomePage {
    this.httpprovider.getGoalHome().then(
      (response) => {
        console.log(response)
-       loading.dismiss();
+       
        this.homeGoal = response
        this.goalsHome.goal_name = this.homeGoal.goal_name;
        this.goalsHome.amount = this.homeGoal.amount;
        this.goalsHome.date = this.homeGoal.date;
        this.goalsHome.goal_image = this.homeGoal.goal_image;
-       console.log(this.goalsHome)
-        {
-         
-    }
-       console.log(this.goalsHome)
-
-       
-
+       if (this.homeGoal.current_amount){
+         this.goalsHome.current_amount = this.homeGoal.current_amount
+       }
+       let currentvalue = this.homeGoal.current_amount/this.homeGoal.amount
+      this.circleComp.animate(currentvalue);
+    
+      loading.dismiss();
      },
      err => {
        console.log(err);
@@ -93,6 +105,14 @@ export class HomePage {
 
    presentProfileModal() {
    let profileModal = this.modalCtrl.create(GoalactivityPage);
+   profileModal.present();
+ }
+
+ editGoal() {
+   let profileModal = this.modalCtrl.create(EditGoalPage);
+   profileModal.onDidDismiss(() => {
+      this.ionViewDidLoad();
+    });
    profileModal.present();
  }
 //   addGoal(){

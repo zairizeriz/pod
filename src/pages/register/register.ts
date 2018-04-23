@@ -46,7 +46,25 @@ todo : FormGroup;
     console.log('ionViewDidLoad RegisterPage');
   }
 
+  afterRegister() {
+    // this.httpprovider.logout();
+    this.navCtrl.setRoot(VerificationPage);
+  }
+
+  inAppButtonClick(){
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
+  const browser = this.iab.create('http://usepod.com/privacy-policy'); 
+  loading.dismiss();
+}
+
   registerForm(){
+
+      
 
   console.log(this.todo.value);
 
@@ -74,21 +92,7 @@ todo : FormGroup;
          console.log('lalu');
          console.log(err);
      });
- }
 
- afterRegister() {
-    // this.httpprovider.logout();
-    this.navCtrl.setRoot(VerificationPage);
-  }
-
-  inAppButtonClick(){
-    let loading = this.loadingCtrl.create({
-    spinner: 'ios',
-    content: 'Loading Please Wait...'
-  });
-
-  loading.present();
-  const browser = this.iab.create('http://usepod.com/privacy-policy'); 
-  loading.dismiss();
+ } 
 }
-}
+

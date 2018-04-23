@@ -18,6 +18,8 @@ export class HttpProvider {
   }
   loginUser(details){
 
+
+
  return new Promise((resolve, reject) => {
 
        let headers = new Headers();
@@ -210,6 +212,34 @@ let data = {
  
       console.log(window.localStorage.getItem('token'))
      this.http.post('https://pod-api-mdr.herokuapp.com/api/user/edit', data, {headers:headers})
+     .subscribe(res => {
+     
+       let data = res.json();
+       console.log('data');
+       resolve(data);
+     
+     }, (err) => {
+       reject(err);
+     });   
+   });
+ }
+
+ updateGoalInfo(amount){
+
+let data = {
+  
+  amount : amount,
+  // last_name : last_name,
+  // phone_number : phone_number,
+  // user_image : user_image
+}
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+ 
+      console.log(window.localStorage.getItem('token'))
+     this.http.post('https://pod-api-mdr.herokuapp.com/api/goal/edit-goal', data, {headers:headers})
      .subscribe(res => {
      
        let data = res.json();

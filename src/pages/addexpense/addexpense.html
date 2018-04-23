@@ -24,8 +24,10 @@
 		<ion-grid>
 		  <ion-row>
 		    <ion-col>
-		    </ion-col>
-		    <ion-col>
+<!-- <span id="currency">RM</span>		    	
+ -->		    </ion-col>
+		    <ion-col class="rmInput">
+		    	<label>RM</label>		    	
 			    <ion-item id="input-expense">
 					<ion-input  type="number" [(ngModel)]="expense.amount" name="amount" value="" placeholder="" style="width: 150px;"></ion-input>
 				</ion-item>
@@ -40,7 +42,7 @@
 
 		  <ion-item>
 		    <ion-label color="grey" floating>What did you buy?</ion-label>
-		    <ion-input [(ngModel)]="expense.expense_name" name="expense_name"></ion-input>
+		    <ion-input [(ngModel)]="expense.expense_name" name="expense_name" class="expense_name"></ion-input>
 		  </ion-item>
 
 		  <ion-item>

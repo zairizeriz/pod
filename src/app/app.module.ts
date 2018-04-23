@@ -5,7 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { Camera } from '@ionic-native/camera';
-
+import { ProgressBarModule } from 'angular2-progressbar';
+import {LocalNotifications} from "@ionic-native/local-notifications";
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -34,6 +35,7 @@ import { GoalTargetAmountPage } from '../pages/goal-target-amount/goal-target-am
 import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { EditGoalPage } from '../pages/edit-goal/edit-goal';
 
 
 @NgModule({
@@ -60,7 +62,8 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     GoalTargetAmountPage,
     GoalDueDatePage,
     GoalCategoryPage,
-    ForgotPasswordPage    
+    ForgotPasswordPage,
+    EditGoalPage    
     
   ],
   imports: [
@@ -70,6 +73,9 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     HttpModule,
     HttpClientModule,
     FormsModule,
+    BrowserModule, 
+    ProgressBarModule
+
   
 
   ],
@@ -97,7 +103,8 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     GoalTargetAmountPage,
     GoalDueDatePage,
     GoalCategoryPage,
-    ForgotPasswordPage
+    ForgotPasswordPage,
+    EditGoalPage
   ],
   providers: [
   Camera,
@@ -105,7 +112,8 @@ import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
-    InAppBrowser
+    InAppBrowser,
+    LocalNotifications
   ]
 })
 export class AppModule {}

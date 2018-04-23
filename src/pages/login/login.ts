@@ -23,40 +23,55 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-	login = {};
+	login = {
+    email:'',
+    password:''
+  };
   rootPage:any;
   goal:any;
+  login2:any;
+
   
 
   constructor(private alertCtrl:AlertController, public navCtrl: NavController,
    public navParams: NavParams, public httpprovider:HttpProvider, 
    public toastCntrl:ToastController, public loadingCtrl: LoadingController, 
    private iab: InAppBrowser) {
-
-
- 
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-signInUser(){
-console.log(this.login);
-let loading = this.loadingCtrl.create({
-    spinner: 'ios',
-    content: 'Loading Please Wait...'
-  });
+  signInUser() {
+    // this.login2=this.login
+
+    if (this.login.email === "" || this.login.password === "") {
+      console.log('lalu')
+           let toast = this.toastCntrl.create({
+             message: 'Please fill required',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
+    }
+    else{
+  console.log(this.login);
+  let loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Loading Please Wait...'
+    });
 
   loading.present();
      this.httpprovider.loginUser(this.login).then((result) => {
- loading.dismiss();
-       if (result['response'] === 'error'){
-       console.log('lalu')
-         let toast = this.toastCntrl.create({
-           message: 'Email and Password did not match. Please try again.',
-           duration:3000,
-           position: 'bottom'
-         });
-         toast.present();
+   loading.dismiss();
+         if (result['response'] === 'error'){
+         console.log('lalu')
+           let toast = this.toastCntrl.create({
+             message: 'Email and Password did not match. Please try again.',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
 
        }else{
          this.httpprovider.getGoalHome( ).then(
@@ -68,24 +83,19 @@ let loading = this.loadingCtrl.create({
               this.navCtrl.setRoot(AddGoalPage);
 
             } else {
-              this.navCtrl.setRoot(TabsPage);
-              
+              this.navCtrl.setRoot(TabsPage); 
             }
          },
          err => {
            console.log(err);
          },
        );
-
-         
-         // this.navCtrl.setRoot(TabsPage)
-       }
-                
+       }          
      },
          (err) => {
          console.log(err);
      });
-
+   }
  }
  
  showForgotPassword(){
