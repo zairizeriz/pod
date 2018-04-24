@@ -43,11 +43,31 @@ export class ContactPage {
        console.log(response)
        this.expenses = response
        loading.dismiss();
+  //      for(let index = 0; index < this.expenses.length; index++) {
+	 //       this.totalExpenses += this.expenses[index].amount
+	 //       console.log(this.totalExpenses)
+	 //       console.log(this.expenses[index].amount)
+		// }
+       console.log(this.expenses)
+
+       
+
+     },
+     err => {
+       console.log(err);
+     },
+   );
+
+    this.httpprovider.getExpenseTotalActivity().then(
+     (response) => {
+       console.log(response)
+       this.expenses = response
+       loading.dismiss();
        for(let index = 0; index < this.expenses.length; index++) {
-	       this.totalExpenses += this.expenses[index].amount
-	       console.log(this.totalExpenses)
-	       console.log(this.expenses[index].amount)
-		}
+         this.totalExpenses += this.expenses[index].amount
+         console.log(this.totalExpenses)
+         console.log(this.expenses[index].amount)
+    }
        console.log(this.expenses)
 
        
