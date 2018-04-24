@@ -79,12 +79,8 @@ logout() {
     ]
   });
   alert.present();
-
-
-    
-
-
   }
+  
   presentProfileModal() {
    let profileModal = this.modalCtrl.create(ProfileSettingPage);
    profileModal.onDidDismiss(() => {

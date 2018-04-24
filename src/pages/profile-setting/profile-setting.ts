@@ -47,19 +47,19 @@ export class ProfileSettingPage {
   toast.present();
 
   console.log(this.user);
-   toast.present();
   
 
      this.httpprovider.updateUserInfo(
      this.user.first_name,this.user.last_name,
      this.user.phone_number,this.user.user_image).then((result) => {
      // this.viewCtrl.dismiss();
-     toast.dismiss();
+     
      },
          (err) => {
          console.log(err);
      });
-       this.navCtrl.pop();
+       // this.navCtrl.pop();
+       // toast.dismiss();
  }
 
   ionViewDidLoad() {
@@ -87,7 +87,7 @@ export class ProfileSettingPage {
    );
 
 }
-presentConfirm() {
+openCamera() {
   let alert = this.alertCtrl.create({
     title: 'Choose your photo from:',
     buttons: [

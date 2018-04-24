@@ -15,14 +15,15 @@
 
 <ion-content>
     <ul>
+      <li *ngFor="let category of categories" value="{{category.id}}"><div class="square" [style.background-color]="category.color" (click)="expenseCat(category.id, category.category)">{{category.category}}</div></li>
     	<!-- loop start -->
-        <li><div class="square" style="background-color: palegreen">BILLS</div></li>
-        <li><div class="square" style="background-color: aqua">EDUCATION</div></li>
+      <!--   <li><div class="square" style="background-color: palegreen">{{category.category}}</div></li> -->
+        <!-- <li><div class="square" style="background-color: aqua">EDUCATION</div></li>
         <li><div class="square" style="background-color: purple">ENTERTAIMENT</div></li>
         <li><div class="square" style="background-color: yellow">FOOD AND BEVERAGES</div></li>
         <li><div class="square" style="background-color: coral">GADGETS</div></li>
         <li><div class="square" style="background-color: bisque">GROCERIES</div></li>
-        <li><div class="square" style="background-color: orange">TRANSPORTATION</div></li>
+        <li><div class="square" style="background-color: orange">TRANSPORTATION</div></li> -->
     </ul>
 </ion-content>
  

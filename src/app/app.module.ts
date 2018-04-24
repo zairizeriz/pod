@@ -40,6 +40,7 @@ import { RulesPage } from '../pages/rules/rules';
 import {CardPaymentPage} from '../pages/card-payment/card-payment';
 import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
 import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-saving';
+import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-category';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-savin
     RulesPage,
     CardPaymentPage,
     SuccessPaymentPage,
-    PromptForSavingPage
+    PromptForSavingPage,
+    ExpensesCategoryPage
     
   ],
   imports: [
@@ -116,7 +118,8 @@ import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-savin
     RulesPage,
     CardPaymentPage,
     SuccessPaymentPage,
-    PromptForSavingPage
+    PromptForSavingPage,
+    ExpensesCategoryPage
   ],
   providers: [
   Camera,

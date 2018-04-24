@@ -130,7 +130,7 @@ getCode(data){
    });
  }
 
- getExpenseActivity(){
+ getExpenseActivity(months){
    return new Promise((resolve, reject) => {
 
      let headers = new Headers();
@@ -138,7 +138,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user', {headers: headers})
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user/m'+months, {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -151,7 +151,7 @@ getCode(data){
    });
  }
 
- getExpenseTotalActivity(){
+ getExpenseTotalActivity(months){
    return new Promise((resolve, reject) => {
 
      let headers = new Headers();
@@ -159,7 +159,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user', {headers: headers})
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/month/'+months+'/total', {headers: headers})
        .map(
          res => res.json())
        .subscribe(

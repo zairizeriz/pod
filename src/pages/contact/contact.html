@@ -11,14 +11,50 @@
 
 <ion-content >
   <div class="first-row">
-    <div class="month-list">
-        <ul>
+    <div class="">
 
-            <li>March</li>
-            <li class="selected">April</li>
-            <li>May</li>
-      
-        </ul>
+  <ion-slides slidesPerView="5" style="height: 10%;" (ionSlideTap)="onTap()"> 
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
+    <ion-slide [class.active]="index === 1">
+      <small>January</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 2">
+      <small>February</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 3">
+        <small>March</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 4">
+        <small>April</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 5">
+        <small>May</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 6">
+        <small>June</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 7">
+        <small>July</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 8">
+        <small>August</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 9">
+        <small>September</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 10">
+        <small>October</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 11">
+        <small>November</small>
+    </ion-slide>
+    <ion-slide [class.active]="index === 12">
+        <small>December</small>
+    </ion-slide>
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
+  </ion-slides>
     </div>
         <div class="total-expenses">
           <p>RM {{totalExpenses | number: '1.2-2'}}</p>

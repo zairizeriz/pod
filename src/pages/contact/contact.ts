@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-// import { LoadingController } from 'ionic-angular';
+import { Component, ViewChild} from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
 import { AddexpensePage } from '../addexpense/addexpense';
 import { HttpProvider } from '../../providers/http/http';
 import { ModalController } from 'ionic-angular';
@@ -11,67 +10,55 @@ import { LoadingController } from 'ionic-angular';
   templateUrl: 'contact.html'
 })
 export class ContactPage {
+
+  @ViewChild(Slides) slides: Slides;
+
 	expenses : any;
-	totalExpenses=0;
+	totalExpenses:any;
+  index:any;
 
   constructor(public navCtrl: NavController,public modalCtrl: ModalController
    ,public httpprovider:HttpProvider,public loadingCtrl: LoadingController) {
 
   }
-//   presentLoadingDefault() {
-//   let loading = this.loadingCtrl.create({
-//     content: 'Please wait...'
-//   });
 
-//   loading.present();
+  ionViewDidEnter() {
 
-//   setTimeout(() => {
-//     loading.dismiss();
-//   }, 5000);
-// }
+    let months = new Date().getMonth()+1;
+    this.index = months
+    this.slides.slideTo(months - 1, 500);
 
-  ionViewDidLoad() {
     let loading = this.loadingCtrl.create({
     spinner: 'ios',
     content: 'Loading Please Wait...'
   });
 
+    console.log(months)
+
   loading.present();
 
-    this.httpprovider.getExpenseActivity().then(
+    this.httpprovider.getExpenseActivity(months).then(
      (response) => {
        console.log(response)
        this.expenses = response
        loading.dismiss();
-  //      for(let index = 0; index < this.expenses.length; index++) {
-	 //       this.totalExpenses += this.expenses[index].amount
-	 //       console.log(this.totalExpenses)
-	 //       console.log(this.expenses[index].amount)
-		// }
+
        console.log(this.expenses)
-
-       
-
+      
      },
      err => {
        console.log(err);
      },
    );
 
-    this.httpprovider.getExpenseTotalActivity().then(
+    this.httpprovider.getExpenseTotalActivity(months).then(
      (response) => {
        console.log(response)
-       this.expenses = response
-       loading.dismiss();
-       for(let index = 0; index < this.expenses.length; index++) {
-         this.totalExpenses += this.expenses[index].amount
-         console.log(this.totalExpenses)
-         console.log(this.expenses[index].amount)
-    }
-       console.log(this.expenses)
+       this.totalExpenses=response
+      
 
        
-
+       console.log(this.totalExpenses)
      },
      err => {
        console.log(err);
@@ -80,14 +67,43 @@ export class ContactPage {
 
 }
 
-  // openAddExpenses(){
-  // 	this.navCtrl.push(AddexpensePage);
-  // }
+onTap(){
+    console.log(this.slides.clickedIndex - 1 )
+
+    this.index = this.slides.clickedIndex - 1
+
+    this.httpprovider.getExpenseActivity(this.slides.clickedIndex - 1 ).then(
+      (response) => {
+        console.log(response)
+        this.expenses = response
+        this.slides.slideTo(this.slides.clickedIndex - 2, 300);
+      },
+      err => {
+        console.log(err);
+      },
+    );
+
+    this.httpprovider.getExpenseTotalActivity(this.slides.clickedIndex -1 ).then(
+     (response) => {
+       console.log(response)
+       this.totalExpenses=response
+      
+       this.slides.slideTo(this.slides.clickedIndex - 2, 300);
+       
+       console.log(this.totalExpenses)
+     },
+     err => {
+       console.log(err);
+     },
+   );
+
+  }
+
 
   presentProfileModal() {
    let profileModal = this.modalCtrl.create(AddexpensePage);
    profileModal.onDidDismiss(() => {
-      this.ionViewDidLoad();
+      this.ionViewDidEnter();
       
     });
    profileModal.present();

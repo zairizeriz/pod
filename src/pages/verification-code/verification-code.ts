@@ -54,23 +54,19 @@ export class VerificationCodePage {
     this.httpprovider.getCodeVerify(data).then(
      (response) => {
        console.log(response);
-       if(response === 'Wrong code')
-       { console.log('lalu')
-         let toast = this.toastCtrl.create({
-          message: 'Wrong code',
+       
+        this.navCtrl.push(SignUpCompletePage, this.user);
+                  
+     },
+         (err) => {
+           let toast = this.toastCtrl.create({
+          message: err._body,
            duration: 3000,
           position: 'bottom'
 
   });
          toast.present();
 
-       }
-       else{
-        this.navCtrl.push(SignUpCompletePage, this.user);
-       }
-                  
-     },
-         (err) => {
          console.log('lalu');
          console.log(err);
      });

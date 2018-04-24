@@ -6,6 +6,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsPage } from '../pages/tabs/tabs';
 import {  AddGoalPage } from '../pages/add-goal/add-goal';
 
+
 // import { AddGoalPage } from '../pages/add-goal/add-goal';
 @Component({
   templateUrl: 'app.html'
