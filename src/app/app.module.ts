@@ -39,6 +39,7 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
 import { RulesPage } from '../pages/rules/rules';
 import {CardPaymentPage} from '../pages/card-payment/card-payment';
 import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
+import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-saving';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
     EditGoalPage,
     RulesPage,
     CardPaymentPage,
-    SuccessPaymentPage   
+    SuccessPaymentPage,
+    PromptForSavingPage
     
   ],
   imports: [
@@ -113,7 +115,8 @@ import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
     EditGoalPage,
     RulesPage,
     CardPaymentPage,
-    SuccessPaymentPage
+    SuccessPaymentPage,
+    PromptForSavingPage
   ],
   providers: [
   Camera,
