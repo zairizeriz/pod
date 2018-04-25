@@ -17,7 +17,7 @@
 <ion-list>
   <ion-item *ngFor="let category of categories; let i = index" (click)="targetGoalCategory(category.id, category.category)">
     <ion-avatar item-start>
-      <img src="{{catImages[i]}}" style="width: 25px;height: 20px;">
+      <ion-icon name="{{category.icon}}"></ion-icon>
     </ion-avatar>
     <h2>{{category.category}}</h2>
   </ion-item>

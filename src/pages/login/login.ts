@@ -10,6 +10,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -63,7 +64,7 @@ export class LoginPage {
 
   loading.present();
      this.httpprovider.loginUser(this.login).then((result) => {
-   loading.dismiss();
+         loading.dismiss();
          if (result['response'] === 'error'){
          console.log('lalu')
            let toast = this.toastCntrl.create({
@@ -93,6 +94,16 @@ export class LoginPage {
        }          
      },
          (err) => {
+         let toast = this.toastCntrl.create({
+          message: err._body,
+           duration: 3000,
+          position: 'bottom'
+
+  });
+         loading.dismiss();
+         toast.present();
+
+         console.log('lalu');
          console.log(err);
      });
    }

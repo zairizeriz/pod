@@ -2,13 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddGoalPage } from '../add-goal/add-goal';
 import { HttpProvider } from '../../providers/http/http';
+import { LoadingController } from 'ionic-angular';
 
-/**
- * Generated class for the GoalCategoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,22 +17,23 @@ export class GoalCategoryPage {
   category_id:any;
   categories:any;
 expense= {};
-catImages=[
-"assets/imgs/travel@3x.png",
-"assets/imgs/fashion@3x.png",
-"assets/imgs/gadgets@3x.png",
-"assets/imgs/others@3x.png"]
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public httpprovider: HttpProvider) {
+    public httpprovider: HttpProvider, public loadingCtrl: LoadingController) {
   	this.goal_name=this.navParams.get('goal_name');
   	this.amount=this.navParams.get('amount')
   	this.due_date=this.navParams.get('due_date')
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Loading Please Wait...'
+    });
+    loading.present();
     console.log('ionViewDidLoad GoalCategoryPage');
     this.httpprovider.getCategoryGoal().subscribe(
+
      response => {
        console.log(response)
        this.categories=response.data
@@ -46,6 +42,7 @@ catImages=[
        console.log(err);
      },
      ()=>{
+      loading.dismiss();
      console.log('List of categories')
    }
    );
@@ -56,8 +53,5 @@ targetGoalCategory(category_id,cat_name){
    window.localStorage.setItem('category_id', category_id);
    window.localStorage.setItem('cat_name', cat_name);
     this.navCtrl.pop()
- 
-    
-
 }
 }
