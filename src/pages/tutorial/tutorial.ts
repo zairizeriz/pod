@@ -5,7 +5,8 @@ import {RegisterPage} from '../register/register';
 import {RulesPage} from '../rules/rules';
 import {SuccessPaymentPage} from '../success-payment/success-payment';
 import {CardPaymentPage} from '../card-payment/card-payment';
-import { LoadingController } from 'ionic-angular'; 
+import { LoadingController } from 'ionic-angular';
+import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
 
 /**
  * Generated class for the TutorialPage page.
