@@ -52,6 +52,6 @@ targetGoalCategory(category_id,cat_name){
 
    window.localStorage.setItem('category_id', category_id);
    window.localStorage.setItem('cat_name', cat_name);
-    this.navCtrl.pop()
+    this.navCtrl.push(AddGoalPage)
 }
 }
