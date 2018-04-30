@@ -75,19 +75,23 @@ excategory_id:any;
     else{
 
   console.log(expense);
-  let toast = this.toastCtrl.create({
+  
+  
+
+     this.httpprovider.createExpense(expense).then((result) => {
+       let toast = this.toastCtrl.create({
     message: 'Expense was added successfully',
     duration: 3000,
     position: 'middle'
   });
 
   toast.present();
-  toast.dismiss();
 
-     this.httpprovider.createExpense(expense).then((result) => {
-       this.viewCtrl.dismiss();
+       
         localStorage.removeItem("excategory_id");  
-          localStorage.removeItem("excategory_name");        
+          localStorage.removeItem("excategory_name");
+          toast.dismiss(); 
+          this.viewCtrl.dismiss();       
      },
          (err) => {
          console.log(err);
