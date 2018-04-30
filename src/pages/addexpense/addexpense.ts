@@ -33,10 +33,11 @@ excategory_id:any;
   constructor(public navCtrl: NavController, public viewCtrl:ViewController, 
     public navParams: NavParams, public httpprovider: HttpProvider,
     private toastCtrl: ToastController) {
-    this.excategory_id=window.localStorage.getItem('excategory_id')
+    
   }
 
  ionViewDidEnter() {
+   this.excategory_id=window.localStorage.getItem('excategory_id')
    this.category=window.localStorage.getItem('excategory_name')
    console.log(this.category)
  }
@@ -85,12 +86,12 @@ excategory_id:any;
     position: 'middle'
   });
 
-  toast.present();
+ 
 
        
         localStorage.removeItem("excategory_id");  
           localStorage.removeItem("excategory_name");
-          toast.dismiss(); 
+           toast.present();
           this.viewCtrl.dismiss();       
      },
          (err) => {
