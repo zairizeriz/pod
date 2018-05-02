@@ -12,6 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import {TabsPage} from '../tabs/tabs'
 import { LoadingController } from 'ionic-angular';
 import { DatePipe } from '@angular/common'
+import {RulesPage} from '../rules/rules';
 /**
  * Generated class for the AddGoalPage page.
  *
@@ -130,10 +131,11 @@ loading.present();
               duration: 1000,
               position: 'bottom'
             });
+             loading.dismiss();
 
             toast.present();    
-            this.navCtrl.setRoot(TabsPage)
-            loading.dismiss();
+            
+                        this.navCtrl.push(RulesPage)
      },
          (err) => {
          console.log(err);

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TabsPage} from '../tabs/tabs';
 
 /**
  * Generated class for the RulesPage page.
@@ -22,4 +23,8 @@ export class RulesPage {
     console.log('ionViewDidLoad RulesPage');
   }
 
+
+goalPage(){
+	this.navCtrl.setRoot(TabsPage)
+}
 }
