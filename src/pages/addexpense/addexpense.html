@@ -41,19 +41,21 @@
 		<ion-list>
 
 		  <ion-item>
-		    <ion-label color="grey" floating>What did you buy?</ion-label>
+		  	<!-- <p color="black" floating>What did you buy?</p> -->
+		    <ion-label floating>What did you buy?</ion-label>
 		    <ion-input [(ngModel)]="expense.expense_name" name="expense_name" class="expense_name"></ion-input>
 		  </ion-item>
 
 		  <ion-item>
-   			<ion-label color="grey" fixed>Date</ion-label>
-			<ion-datetime displayFormat="MMMM/DD/YYYY" [(ngModel)]="expense.date" name="date"></ion-datetime>
+   			<ion-label floating>Date</ion-label>
+   			<!-- <p color="black" floating>Date</p> -->
+			<ion-datetime displayFormat="MMMM/DD/YYYY" [(ngModel)]="expense.date" name="date" class="expense_date"></ion-datetime>
 			<!-- <ion-input type="date" [(ngModel)]="expense.date" name="date"></ion-input> -->
 		  </ion-item>
 
 		<ion-item (click)="expenseModal()">
-			<p color="black" floating>Category</p>
-			<p>
+			<b class="expense_category" floating>Category</b>
+			<p class="expense_category_input">
 			{{category}}</p>
     		<!-- <ion-label  (click)="expenseModal()" color="grey" floating>{{category}}</ion-label> -->
     		<!-- <ion-input  value="{{category}}" class="expense_name"></ion-input> -->
