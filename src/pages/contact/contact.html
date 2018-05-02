@@ -1,36 +1,37 @@
-<ion-header  no-border>
+<ion-header no-border>
   <ion-navbar color="navbar">
- <ion-title>Expense Activity</ion-title>
+    <ion-title>Expense Activity</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="presentProfileModal()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>  
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <div class="first-row">
     <div class="month-list">
-        <ul>
+      <ul>
 
-            <li>March</li>
-            <li class="selected">April</li>
-            <li>May</li>
-      
-        </ul>
+        <li>March</li>
+        <li class="selected">April</li>
+        <li>May</li>
+
+      </ul>
     </div>
-        <div class="total-expenses">
-          <p>RM {{totalExpenses | number: '1.2-2'}}</p>
-          
-        </div>
+    <div class="total-expenses">
+      <p>RM {{totalExpenses | number: '1.2-2'}}</p>
+
     </div>
+  </div>
   <div class="second-row">
     <ion-list>
-      <ion-item *ngFor = "let expense of expenses">
+      <ion-item *ngFor="let expense of expenses">
         <ion-avatar item-start>
           <div class="outter-circle circle date">
-            <span>{{expense.date | date: 'dd MMM'}}</span> <br/>
+            <span>{{expense.date | date: 'dd MMM'}}</span>
+            <br/>
             <!-- <span>June</span> -->
           </div>
         </ion-avatar>
