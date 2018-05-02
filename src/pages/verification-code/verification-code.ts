@@ -44,6 +44,17 @@ export class VerificationCodePage {
   // }
 
   verify(){
+    if (!this.code1 || !this.code2 || !this.code3 
+       || !this.code4  || !this.code5 || !this.code6) {
+      console.log('lalu')
+           let toast = this.toastCtrl.create({
+             message: 'Please fill in all required fields',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
+    }
+    else{
     let loading = this.loadingCtrl.create({
     spinner: 'ios',
     content: 'Loading Please Wait...'
@@ -84,5 +95,6 @@ export class VerificationCodePage {
        loading.dismiss();
  
 
+}
 }
 }
