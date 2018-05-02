@@ -41,6 +41,7 @@ import {CardPaymentPage} from '../pages/card-payment/card-payment';
 import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
 import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-saving';
 import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-category';
+import { DatePipe } from '@angular/common'
 
 
 @NgModule({
@@ -122,13 +123,14 @@ import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-catego
     ExpensesCategoryPage
   ],
   providers: [
-  Camera,
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
     InAppBrowser,
-    LocalNotifications
+    LocalNotifications,
+    DatePipe
   ]
 })
 export class AppModule {}

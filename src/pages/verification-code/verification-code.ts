@@ -19,7 +19,12 @@ import { ToastController } from 'ionic-angular';
 })
 export class VerificationCodePage {
   currentUser
-  code:any;
+  code1:string;
+  code2:string;
+  code3:string;
+  code4:string;
+  code5:string;
+  code6:string;
   user:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,public httpprovider:HttpProvider,
@@ -48,7 +53,7 @@ export class VerificationCodePage {
 
     let data = {
       user_id : this.currentUser.id,
-      code: this.code
+      code: this.code1+this.code2+this.code3+this.code4+this.code5+this.code6
     }
     console.log(data)
     this.httpprovider.getCodeVerify(data).then(
