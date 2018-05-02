@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {CardPaymentPage} from '../card-payment/card-payment';
 
 /**
- * Generated class for the PromptForSavingPage page.
+ * Generated class for the SaveMoneyPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +11,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-prompt-for-saving',
-  templateUrl: 'prompt-for-saving.html',
+  selector: 'page-save-money',
+  templateUrl: 'save-money.html',
 })
-export class PromptForSavingPage {
+export class SaveMoneyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PromptForSavingPage');
+    console.log('ionViewDidLoad SaveMoneyPage');
   }
+
+  save(){
+  this.navCtrl.push(CardPaymentPage);
+}
 
 }

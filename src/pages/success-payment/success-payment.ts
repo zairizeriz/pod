@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {HomePage} from '../home/home';
 
 /**
  * Generated class for the SuccessPaymentPage page.
@@ -21,5 +22,7 @@ export class SuccessPaymentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuccessPaymentPage');
   }
-
+afterPaymentComplete(){
+	this.navCtrl.setRoot(HomePage);
+}
 }
