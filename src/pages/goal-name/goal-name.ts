@@ -30,7 +30,7 @@ export class GoalNamePage {
   targetGoalName(value){
 
     window.localStorage.setItem('goal_name', this.goal_name);
-    this.navCtrl.pop()
+    this.navCtrl.push(GoalTargetAmountPage)
 
      // this.navCtrl.push(GoalTargetAmountPage,{goal_name:this.goal_name})   
      // console.log(this.goal_name)        

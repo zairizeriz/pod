@@ -92,6 +92,24 @@ getCode(data){
    });
  }
 
+ forgotPassword(email){
+    return new Promise((resolve, reject) => {
+  let headers = new Headers();
+       headers.append('Content-Type', 'application/json');
+   console.log(email)
+  this.http.post('https://pod-api-mdr.herokuapp.com/api/reset-password',JSON.stringify(email), {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         email => {
+           resolve(email);
+           // console.log(data.user)
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
  getUser(){
    return new Promise((resolve, reject) => {
 
@@ -112,7 +130,7 @@ getCode(data){
    });
  }
 
- getExpenseActivity(){
+ getExpenseActivity(months){
    return new Promise((resolve, reject) => {
 
      let headers = new Headers();
@@ -120,7 +138,28 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user', {headers: headers})
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user/m'+months, {headers: headers})
+       .map(
+         res => res.json())
+       .subscribe(
+         data => {
+           resolve(data.data);
+           console.log('data')
+       }, (err) => {
+         reject(err);
+       });
+   });
+ }
+
+ getExpenseTotalActivity(months){
+   return new Promise((resolve, reject) => {
+
+     let headers = new Headers();
+     headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+     console.log('token')
+     
+ 
+     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/month/'+months+'/total', {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -176,6 +215,8 @@ getCode(data){
        });
    });
  }
+
+
  registerUser(details){
 
    return new Promise((resolve, reject) => {

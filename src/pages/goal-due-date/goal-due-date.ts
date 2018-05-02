@@ -26,13 +26,21 @@ export class GoalDueDatePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GoalDueDatePage');
+    this.due_date=new Date().toLocaleString()
   }
 
   targetGoalDueDate(value){
+    console.log(value)
+    var real_due_date=new Date(this.due_date);
+ //   var formattedDate = moment(date).format('YYYYMMDD');
 
-    window.localStorage.setItem('due_date', this.due_date);
+    real_due_date.setDate(1)
+    console.log(real_due_date.toLocaleString())
+
+
+    window.localStorage.setItem('due_date', real_due_date.toLocaleString())
     console.log(window.localStorage);
-  this.navCtrl.pop()
+  this.navCtrl.push(GoalCategoryPage)
 
      // this.navCtrl.push(GoalCategoryPage,{goal_name:this.goal_name,
      //  amount:this.amount, due_date:this.due_date})   

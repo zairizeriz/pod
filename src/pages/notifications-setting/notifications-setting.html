@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
 
-  <ion-navbar color="navbar-white">
+  <ion-navbar color="pure-white">
     <ion-title>Notifications</ion-title>
     <ion-buttons end>
     <button ion-button icon-only (click)="dismiss()">
@@ -23,19 +23,19 @@
   <ion-item>
     <ion-label>Goal Milestones</ion-label>
 
-    <ion-toggle [(ngModel)]="milestones"></ion-toggle>
+    <ion-toggle [(ngModel)]="milestones" name='milestones'></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Savings Activity</ion-label>
-    <ion-toggle [(ngModel)]="savings"></ion-toggle>
+    <ion-toggle [(ngModel)]="savings" name='savings'></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Daily Summary</ion-label>
-    <ion-toggle [(ngModel)]="summary"></ion-toggle>
+    <ion-toggle [(ngModel)]="summary" name='summary'></ion-toggle>
   </ion-item>
     <ion-item>
     <ion-label>Expenses Reminder</ion-label>
-    <ion-toggle [(ngModel)]="expenses"></ion-toggle>
+    <ion-toggle [(ngModel)]="expenses" name='expenses'></ion-toggle>
   </ion-item>
 
 </form>

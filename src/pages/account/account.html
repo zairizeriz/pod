@@ -17,7 +17,10 @@
 	<div class="first-row">
 		<div class="acc-img circle">
 			<!-- <img class="camera-plus" src="assets/imgs/logo.png" *ngIf={{image}}>
- -->			<img class="camera-plus" src="{{image}}">
+ -->			
+ 		<img (click)="openCamera()" class="camera-plus" src="assets/imgs/logo.png" *ngIf="!image">
+			<img (click)="openCamera()" class="camera-plus" src="{{image}}" *ngIf="image">
+ 		<!-- <img class="camera-plus" src="{{image}}"> -->
 		</div>
 		<div class="acc-name">
 			<p>{{user?.first_name}}</p>

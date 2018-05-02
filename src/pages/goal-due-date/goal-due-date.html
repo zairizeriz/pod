@@ -20,12 +20,16 @@
 		  <ion-row>
 		    <ion-col>
 			    <ion-item id="input-expense">
-					<ion-datetime  [(ngModel)]="due_date" name="due_date" value="" placeholder="Date" displayFormat="MMMMYYYY" ></ion-datetime>
+					<ion-datetime  [(ngModel)]="due_date" class='datetime-text' name="due_date" placeholder="Date" displayFormat="MMM YYYY" min="2018" max="3020-10-31"></ion-datetime>
 				</ion-item>
 			</ion-col>
 		  </ion-row>
 		</ion-grid>
-    	<a href="" type="submit" class="roundbutton">Continue</a>
+    	<div class="continue">
+		<div>
+		<button type="submit">Continue</button>
+		</div>
+	</div>
     </div>
   </form>
 </ion-content>

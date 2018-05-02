@@ -19,7 +19,12 @@ import { ToastController } from 'ionic-angular';
 })
 export class VerificationCodePage {
   currentUser
-  code:any;
+  code1:string;
+  code2:string;
+  code3:string;
+  code4:string;
+  code5:string;
+  code6:string;
   user:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,public httpprovider:HttpProvider,
@@ -48,29 +53,25 @@ export class VerificationCodePage {
 
     let data = {
       user_id : this.currentUser.id,
-      code: this.code
+      code: this.code1+this.code2+this.code3+this.code4+this.code5+this.code6
     }
     console.log(data)
     this.httpprovider.getCodeVerify(data).then(
      (response) => {
        console.log(response);
-       if(response == 'Wrong code')
-       { console.log('lalu')
-         let toast = this.toastCtrl.create({
-          message: 'Wrong code',
+       
+        this.navCtrl.push(SignUpCompletePage, this.user);
+                  
+     },
+         (err) => {
+           let toast = this.toastCtrl.create({
+          message: err._body,
            duration: 3000,
           position: 'bottom'
 
   });
          toast.present();
 
-       }
-       else{
-        this.navCtrl.push(SignUpCompletePage, this.user);
-       }
-                  
-     },
-         (err) => {
          console.log('lalu');
          console.log(err);
      });

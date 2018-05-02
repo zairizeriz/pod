@@ -1,8 +1,19 @@
 page-notifications-setting {
 
 	.item {
-		height: 80px; 
+		height: 55px; 
 	}
 
+	.toggle-ios.toggle-checked .toggle-icon {
+	    background-color: #44d0bf;
+	}
+
+	ion-content{
+		font-family: 'Montserrat-Light';
+
+	}
+	.item-inner{
+		border-bottom: 1.5px solid #C1C1C1 !important;
+	}
 
 }

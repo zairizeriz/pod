@@ -4,6 +4,7 @@ import { HttpProvider } from '../../providers/http/http';
 // import { ContactPage } from '../../pages/contact/contact';
 import { ViewController } from 'ionic-angular'
 import { ToastController } from 'ionic-angular';
+import { ExpensesCategoryPage } from '../expenses-category/expenses-category';
 
 
 /**
@@ -24,29 +25,21 @@ categories:any;
 expense= {
   amount:'',
   expense_name:'',
-  date:'',
-  category_id:'',
+  date:''
 };
+category:any;
+excategory_id:any;
 
   constructor(public navCtrl: NavController, public viewCtrl:ViewController, 
     public navParams: NavParams, public httpprovider: HttpProvider,
     private toastCtrl: ToastController) {
+    
   }
 
- ionViewDidLoad() {
-
-     this.httpprovider.getCategoryExpense().subscribe(
-     response => {
-       console.log(response)
-       this.categories=response.data
-     },
-     err => {
-       console.log(err);
-     },
-     ()=>{
-     console.log('List of categories')
-   }
-   );
+ ionViewDidEnter() {
+   this.excategory_id=window.localStorage.getItem('excategory_id')
+   this.category=window.localStorage.getItem('excategory_name')
+   console.log(this.category)
  }
 
  dismissModal() {
@@ -55,7 +48,23 @@ expense= {
 
 
  addExpanseForm(){
-   if (this.expense.expense_name === "" || this.expense.category_id === "" || this.expense.amount === "" || this.expense.date === "") {
+
+   console.log(window.localStorage.getItem('excategory_id'))
+   console.log(this.excategory_id)
+   let expense = {
+       
+       category_id: this.excategory_id,
+      amount : this.expense.amount,
+      expense_name : this.expense.expense_name,
+      date:this.expense.date
+
+
+     }
+
+
+   
+
+   if (this.expense.amount === "" || this.expense.date === "") {
       console.log('lalu')
            let toast = this.toastCtrl.create({
              message: 'Please fill required',
@@ -66,19 +75,24 @@ expense= {
     }
     else{
 
-  console.log(this.expense);
-  let toast = this.toastCtrl.create({
+  console.log(expense);
+  
+  
+
+     this.httpprovider.createExpense(expense).then((result) => {
+       let toast = this.toastCtrl.create({
     message: 'Expense was added successfully',
     duration: 3000,
     position: 'middle'
   });
 
-  toast.present();
-  toast.dismiss();
+ 
 
-     this.httpprovider.createExpense(this.expense).then((result) => {
-       this.viewCtrl.dismiss();
-                
+       
+        localStorage.removeItem("excategory_id");  
+          localStorage.removeItem("excategory_name");
+           toast.present();
+          this.viewCtrl.dismiss();       
      },
          (err) => {
          console.log(err);
@@ -89,5 +103,8 @@ expense= {
  //  }
 
   
+}
+expenseModal(){
+  this.navCtrl.push(ExpensesCategoryPage);
 }
 }

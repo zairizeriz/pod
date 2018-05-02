@@ -36,6 +36,12 @@ import { GoalDueDatePage } from '../pages/goal-due-date/goal-due-date';
 import { GoalCategoryPage } from '../pages/goal-category/goal-category';
 import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { EditGoalPage } from '../pages/edit-goal/edit-goal';
+import { RulesPage } from '../pages/rules/rules';
+import {CardPaymentPage} from '../pages/card-payment/card-payment';
+import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
+import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-saving';
+import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-category';
+import { DatePipe } from '@angular/common'
 
 
 @NgModule({
@@ -63,7 +69,12 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
     GoalDueDatePage,
     GoalCategoryPage,
     ForgotPasswordPage,
-    EditGoalPage    
+    EditGoalPage,
+    RulesPage,
+    CardPaymentPage,
+    SuccessPaymentPage,
+    PromptForSavingPage,
+    ExpensesCategoryPage
     
   ],
   imports: [
@@ -104,16 +115,22 @@ import { EditGoalPage } from '../pages/edit-goal/edit-goal';
     GoalDueDatePage,
     GoalCategoryPage,
     ForgotPasswordPage,
-    EditGoalPage
+    EditGoalPage,
+    RulesPage,
+    CardPaymentPage,
+    SuccessPaymentPage,
+    PromptForSavingPage,
+    ExpensesCategoryPage
   ],
   providers: [
-  Camera,
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
     InAppBrowser,
-    LocalNotifications
+    LocalNotifications,
+    DatePipe
   ]
 })
 export class AppModule {}

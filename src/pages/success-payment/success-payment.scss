@@ -1,0 +1,39 @@
+page-success-payment{
+
+  .circle {
+/*    border-radius: 50%;
+*//*    border: 5px solid #44d0bf;
+*/    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 80px;
+  }
+
+  .circle > img{
+/*    height: 115px;
+    width: 175px;*/
+  }
+
+  h1,h2,h3,h4{
+   font-family: "Montserrat-Bold";
+   color:#44d0bf;
+
+  }
+
+  p{
+   font-family: "Montserrat-Regular";
+  }
+
+  p > b{
+   font-family: "Montserrat-Bold";
+   color:#44d0bf;
+   font-size: 18px;
+  }
+
+  .btn-main-container{
+   font-family: "Montserrat-Bold";
+  }
+
+}

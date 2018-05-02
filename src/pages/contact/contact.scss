@@ -11,13 +11,13 @@ page-contact {
 		font-family: "Montserrat-Light";
 	}
 
-	.first-row{
-		background-image: url("../assets/imgs/first-row-bg.png");
-	    background-repeat: repeat-x;
-	    width: 100%;
-	    min-height: 200px;
-	    margin-bottom: 20px;
-	}
+	// .first-row{
+	// 	background-image: url("../assets/imgs/first-row-bg.png");
+	//     background-repeat: repeat-x;
+	//     width: 100%;
+	//     min-height: 200px;
+	//     margin-bottom: 20px;
+	// }
     .month-list{
         align-items: center;
         display: flex;
@@ -89,4 +89,33 @@ page-contact {
 		font-size: 28px;
 		font-weight: 10;
 	}
+
+	ion-segment {
+        display: block;
+        white-space: nowrap;
+        font-size: 0;
+        overflow: auto;
+    
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+    
+        ion-segment-button.segment-button {
+            display: inline-block;
+            min-width: 100px;
+            width: auto;
+        }
+    }
+
+    ion-slide{
+    	font-weight: normal !important;
+        color:#F3E6E3;
+    }
+
+    ion-slide.active{
+        font-weight: bold;
+        color: white;
+    }
 }

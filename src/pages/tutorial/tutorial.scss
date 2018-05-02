@@ -21,6 +21,10 @@ h2{
   margin-top: 40px;
 }
 
+.scroll-content {
+  overflow-y: unset !important;
+}
+
 .toolbar-background {
     background: transparent;
     border-color: transparent;

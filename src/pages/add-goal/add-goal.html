@@ -28,7 +28,18 @@
   <div class="second-row">
     <div id="goal-para">
       <p>
-        I want to save for <b style="color: #44D0BF;" (click)="goalName()">{{goal_name}}</b>. I'll be needing <b style="color: #44D0BF;" (click)="goalTargetAmount()">{{amount}}</b>. I want to achieved it by <b style="color: #44D0BF;" (click)="goalTargetDate()">{{due_date}}</b>. My goal's category is, <b style="color: #44D0BF;" (click)="goalTargetCategory()">{{category_name}}</b>.
+        I want to save for
+        <b style="color: #44D0BF;" (click)="goalName()" *ngIf="goal_name">{{goal_name}}</b>
+        <b style="color: #44D0BF;" (click)="goalName()" *ngIf="!goal_name">add goal</b>
+        . I'll be needing RM
+        <b style="color: #44D0BF;" (click)="goalTargetAmount()" *ngIf="amount">{{amount}}</b>
+        <b style="color: #44D0BF;" (click)="goalTargetAmount()" *ngIf="!amount">this amount</b>
+        . I want to achieved it by 
+        <b style="color: #44D0BF;" (click)="goalTargetDate()" *ngIf="due_date">{{due_date | date:'MMMM yyyy'}}</b>
+        <b style="color: #44D0BF;" (click)="goalTargetDate()" *ngIf="!due_date">this date</b>
+        . My goal's category is, 
+        <b style="color: #44D0BF;" (click)="goalTargetCategory()" *ngIf="category_name">{{category_name}}</b>
+         <b style="color: #44D0BF;" (click)="goalTargetCategory()" *ngIf="!category_name">choose</b>.
       </p>
     </div>
   </div>

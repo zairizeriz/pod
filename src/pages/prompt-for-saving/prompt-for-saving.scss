@@ -1,0 +1,84 @@
+page-prompt-for-saving {
+ion-content {
+        &.content {
+            div.scroll-content {
+                top: 20%;
+                left: 5%;
+                width: 90%;
+                height: 50%;
+                overflow:hidden;
+            }
+        }
+
+        &.content-ios {
+            background-color: rgba(0, 0, 0, 0.3);
+
+            div.scroll-content {
+                background-color: white;
+                border-radius: 5px;
+                padding: 10px;
+            }
+        }
+
+        &.content-md {
+            background-color: rgba(0, 0, 0, 0.5);
+            
+            div.scroll-content {
+                background-color: white;
+                border-radius: 2px;
+                box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+                padding: 18px;
+            }
+        }
+    }
+
+    .first{
+    	margin-bottom: 20px;
+    }
+
+
+    .first > h2{
+    	text-align: center;
+    	font-size: 18px;
+	    font-family: "Montserrat-Bold";
+    }
+
+    .second{
+    	margin-bottom: 30px;
+    }
+    .second > p{
+    	text-align: center;
+    	font-size: 14px;
+	    font-family: "Montserrat-Light";    	
+    }
+
+    .second > p > strong{
+    	font-family: "Montserrat-Bold";
+    	color: #44D0BF;    	
+
+    }
+
+    .third{
+    	text-align: center;
+    }
+
+  	.third > a{
+    	font-size: 14px;
+	    font-family: "Montserrat-Light";
+	    color: red;
+	    text-decoration: none;
+  	}
+
+	.btn-main-container > div > button{
+		font-family: "Montserrat-Bold";
+	}
+
+	.rectangle-underline{
+		display: flex;
+		margin: 0 auto;
+		background-color: #44D0BF;
+		height: 5px;
+		width: 45px;
+		border-radius: 10px;
+	} 	
+}

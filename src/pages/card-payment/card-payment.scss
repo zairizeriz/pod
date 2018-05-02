@@ -1,0 +1,29 @@
+page-card-payment{
+
+      input {
+      text-align: left;
+      font-family: "Montserrat-Light";
+      /* IF YOU ALSO WANT TO PUSH PLACHEHOLDER TO THE RIGHT USE THE FOLLOWING, IF NOT JUST DELETE THE ::-webkit-input-placeholder*/
+      ::-webkit-input-placeholder {
+        text-align: center;
+      }
+    }
+
+    #row1{
+      font-size: 12px;
+    }
+
+    .text-input{
+      font-family: "Montserrat-Light" !important;
+
+    }
+    #first-row{
+      font-family: "Montserrat-Light" !important;
+
+    }
+
+    .btn-main-container{
+      font-family: "Montserrat-Bold" !important;
+    }
+
+}

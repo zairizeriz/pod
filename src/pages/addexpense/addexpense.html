@@ -47,20 +47,24 @@
 
 		  <ion-item>
    			<ion-label color="grey" fixed>Date</ion-label>
-			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="expense.date" name="date"></ion-datetime>
+			<ion-datetime displayFormat="MMMM/DD/YYYY" [(ngModel)]="expense.date" name="date"></ion-datetime>
 			<!-- <ion-input type="date" [(ngModel)]="expense.date" name="date"></ion-input> -->
 		  </ion-item>
 
-		<ion-item>
-    		<ion-label color="grey" floating>Category</ion-label>
-    		<ion-select [(ngModel)]="expense.category_id" name="category_id">
+		<ion-item (click)="expenseModal()">
+			<p color="black" floating>Category</p>
+			<p>
+			{{category}}</p>
+    		<!-- <ion-label  (click)="expenseModal()" color="grey" floating>{{category}}</ion-label> -->
+    		<!-- <ion-input  value="{{category}}" class="expense_name"></ion-input> -->
+    		<!-- <ion-select [(ngModel)]="expense.category_id" name="category_id">
      		 <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.category}}</ion-option>
-    		</ion-select>
+    		</ion-select> -->
   		</ion-item>
 		</ion-list>  
 	<div class="third-row">
 		<div>
-		<button (click)="addExpanseForm()">Save</button>
+		<button (click)="addExpanseForm()">Add</button>
 		</div>
 	</div>				
   	</div>

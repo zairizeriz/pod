@@ -38,19 +38,23 @@ export class AccountPage {
   });
 
   loading.present();
+
      this.httpprovider.getUser().then(
      (response) => {
        console.log(response)
-       loading.dismiss();
+       
        this.user=response
        this.image=this.user.user_image
        console.log(this.user)
+       loading.dismiss();
+
        
      },
      err => {
        console.log(err);
      },
    );
+     
   }
 
 logout() {
@@ -79,19 +83,19 @@ logout() {
     ]
   });
   alert.present();
-
-
-    
-
-
   }
+  
   presentProfileModal() {
    let profileModal = this.modalCtrl.create(ProfileSettingPage);
    profileModal.onDidDismiss(() => {
+
       this.ionViewDidLoad();
+
     });
    profileModal.present();
+
  }
+
 
  presentNotification() {
    let profileModal = this.modalCtrl.create(NotificationsSettingPage);

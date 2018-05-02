@@ -1,28 +1,64 @@
-.button-send-code{
-		text-align: center;
-		width: 100%;
-		align-items: center;
-		display: flex;
+page-verification{
+
+	.button-send-code{
+			text-align: center;
+			width: 100%;
+			align-items: center;
+			display: flex;
+			justify-content: center;
+		}
+
+
+		.button-send-code > div{
+		    border-radius: 50px 50px;
+		    width: 100%;
+		    padding: 2px 2px 2px 2px;
+		    background-image: url("../assets/imgs/gradient-180.png");
+		    background-size: inherit;
+		}
+		.button-send-code > div > button{
+			font-size: 16px;
+			font-weight: bold;
+		    border-radius: 50px 50px;
+			background-color: white;
+			width: 100%;
+			height: 40px;
+		}
+
+	.sentence{
 		justify-content: center;
 	}
 
-
-	.button-send-code > div{
-	    border-radius: 50px 50px;
-	    width: 100%;
-	    padding: 2px 2px 2px 2px;
-	    background-image: url("../assets/imgs/gradient-180.png");
-	    background-size: inherit;
-	}
-	.button-send-code > div > button{
-		font-size: 16px;
-		font-weight: bold;
-	    border-radius: 50px 50px;
-		background-color: white;
-		width: 100%;
-		height: 40px;
+	#first-row{
+		text-align: center;
 	}
 
-.sentence{
-	justify-content: center;
+	#first-row > p{
+		font-family: 'Montserrat-Light';
+	
+	}
+
+	#inner-second-row{
+		font-family: 'Montserrat-Bold';
+		font-size: 16px !important;
+		padding: 15px;
+	
+	}
+
+	ion-col{
+		padding: 0;
+	}
+	[col-2] {
+		padding: 0;
+	}
+
+	.col-margin{
+		margin-top: 18px;
+		text-align: right;
+	}
+
+	#country-code{
+		text-align: right;
+	}
+
 }
