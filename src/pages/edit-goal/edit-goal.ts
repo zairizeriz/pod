@@ -34,7 +34,7 @@ updateGoalForm(){
   let toast = this.toastCtrl.create({
     message:'Goal successfully updated' ,
     duration: 10000,
-    position: 'middle'
+    position: 'bottom'
   });
 
   toast.present();

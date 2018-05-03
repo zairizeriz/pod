@@ -31,10 +31,12 @@ export class MyApp {
 
       if (window.localStorage.getItem('token') ) {
         if (window.localStorage.getItem('has_added')) {
-              this.rootPage = TabsPage;
+              this.rootPage = TutorialPage;
+              // TabsPage
 
             } else {
-              this.rootPage = AddGoalPage; 
+              this.rootPage = TutorialPage;
+              // AddGoalPage 
             }
 
       } else {
