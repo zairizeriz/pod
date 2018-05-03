@@ -18,7 +18,9 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'verification-code.html',
 })
 export class VerificationCodePage {
+  
   currentUser
+  resendCode
   code1:string;
   code2:string;
   code3:string;
@@ -35,6 +37,7 @@ export class VerificationCodePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VerificationCodePage');
+     this.resendCode=this.navParams.get('resend')
     
   }
 
@@ -97,4 +100,28 @@ export class VerificationCodePage {
 
 }
 }
+sendAgain(){
+
+this.httpprovider.getCode(this.resendCode).then(
+     (response) => {
+       let toast = this.toastCtrl.create({
+             message: 'Code has been resend',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
+       console.log(response)
+       let user=response
+       // this.navCtrl.push(VerificationCodePage);
+       // console.log(this.user)
+       // console.log(this.phone_number)
+       // console.log(this.email)
+       
+     },
+     err => {
+       console.log(err);
+     },
+   );
+  }
+
 }

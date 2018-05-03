@@ -76,7 +76,7 @@ let loading = this.loadingCtrl.create({
      (response) => {
        console.log(response)
        let user=response
-       this.navCtrl.push(VerificationCodePage, {user:user});
+       this.navCtrl.push(VerificationCodePage, {user:user,resend:this.code});
        // console.log(this.user)
        // console.log(this.phone_number)
        // console.log(this.email)
