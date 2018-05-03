@@ -4,14 +4,6 @@ import { HttpProvider } from '../../providers/http/http';
 import { ViewController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
-
-/**
- * Generated class for the GoalactivityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-goalactivity',
@@ -41,8 +33,6 @@ export class GoalactivityPage {
          
     }
        console.log(this.goals)
-
-       
 
      },
      err => {
