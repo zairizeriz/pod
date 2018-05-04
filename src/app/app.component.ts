@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsPage } from '../pages/tabs/tabs';
 import {  AddGoalPage } from '../pages/add-goal/add-goal';
+import { VerificationCodePage } from '../pages/verification-code/verification-code'
 
 
 // import { AddGoalPage } from '../pages/add-goal/add-goal';
@@ -12,7 +13,9 @@ import {  AddGoalPage } from '../pages/add-goal/add-goal';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  // rootPage:any;
+
+  rootPage = VerificationCodePage
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -29,19 +32,19 @@ export class MyApp {
 
       // }
 
-      if (window.localStorage.getItem('token') ) {
-        if (window.localStorage.getItem('has_added')) {
-              this.rootPage = TabsPage;
+      // if (window.localStorage.getItem('token') ) {
+      //   if (window.localStorage.getItem('has_added')) {
+      //         this.rootPage = TabsPage;
 
-            } else {
-              this.rootPage = AddGoalPage; 
-            }
+      //       } else {
+      //         this.rootPage = AddGoalPage; 
+      //       }
 
-      } else {
-        this.rootPage = TutorialPage;
+      // } else {
+      //   this.rootPage = TutorialPage;
 
 
-      }
+      // }
     });
   }
 }

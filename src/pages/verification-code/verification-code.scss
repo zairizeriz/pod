@@ -36,5 +36,23 @@ page-verification-code{
 	}
 	.toolbar-title {
 	    font-size: 15px !important;
-	}	
+	}
+
+	ion-item{
+		padding: 0px;
+	}
+
+	ion-col{
+		text-align: center
+	}
+
+	ion-input{
+		border-bottom: groove 1px black;
+		align-content: center
+	}
+
+	input{
+		text-align: center;
+		font-weight: bold;
+	}
 }
