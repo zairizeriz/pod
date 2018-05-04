@@ -4,21 +4,17 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header no-border>
 
-  <ion-navbar>
-    <ion-title>save-money</ion-title>
+  <ion-navbar color="pure-white">
+    <ion-title>Save Money</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	
-<div class="first">
-	<h2>Save Money</h2>
-	<div class="rectangle-underline"></div>
-</div>
+
 <div class="second">
 	<p><strong>Start saving now!</strong> We think it is time for you to save some money for your goal. Why not start with <strong>RM 10 ?</strong>? Or you can put any amount you want. </p>
 </div>
@@ -27,10 +23,10 @@
 		  <ion-row>
 		    <ion-col>
 		    </ion-col>
-		    <ion-col class="">
+		    <ion-col class="rmInput">
 		    	<label>RM</label>		    	
-			    <ion-item id="">
-					<ion-input  type="number"  name="" value="" placeholder="" style="width: 150px;"></ion-input>
+			    <ion-item id="input-expense">
+					<ion-input  type="number" name="amount" value="" placeholder="" style="width: 150px;"></ion-input>
 				</ion-item>
 			</ion-col>
 		    <ion-col>
