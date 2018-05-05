@@ -75,6 +75,7 @@ export class VerificationCodePage {
        console.log(response);
        
         this.navCtrl.push(SignUpCompletePage, this.user);
+        loading.dismiss();
                   
      },
          (err) => {
@@ -95,7 +96,7 @@ export class VerificationCodePage {
        // console.log(this.user)
        // console.log(this.phone_number)
        // console.log(this.email)
-       loading.dismiss();
+       
  
 
 }
