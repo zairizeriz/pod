@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
+import { LoadingController } from 'ionic-angular';
+
 
 
 /**
@@ -19,15 +21,22 @@ export class ExpensesCategoryPage {
   categories:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public httpprovider: HttpProvider) {
+    public httpprovider: HttpProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present();
     console.log('ionViewDidLoad ExpensesCategoryPage');
     this.httpprovider.getCategoryExpense().subscribe(
      response => {
        console.log(response)
        this.categories=response.data
+       loading.dismiss();
      },
      err => {
        console.log(err);
