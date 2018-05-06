@@ -25,7 +25,7 @@ export class HttpProvider {
        let headers = new Headers();
        headers.append('Content-Type', 'application/json');
 
-       this.http.post("https://pod-api-mdr.herokuapp.com/api/login", JSON.stringify(details), {headers: headers})
+       this.http.post("http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/login", JSON.stringify(details), {headers: headers})
          .subscribe(res => {
 
            let data = res.json();
@@ -60,7 +60,7 @@ getCode(data){
    console.log(data)
    
 
-  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verification-number',JSON.stringify(data), {headers: headers})
+  this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/user/verification-number',JSON.stringify(data), {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -79,7 +79,7 @@ getCode(data){
   let headers = new Headers();
        headers.append('Content-Type', 'application/json');
    console.log(data)
-  this.http.post('https://pod-api-mdr.herokuapp.com/api/user/verify',JSON.stringify(data), {headers: headers})
+  this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/user/verify',JSON.stringify(data), {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -97,7 +97,7 @@ getCode(data){
   let headers = new Headers();
        headers.append('Content-Type', 'application/json');
    console.log(email)
-  this.http.post('https://pod-api-mdr.herokuapp.com/api/reset-password',JSON.stringify(email), {headers: headers})
+  this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/reset-password',JSON.stringify(email), {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -117,7 +117,7 @@ getCode(data){
      headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/user', {headers: headers})
+     this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/user', {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -138,7 +138,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/user/m'+months, {headers: headers})
+     this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/expense/user/m'+months, {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -159,7 +159,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/expense/month/'+months+'/total', {headers: headers})
+     this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/expense/month/'+months+'/total', {headers: headers})
        .map(
          res => res.json())
        .subscribe(
@@ -180,7 +180,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user/activities',
+     this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/user/activities',
       {headers: headers})
        .map(
          res => res.json())
@@ -202,7 +202,7 @@ getCode(data){
      console.log('token')
      
  
-     this.http.get('https://pod-api-mdr.herokuapp.com/api/goal/user',
+     this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/user',
       {headers: headers})
        .map(
          res => res.json())
@@ -224,7 +224,7 @@ getCode(data){
      let headers = new Headers();
      headers.append('Content-Type','application/json');
       console.log(details);
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/register', 
+     this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/register', 
      JSON.stringify(details), {headers:headers}).subscribe(res => {
      
        let data = res.json();
@@ -252,7 +252,7 @@ let data = {
      headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
  
       console.log(window.localStorage.getItem('token'))
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/user/edit', data, {headers:headers})
+     this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/user/edit', data, {headers:headers})
      .subscribe(res => {
      
        let data = res.json();
@@ -280,7 +280,7 @@ let data = {
      headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
  
       console.log(window.localStorage.getItem('token'))
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/goal/edit-goal', data, {headers:headers})
+     this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/edit-goal', data, {headers:headers})
      .subscribe(res => {
      
        let data = res.json();
@@ -296,12 +296,12 @@ let data = {
 
 
  getCategoryExpense(){
-   return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories/expense")
+   return this.http.get("http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/categories/expense")
    .map(res => res.json())
  }
 
  getCategoryGoal(){
-   return this.http.get("https://pod-api-mdr.herokuapp.com/api/categories/goal")
+   return this.http.get("http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/categories/goal")
    .map(res => res.json())
  }
  createGoal(details){
@@ -317,7 +317,7 @@ let data = {
 
      console.log('here')
       console.log(headers);
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/goal/create', JSON.stringify(details), {headers:headers})
+     this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/create', JSON.stringify(details), {headers:headers})
      .subscribe(res => {
        let data = res;
        // let data = res.json();
@@ -339,7 +339,7 @@ let data = {
 
      console.log('here')
       console.log(headers);
-     this.http.post('https://pod-api-mdr.herokuapp.com/api/expense/create', JSON.stringify(details), {headers:headers})
+     this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/expense/create', JSON.stringify(details), {headers:headers})
      .subscribe(res => {
        let data = res;
        // let data = res.json();

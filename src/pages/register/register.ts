@@ -13,14 +13,9 @@ import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  
-  register = {
-    first_name:'',
-    last_name:'',
-    email:'',
-    password:'',
-  };
+
 todo : FormGroup;
+validation_messages:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public formBuilder:FormBuilder, public httpprovider:HttpProvider, 
@@ -28,15 +23,27 @@ todo : FormGroup;
     private toastCtrl: ToastController) {
 
      this.todo = this.formBuilder.group({
-      first_name: new FormControl('', Validators.compose([Validators.required])),
-      last_name: new FormControl('', Validators.compose([Validators.required])),
-      email: new FormControl('', Validators.compose([Validators.maxLength(70),Validators.required,
-      Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{3,})$')])),
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([Validators.required,
+      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
       password: new FormControl('', Validators.compose([Validators.minLength(8), 
       Validators.required, 
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])),
     });
+
+     this.validation_messages={
+   'first_name': [{ type: 'required', message: 'Name is required.' }],
+    'last_name' :[{type: 'required', message: 'Last name is required.'}],
+    'email' :[{type: 'required', message: 'Email is required.'},{type: 'pattern', message: 'Please enter a valid email.'}],
+    'password' :[{type: 'required', message: 'Password is required.'},{type: 'minlength', message: ''},{type: 'pattern', message: '8 characters, 1 uppercase, 1 lowercase, 1 number'}]
+  };
+
   }
+
+  
+
+
 
   // logForm(){
   //   console.log(this.todo.value)
@@ -63,14 +70,23 @@ todo : FormGroup;
 }
 
   registerForm(){
+    let loading = this.loadingCtrl.create({
+    spinner: 'ios',
+    content: 'Loading Please Wait...'
+  });
+
+  loading.present()
 
       
 
   console.log(this.todo.value);
 
      this.httpprovider.registerUser(this.todo.value).then((result) => {
+       ;
 
        let response = result;
+       loading.dismiss();
+
        console.log(response);
        if(response == 'Email already exists')
        { console.log('lalu')
@@ -80,7 +96,7 @@ todo : FormGroup;
           position: 'bottom'
 
   });
-         toast.present();
+                   toast.present();
 
        }
        else{

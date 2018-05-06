@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { VerificationCodePage } from '../verification-code/verification-code';
 import { HttpProvider } from '../../providers/http/http';
 import { LoadingController } from 'ionic-angular';
@@ -30,7 +30,7 @@ export class VerificationPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider, public formBuilder:FormBuilder, 
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, public toastCntrl:ToastController) {
 
 
     // this.todo = this.formBuilder.group({
@@ -55,6 +55,16 @@ export class VerificationPage {
   // }
 
   getphone(user){
+     if (this.code.phone_number === "") {
+      console.log('lalu')
+           let toast = this.toastCntrl.create({
+             message: 'Please fill required',
+             duration:3000,
+             position: 'bottom'
+           });
+           toast.present();
+    }
+    else{
 let loading = this.loadingCtrl.create({
     spinner: 'ios',
     content: 'Loading Please Wait...'
@@ -66,7 +76,7 @@ let loading = this.loadingCtrl.create({
      (response) => {
        console.log(response)
        let user=response
-       this.navCtrl.push(VerificationCodePage, {user:user});
+       this.navCtrl.push(VerificationCodePage, {user:user,resend:this.code});
        // console.log(this.user)
        // console.log(this.phone_number)
        // console.log(this.email)
@@ -78,4 +88,5 @@ let loading = this.loadingCtrl.create({
    );
   }
 
+}
 }

@@ -1,0 +1,125 @@
+page-save-money {
+/*ion-content {
+        &.content {
+            div.scroll-content {
+                top: 20%;
+                left: 5%;
+                width: 90%;
+                height: 50%;
+                overflow:hidden;
+            }
+        }
+
+        &.content-ios {
+            background-color: rgba(0, 0, 0, 0.3);
+
+            div.scroll-content {
+                background-color: white;
+                border-radius: 5px;
+                padding: 10px;
+            }
+        }
+
+        &.content-md {
+            background-color: rgba(0, 0, 0, 0.5);
+            
+            div.scroll-content {
+                background-color: white;
+                border-radius: 2px;
+                box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+                padding: 18px;
+            }
+        }
+    }*/
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    appearance: none;
+	    margin: 0; 
+	}
+
+	#input-expense{
+		background-color: transparent;
+    	font-family: "Montserrat-Bold";
+		font-size: 22px;	
+	}
+
+	ion-input {
+		color: #44d0bf;
+	  input {
+	    text-align: center;
+	    /* IF YOU ALSO WANT TO PUSH PLACHEHOLDER TO THE RIGHT USE THE FOLLOWING, IF NOT JUST DELETE THE ::-webkit-input-placeholder*/
+	    ::-webkit-input-placeholder {
+	      text-align: center;
+	    }
+	  }
+	}	
+    .first{
+    	margin-bottom: 20px;
+    }
+
+
+    .first > h2{
+    	text-align: center;
+    	font-size: 18px;
+	    font-family: "Montserrat-Bold";
+    }
+
+    .second{
+    	margin-bottom: 30px;
+    }
+    .second > p{
+    	text-align: center;
+    	font-size: 14px;
+	    font-family: "Montserrat-Light";    	
+    }
+
+    .second > p > strong{
+    	font-family: "Montserrat-Bold";
+    	color: #44D0BF;    	
+
+    }
+
+    .third{
+    	text-align: center;
+    }
+
+  	.third > a{
+    	font-size: 14px;
+	    font-family: "Montserrat-Light";
+	    color: red;
+	    text-decoration: none;
+  	}
+
+	.btn-main-container > div > button{
+		font-family: "Montserrat-Bold";
+	}
+
+	.rectangle-underline{
+		display: flex;
+		margin: 0 auto;
+		background-color: #44D0BF;
+		height: 5px;
+		width: 45px;
+		border-radius: 10px;
+	}
+	
+
+	ion-label {
+		font-size: 15px;
+		/*color: #d6d6d6 !important;*/
+    	font-family: "Montserrat-Bold";
+
+	}
+	.rmInput { position: relative; }
+	.rmInput > label { 
+    position: absolute;
+    bottom: 17px;
+    left: 19px;
+    font-size: 22px;
+    font-family: "Montserrat-Bold";
+    color: #44D0BF;
+
+    }		
+}

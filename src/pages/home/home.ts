@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GoalactivityPage } from '../goalactivity/goalactivity';
 import { EditGoalPage } from '../edit-goal/edit-goal';
+import { SaveMoneyPage } from '../save-money/save-money';
 // import { AddGoalPage } from '../add-goal/add-goal';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
@@ -119,7 +120,7 @@ this.localNotifications.schedule({
 //   this.navCtrl.push(AddGoalPage);
 // }
 
-// goPage(){
-//   this.navCtrl.push(GoalDueDatePage);
-// }
+goalSaving(){
+  this.navCtrl.push(SaveMoneyPage);
+}
 }

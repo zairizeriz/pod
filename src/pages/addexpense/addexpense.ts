@@ -69,7 +69,7 @@ excategory_id:any;
            let toast = this.toastCtrl.create({
              message: 'Please fill required',
              duration:3000,
-             position: 'middle'
+             position: 'bottom'
            });
            toast.present();
     }

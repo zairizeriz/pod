@@ -15,7 +15,7 @@ import { VerificationCodePage } from '../pages/verification-code/verification-co
 export class MyApp {
   // rootPage:any;
 
-  rootPage = VerificationCodePage
+  rootPage:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -32,19 +32,19 @@ export class MyApp {
 
       // }
 
-      // if (window.localStorage.getItem('token') ) {
-      //   if (window.localStorage.getItem('has_added')) {
-      //         this.rootPage = TabsPage;
+      if (window.localStorage.getItem('token') ) {
+        if (window.localStorage.getItem('has_added')) {
+              this.rootPage = TabsPage;
 
-      //       } else {
-      //         this.rootPage = AddGoalPage; 
-      //       }
+            } else {
+              this.rootPage = AddGoalPage; 
+            }
 
-      // } else {
-      //   this.rootPage = TutorialPage;
+      } else {
+        this.rootPage = TutorialPage;
 
 
-      // }
+      }
     });
   }
 }

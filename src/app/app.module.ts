@@ -41,7 +41,9 @@ import {CardPaymentPage} from '../pages/card-payment/card-payment';
 import {SuccessPaymentPage} from '../pages/success-payment/success-payment';
 import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-saving';
 import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-category';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { SaveMoneyPage } from '../pages/save-money/save-money';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { DatePipe } from '@angular/common'
     CardPaymentPage,
     SuccessPaymentPage,
     PromptForSavingPage,
-    ExpensesCategoryPage
+    ExpensesCategoryPage,
+    SaveMoneyPage
     
   ],
   imports: [
@@ -120,7 +123,8 @@ import { DatePipe } from '@angular/common'
     CardPaymentPage,
     SuccessPaymentPage,
     PromptForSavingPage,
-    ExpensesCategoryPage
+    ExpensesCategoryPage,
+    SaveMoneyPage
   ],
   providers: [
     Camera,
