@@ -7,6 +7,8 @@ import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 // import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { VerificationCodePage } from '../verification-code/verification-code';
+import { VerificationPage } from '../verification/verification';
 
 
 
@@ -97,11 +99,16 @@ export class LoginPage {
          let toast = this.toastCntrl.create({
           message: err._body,
            duration: 3000,
-          position: 'bottom'
+          position: 'bottom' 
+        });
 
-  });
          loading.dismiss();
          toast.present();
+        console.log(this.login.email)
+         if(err.status === 401){
+            this.navCtrl.push(VerificationPage, {email:this.login.email})
+        }
+
 
          console.log('lalu');
          console.log(err);
