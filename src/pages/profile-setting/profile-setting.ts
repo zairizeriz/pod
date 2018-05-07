@@ -59,7 +59,7 @@ export class ProfileSettingPage {
        let toast = this.toastCtrl.create({
         message:'User successfully updated' ,
         duration: 3000,
-        position: 'middle'
+        position: 'bottom'
       });
        loading.dismiss();
       toast.present();

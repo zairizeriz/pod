@@ -66,12 +66,12 @@
       <ion-item *ngFor="let expense of expenses">
         <ion-avatar item-start>
           <div class="outter-circle circle date">
-            <span>{{expense.date | date: 'dd MMM'}}</span> <br/>
+            <span (click)="editexpense()">{{expense.date | date: 'dd MMM'}}</span> <br/>
           </div>
         </ion-avatar>
-        <h2 style="float: left;">{{expense.expense_name}}</h2>
-        <h4 style="float: right;text-align: right;font-weight: bold;">RM {{expense.amount}}</h4>
-        <p style="clear:both;" [style.color]="expense.category.color">{{expense.category.category}}</p>
+        <h2 style="float: left;" (click)="editexpense()">{{expense.expense_name}}</h2>
+        <h4 style="float: right;text-align: right;font-weight: bold;" (click)="editexpense()">RM {{expense.amount}}</h4>
+        <p style="clear:both;" [style.color]="expense.category.color" (click)="editexpense()">{{expense.category.category}}</p>
       </ion-item>
     </ion-list>
   </div>
