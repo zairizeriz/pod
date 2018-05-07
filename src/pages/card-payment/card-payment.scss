@@ -10,7 +10,8 @@ page-card-payment{
     }
 
     #row1{
-      font-size: 12px;
+      font-size: 15px;
+      padding: 10px;
     }
 
     .text-input{
@@ -26,4 +27,8 @@ page-card-payment{
       font-family: "Montserrat-Bold" !important;
     }
 
+  ion-input, ion-datetime{
+    border-bottom: groove 1px black;
+    align-content: center
+  }
 }

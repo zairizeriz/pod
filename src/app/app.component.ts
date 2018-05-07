@@ -6,7 +6,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsPage } from '../pages/tabs/tabs';
 import {  AddGoalPage } from '../pages/add-goal/add-goal';
 import { VerificationCodePage } from '../pages/verification-code/verification-code'
-
+import { HttpProvider} from '../providers/http/http'
 
 // import { AddGoalPage } from '../pages/add-goal/add-goal';
 @Component({
@@ -17,7 +17,7 @@ export class MyApp {
 
   rootPage:any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public http: HttpProvider) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -33,12 +33,19 @@ export class MyApp {
       // }
 
       if (window.localStorage.getItem('token') ) {
-        if (window.localStorage.getItem('has_added')) {
-              this.rootPage = TabsPage;
+        
+          this.http.getGoalHome().then((response)=>{
+            console.log(response);
+            let data = response
+            if (response["goal_name"]){
+            this.rootPage = TabsPage;
 
             } else {
               this.rootPage = AddGoalPage; 
             }
+
+          })
+              
 
       } else {
         this.rootPage = TutorialPage;
