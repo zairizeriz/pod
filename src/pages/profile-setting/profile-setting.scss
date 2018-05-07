@@ -75,11 +75,12 @@ page-profile-setting {
 	.camera-plus:hover{
 		display: block;
 	}
-
 	/*  ANDROID CSS */
 
 	.bar-button-md {text-transform: none;}
+	.bar-button-default-md > .button-inner > .btn-back-nav{height: 30px;}
+	.toolbar-title-md{margin-left: 20px;}
 
 
-
+	
 }
