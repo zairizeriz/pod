@@ -25,7 +25,7 @@ export class NotificationsSettingPage {
   milestones : any;
   savings : any;
   expenses : any;
-  
+  myColor: string = 'greenish';
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   	public viewCtrl:ViewController) {
   }

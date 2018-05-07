@@ -89,10 +89,13 @@ page-addexpense {
 	}
 
 	.expense_category{
-    	margin-left: 0;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    width: calc(100% - 8px);
+		margin-left: 0;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		width: calc(100% - 8px);
+		font-family: "Montserrat-Light";
+		color: #9A9A9A;
+
 	}
 
 	.expense_category_input{
@@ -120,4 +123,19 @@ page-addexpense {
 
     }
 	.rmInput input { position: absolute; left: 0; top: 0; padding-left:40px; }
+	.item-input-has-focus .label-md[stacked],
+	.input-has-focus .label-md[stacked],
+	.item-input-has-focus .label-md[floating],
+	.input-has-focus .label-md[floating] {
+	color: black;
+	font-family: "Montserrat-Bold" !important;
+	}
+	/* ANDROID CSS START */
+	.label-md[floating]{
+		font-size: 14px;
+		margin-top: 0px;
+		font-family: "Montserrat-Light" !important;
+	}
+
+
 }
