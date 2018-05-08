@@ -83,7 +83,7 @@ excategory_id:any;
        let toast = this.toastCtrl.create({
     message: 'Expense was added successfully',
     duration: 3000,
-    position: 'middle'
+    position: 'bottom'
   });
 
  

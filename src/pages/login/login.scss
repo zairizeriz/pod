@@ -70,4 +70,33 @@ page-login{
 	  }
 	}
 
+
+
+	.ion-ios-arrow-back:before {
+		content: "";
+	}
+
+	.ion-ios-arrow-back{
+		background-image: url(../assets/icon/back-icon.png);
+		background-repeat: no-repeat;
+		width: 50px;
+		height: 30px;
+		margin-top: 10px;
+	}
+
+    /* ANDROID CSS */
+
+        .toolbar-title-md{margin-right: 50px;}	
+		.ion-md-arrow-back:before{
+			content: "";
+		    background-image: url("../assets/icon/back-icon.png");
+		}
+
+		.ion-md-arrow-back{
+		    background-image: url(../assets/icon/back-icon.png);
+		    background-repeat: no-repeat;
+		    width: 50px;
+		    margin: 9px -9px 0px -12px;	
+		}
+	.toolbar-title-md{margin-right: 0px;}	
 }

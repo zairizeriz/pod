@@ -131,11 +131,17 @@ loading.present();
               duration: 1000,
               position: 'bottom'
             });
+
+            localStorage.removeItem('goal_name');
+            localStorage.removeItem('due_date');
+            localStorage.removeItem('category_id');
+            localStorage.removeItem('cat_name');
+            localStorage.removeItem('amount');
              loading.dismiss();
 
             toast.present();    
             
-                        this.navCtrl.push(RulesPage)
+            this.navCtrl.push(RulesPage)
      },
          (err) => {
          console.log(err);

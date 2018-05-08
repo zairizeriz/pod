@@ -43,6 +43,8 @@ import { PromptForSavingPage } from '../pages/prompt-for-saving/prompt-for-savin
 import { ExpensesCategoryPage } from '../pages/expenses-category/expenses-category';
 import { DatePipe } from '@angular/common';
 import { SaveMoneyPage } from '../pages/save-money/save-money';
+import { EditExpensePage } from '../pages/edit-expense/edit-expense';
+
 
 
 
@@ -77,7 +79,8 @@ import { SaveMoneyPage } from '../pages/save-money/save-money';
     SuccessPaymentPage,
     PromptForSavingPage,
     ExpensesCategoryPage,
-    SaveMoneyPage
+    SaveMoneyPage,
+    EditExpensePage
     
   ],
   imports: [
@@ -124,7 +127,8 @@ import { SaveMoneyPage } from '../pages/save-money/save-money';
     SuccessPaymentPage,
     PromptForSavingPage,
     ExpensesCategoryPage,
-    SaveMoneyPage
+    SaveMoneyPage,
+    EditExpensePage
   ],
   providers: [
     Camera,

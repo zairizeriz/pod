@@ -4,6 +4,7 @@ import { AddexpensePage } from '../addexpense/addexpense';
 import { HttpProvider } from '../../providers/http/http';
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { EditExpensePage } from '../edit-expense/edit-expense';
 
 @Component({
   selector: 'page-contact',
@@ -105,6 +106,16 @@ onTap(){
    profileModal.onDidDismiss(() => {
       this.ionViewDidEnter();
       
+    });
+   profileModal.present();
+ }
+
+   
+
+  editExpense() {
+   let profileModal = this.modalCtrl.create(EditExpensePage);
+   profileModal.onDidDismiss(() => {
+      this.ionViewDidEnter();
     });
    profileModal.present();
  }

@@ -3,11 +3,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
 import { HttpProvider } from '../../providers/http/http';
+import {LoginPage} from '../login/login';
 import {TutorialPage} from '../tutorial/tutorial';
+
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { App } from 'ionic-angular';
 
 /**
  * Generated class for the AccountPage page.
@@ -28,7 +31,7 @@ export class AccountPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public httpprovider:HttpProvider,public modalCtrl: ModalController, 
     public loadingCtrl: LoadingController, private alertCtrl: AlertController,
-    private iab: InAppBrowser) {
+    private iab: InAppBrowser, public app: App) {
   }
 
   ionViewDidLoad() {
@@ -75,8 +78,8 @@ logout() {
         role: 'Yes',
         handler: () => {
           localStorage.removeItem("token");
-    let homeModal = this.modalCtrl.create(TutorialPage);
-   homeModal.present();
+          this.app.getRootNav().setRoot( TutorialPage );
+    
           console.log('Yes clicked');
         }
       }

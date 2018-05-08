@@ -38,10 +38,12 @@ export class MyApp {
             console.log(response);
             let data = response
             if (response["goal_name"]){
-            this.rootPage = TabsPage;
+            // this.rootPage = TabsPage;
+            this.rootPage = TutorialPage;
 
             } else {
-              this.rootPage = AddGoalPage; 
+              // this.rootPage = AddGoalPage; 
+              this.rootPage = TutorialPage; 
             }
 
           })
