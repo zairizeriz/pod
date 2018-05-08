@@ -4,6 +4,8 @@ import { ProfileSettingPage } from '../profile-setting/profile-setting';
 import { NotificationsSettingPage } from '../notifications-setting/notifications-setting';
 import { HttpProvider } from '../../providers/http/http';
 import {LoginPage} from '../login/login';
+import {TutorialPage} from '../tutorial/tutorial';
+
 import { ModalController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
@@ -76,7 +78,7 @@ logout() {
         role: 'Yes',
         handler: () => {
           localStorage.removeItem("token");
-          this.app.getRootNav().setRoot( LoginPage );
+          this.app.getRootNav().setRoot( TutorialPage );
     
           console.log('Yes clicked');
         }

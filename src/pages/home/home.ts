@@ -12,6 +12,7 @@ import {ShapeOptions,LineProgressComponent,CircleProgressComponent,SemiCirclePro
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
