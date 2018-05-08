@@ -216,6 +216,53 @@ getCode(data){
    });
  }
 
+ getSavingAmount(type){
+  return new Promise((resolve, reject) => {
+
+    console.log(type)
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+    console.log('token')
+    
+
+    this.http.get('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/saving-amount?type='+ type,
+     {headers: headers})
+      .map(
+        res => res.json())
+      .subscribe(
+        data => {
+          resolve(data);
+          console.log(data)
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+
+saving(amount){
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+    // headers.append('Content-Type','application/json');
+
+    let data = {
+      amount:amount
+    }
+    console.log(amount)
+
+    this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/saving', data, {headers:headers})
+    .subscribe(res => {
+      let data = res;
+      // let data = res.json();
+      console.log(data);
+      resolve(data);
+    
+    }, (err) => {
+      reject(err);
+    });   
+  });
+}
+
 
  registerUser(details){
 

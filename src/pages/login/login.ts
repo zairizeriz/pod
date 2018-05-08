@@ -97,7 +97,7 @@ export class LoginPage {
      },
          (err) => {
          let toast = this.toastCntrl.create({
-          message: err._body,
+          message: err._body + ", Please Verify Your Account",
            duration: 3000,
           position: 'bottom' 
         });

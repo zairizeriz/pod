@@ -16,7 +16,7 @@
 <ion-content padding>
 
 <div class="second">
-	<p><strong>Start saving now!</strong> We think it is time for you to save some money for your goal. Why not start with <strong>RM 10 ?</strong>? Or you can put any amount you want. </p>
+	<p><strong>Start saving now!</strong> We think it is time for you to save some money for your goal. Why not start with <strong>RM {{amount | number: '1.2-2'}} </strong>? Or you can put any amount you want. </p>
 </div>
 <div class="">
 		<ion-grid>
@@ -26,7 +26,7 @@
 		    <ion-col class="rmInput">
 		    	<label>RM</label>		    	
 			    <ion-item id="input-expense">
-					<ion-input  type="number" name="amount" value="" placeholder="" style="width: 150px;"></ion-input>
+					<ion-input  type="number"  [(ngModel)]="amount" style="width: 150px;"></ion-input>
 				</ion-item>
 			</ion-col>
 		    <ion-col>
@@ -37,7 +37,7 @@
 <div class="third">
   <div class="btn-main-container" padding>
     <div>
-    <button (click)="save()">Save</button>
+    <button (click)="save(amount)">Save</button>
     </div>    
   </div>	
 </div>

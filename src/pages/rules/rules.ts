@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
+import { SaveMoneyPage } from '../save-money/save-money'
 
 /**
  * Generated class for the RulesPage page.
@@ -16,6 +17,8 @@ import {TabsPage} from '../tabs/tabs';
 })
 export class RulesPage {
 
+  amount:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -27,4 +30,8 @@ export class RulesPage {
 goalPage(){
 	this.navCtrl.setRoot(TabsPage)
 }
+
+  savePage(type){
+    this.navCtrl.setRoot(TabsPage)
+  }
 }

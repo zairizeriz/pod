@@ -17,6 +17,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   templateUrl: 'home.html'
 })
 export class HomePage {
+
   goal = {
     goal_name:""
   }
@@ -44,7 +45,8 @@ export class HomePage {
     amount :"",
     date :"",
     goal_image:"",
-    current_amount:0
+    current_amount:0,
+    type:""
 
 
   }
@@ -83,9 +85,10 @@ this.localNotifications.schedule({
   loading.present();
    this.httpprovider.getGoalHome().then(
      (response) => {
-       console.log(response)
        
        this.homeGoal = response
+       console.log(response)
+       this.goalsHome.type = this.homeGoal.type
        this.goalsHome.goal_name = this.homeGoal.goal_name;
        this.goalsHome.amount = this.homeGoal.amount;
        this.goalsHome.date = this.homeGoal.date;
@@ -121,6 +124,6 @@ this.localNotifications.schedule({
 // }
 
 goalSaving(){
-  this.navCtrl.push(SaveMoneyPage);
+  this.navCtrl.push(SaveMoneyPage, {type:this.goalsHome.type} );
 }
 }
