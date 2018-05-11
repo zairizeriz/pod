@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import {CardPaymentPage} from '../card-payment/card-payment';
 import { HttpProvider } from '../../providers/http/http'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import {TabsPage} from '../../pages/tabs/tabs'
 @IonicPage()
 @Component({
   selector: 'page-save-money',
@@ -57,8 +57,17 @@ export class SaveMoneyPage {
         console.log(response)
         loading.dismiss()
 
-        const browser = this.iab.create(this.paymentLink._body); 
+        const browser = this.iab.create(this.paymentLink._body, '_blank',{location:'no'}); 
+        browser.on('loadstop').subscribe(event => {        
+          if (event.url.match("response-payment")) {
+            browser.close();
+            this.navCtrl.setRoot(TabsPage);
 
+          }
+          else if (event.url.match("response-payment")){
+
+          }
+        });
       },
       err => {
         console.log(err);
