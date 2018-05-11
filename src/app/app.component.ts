@@ -38,7 +38,7 @@ export class MyApp {
             let data = response
             if (response["goal_name"]){
             // this.rootPage = TabsPage;
-            this.rootPage = TutorialPage;
+            this.rootPage = TabsPage;
 
             } else {
               // this.rootPage = AddGoalPage; 
