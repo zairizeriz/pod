@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import {CardPaymentPage} from '../card-payment/card-payment';
 import { HttpProvider } from '../../providers/http/http'
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -57,7 +58,11 @@ export class SaveMoneyPage {
         console.log(response)
         loading.dismiss()
 
-        const browser = this.iab.create(this.paymentLink._body); 
+        const browser = this.iab.create(this.paymentLink._body);
+
+        browser.on('exit').subscribe(event => {
+          this.navCtrl.setRoot(TabsPage);
+        })
 
       },
       err => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import { SaveMoneyPage } from '../save-money/save-money'
 
@@ -19,7 +19,7 @@ export class RulesPage {
 
   amount:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -32,6 +32,25 @@ goalPage(){
 }
 
   savePage(type){
+    
+    if(type == 1){
+      let toast = this.toastCtrl.create({
+        message:'You Set To Save By Daily' ,
+        duration: 3000,
+        position: 'middle'
+      });
+
+      toast.present();
+    }else{
+      let toast = this.toastCtrl.create({
+        message:'You Set To Save By Weekly' ,
+        duration: 3000,
+        position: 'middle'
+      });
+
+      toast.present();
+    }
+
     this.navCtrl.setRoot(TabsPage)
   }
 }

@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { TabsPage } from '../pages/tabs/tabs';
 import {  AddGoalPage } from '../pages/add-goal/add-goal';
-import { VerificationCodePage } from '../pages/verification-code/verification-code'
 import { HttpProvider} from '../providers/http/http'
 
 // import { AddGoalPage } from '../pages/add-goal/add-goal';
