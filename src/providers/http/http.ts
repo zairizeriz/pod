@@ -366,16 +366,43 @@ let data = {
       console.log(headers);
      this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/create', JSON.stringify(details), {headers:headers})
      .subscribe(res => {
-       let data = res;
-       // let data = res.json();
-       console.log(data);
+      //  let data = res;
+       let data = res.json();
+       
        resolve(data);
+       console.log(data);
      
      }, (err) => {
        reject(err);
      });   
    });
  }
+
+ createGoalType(goal_type){
+
+  return new Promise((resolve, reject) => {
+
+    // let token_headers = new Headers();
+    // token_headers.append('Authorization', 'Bearer ' + window.localStorage.getItem('token'));
+    console.log(goal_type)
+
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+
+    console.log('here')
+     console.log(headers);
+    this.http.post('http://ec2-13-251-59-244.ap-southeast-1.compute.amazonaws.com/pod-api-mdr/public/api/goal/saving/type', JSON.stringify(goal_type), {headers:headers})
+    .subscribe(res => {
+      let data = res;
+      // let data = res.json();
+      console.log(data);
+      resolve(data);
+    
+    }, (err) => {
+      reject(err);
+    });   
+  });
+}
 
  createExpense(details){
 
