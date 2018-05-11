@@ -181,6 +181,7 @@ loading.present();
   quality: 70,
   destinationType: this.camera.DestinationType.DATA_URL,
   encodingType: this.camera.EncodingType.JPEG,
+  correctOrientation: true,
   mediaType: this.camera.MediaType.PICTURE
 }
 this.camera.getPicture(options).then((imageData) => {
@@ -207,6 +208,7 @@ this.camera.getPicture(options).then((imageData) => {
   sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
   destinationType: this.camera.DestinationType.DATA_URL,
   encodingType: this.camera.EncodingType.JPEG,
+  correctOrientation: true,  
   mediaType: this.camera.MediaType.PICTURE
 }
 this.camera.getPicture(options).then((imageData) => {
