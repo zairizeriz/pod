@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { HttpProvider } from '../../providers/http/http';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams, ViewController } from "ionic-angular";
+import { ToastController } from "ionic-angular";
+import { HttpProvider } from "../../providers/http/http";
 
 /**
  * Generated class for the EditGoalPage page.
@@ -12,87 +12,83 @@ import { HttpProvider } from '../../providers/http/http';
 
 @IonicPage()
 @Component({
-  selector: 'page-edit-goal',
-  templateUrl: 'edit-goal.html',
+  selector: "page-edit-goal",
+  templateUrl: "edit-goal.html"
 })
 export class EditGoalPage {
-  
-	goal = {
+  goal = {
     // goal_name : "",
     // target_date :"",
-    amount: "",
+    amount: ""
     // current_amount:"",
-  }
+  };
 
-  homeGoal:any;
+  homeGoal: any;
   goalsHome = {
-    goal_name : "",
-    amount :"",
-    date :"",
-    goal_image:"",
-    current_amount:0
+    goal_name: "",
+    amount: "",
+    date: "",
+    goal_image: "",
+    current_amount: 0
+  };
 
-
-  }
- 
-  
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-  	private toastCtrl: ToastController, public httpprovider:HttpProvider) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private toastCtrl: ToastController,
+    public httpprovider: HttpProvider,
+    public viewCtrl:ViewController
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditGoalPage');
+    console.log("ionViewDidLoad EditGoalPage");
 
-   this.httpprovider.getGoalHome().then(
-     (response) => {
-       console.log(response)
-       
-       this.homeGoal = response
-       
-       this.goalsHome.amount = this.homeGoal.amount;
-       
-     },
-     err => {
-       console.log(err);
-     },
-   );
+    this.httpprovider.getGoalHome().then(
+      response => {
+        console.log(response);
+
+        this.homeGoal = response;
+
+        this.goalsHome.amount = this.homeGoal.amount;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
-updateGoalForm(){
-  
+  updateGoalForm() {
+    console.log(this.goal.amount)
+    this.httpprovider.updateGoalInfo(this.goal.amount).then(
+      result => {
+        let toast = this.toastCtrl.create({
+          message: "Goal successfully updated",
+          duration: 3000,
+          position: "bottom"
+        });
 
-     this.httpprovider.updateGoalInfo(
-     this.goal.amount).then((result) => {
-       let toast = this.toastCtrl.create({
-    message:'Goal successfully updated' ,
-    duration: 3000,
-    position: 'bottom'
-  });
+        toast.present();
 
-  toast.present();
+        console.log(this.goal);
 
-  console.log(this.goal);
- 
-     // this.viewCtrl.dismiss();
-     },
-         (err) => {
-         
-           let toast = this.toastCtrl.create({
+        this.viewCtrl.dismiss();
+      },
+      err => {
+        let toast = this.toastCtrl.create({
           message: "Goal failed to update. Please use valid amount",
-           duration: 3000,
-          position: 'bottom'
+          duration: 3000,
+          position: "bottom"
+        });
+        toast.present();
 
-  });
-         toast.present();
+        console.log("lalu");
+        console.log(err);
+        this.navCtrl.pop();
+      }
+    );
+    // this.viewCtrl.dismiss();
+  }
 
-         console.log('lalu');
-         console.log(err);
-     });
-       this.navCtrl.pop();
- }
-    
-    goBack(){
+  goBack() {
     this.navCtrl.pop();
-  }   
+  }
 }
-
