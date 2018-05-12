@@ -83,6 +83,7 @@ export class AddGoalPage {
     console.log(this.goal_name);
     this.amount = window.localStorage.getItem("amount");
     this.due_date = window.localStorage.getItem("due_date");
+    console.log(this.due_date)
     this.category_name = window.localStorage.getItem("cat_name");
   }
   addGoalForm() {

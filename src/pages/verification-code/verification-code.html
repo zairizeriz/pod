@@ -17,32 +17,32 @@
         <ion-row>
           <ion-col col-2 text-center>
             <!-- <ion-item>  -->
-             <ion-input type="tel" [(ngModel)]="code1" name="verified" maxlength="1" ></ion-input> 
+             <ion-input type="tel" [(ngModel)]="code1" name="verified" maxlength="1" tabindex="1" (keyup)="moveFocus($event, b)"></ion-input> 
             <!-- </ion-item>       -->
           </ion-col>
         <ion-col col-2 text-center>
           <!-- <ion-item> -->
-            <ion-input type="tel" [(ngModel)]="code2" name="verified" maxlength="1"  ></ion-input>   
+            <ion-input type="tel" [(ngModel)]="code2" name="verified" maxlength="1" #b (keyup)="moveFocus($event, c)"></ion-input>   
           <!-- </ion-item>        -->
         </ion-col>
         <ion-col col-2 text-center>
           <!-- <ion-item> -->
-           <ion-input type="tel" [(ngModel)]="code3" name="verified" maxlength="1"  ></ion-input>
+           <ion-input type="tel" [(ngModel)]="code3" name="verified" maxlength="1" tabindex="3" #c (keyup)="moveFocus($event, d)"></ion-input>
           <!-- </ion-item>           -->
         </ion-col>
         <ion-col col-2 text-center>
           <!-- <ion-item> -->
-            <ion-input type="tel" [(ngModel)]="code4" name="verified" maxlength="1"  ></ion-input>
+            <ion-input type="tel" [(ngModel)]="code4" name="verified" maxlength="1" tabindex="4" #d (keyup)="moveFocus($event, e)"></ion-input>
           <!-- </ion-item>           -->
         </ion-col>
         <ion-col col-2 text-center>
           <!-- <ion-item> -->
-           <ion-input type="tel" [(ngModel)]="code5" name="verified" maxlength="1"></ion-input>     
+           <ion-input type="tel" [(ngModel)]="code5" name="verified" maxlength="1" tabindex="5" #e (keyup)="moveFocus($event, f)"></ion-input>     
           <!-- </ion-item>      -->
         </ion-col>
         <ion-col col-2 text-center>
           <!-- <ion-item> -->
-           <ion-input type="tel" [(ngModel)]="code6" name="verified" maxlength="1"  ></ion-input> 
+           <ion-input type="tel" [(ngModel)]="code6" name="verified" maxlength="1" tabindex="6" #f ></ion-input> 
           <!-- </ion-item>          -->
         </ion-col>                                        
         </ion-row>

@@ -10,14 +10,16 @@
 </ion-header>
 
 <ion-content padding>
-   <ion-list>
-      <ion-item text-wrap *ngFor = "let goal of goals">
+   <!-- <ion-list> -->
+      <ion-item text-wrap *ngFor = "let goal of goalActivities">
         <ion-avatar item-start>
           <div class="outter-circle circle date">
+              <!-- <div> -->
             <span>{{goal.created_at| date: 'dd MMM'}}</span> <br/>
           </div>
         </ion-avatar>
         <p class="list-text" [innerHtml]=goal.description></p>
+        <!-- <p [innerHtml]=goal.description></p> -->
       </ion-item>
-    </ion-list>
+    <!-- </ion-list> -->
 </ion-content>

@@ -17,16 +17,20 @@ import { GoalCategoryPage } from '../goal-category/goal-category';
 export class GoalDueDatePage {
 	goal_name:any;
 	amount:any;
-	due_date:any;
+  due_date:any;
+  min_date:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.goal_name=this.navParams.get('goal_name');
-  	this.amount=this.navParams.get('amount')
+    this.amount=this.navParams.get('amount')
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GoalDueDatePage');
     this.due_date=new Date().toLocaleString()
+    this.min_date = new Date().toISOString()
+    console.log(this.min_date)
   }
 
   targetGoalDueDate(value){

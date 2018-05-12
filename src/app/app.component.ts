@@ -14,7 +14,7 @@ import { HttpProvider} from '../providers/http/http'
 export class MyApp {
   // rootPage:any;
 
-  rootPage:any;
+  rootPage:any
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public http: HttpProvider) {
     platform.ready().then(() => {
@@ -36,7 +36,7 @@ export class MyApp {
           this.http.getGoalHome().then((response)=>{
             console.log(response);
             let data = response
-            if (response["goal_name"]){
+            if (response || response == "Goal Completed"){
             // this.rootPage = TabsPage;
             this.rootPage = TabsPage;
 

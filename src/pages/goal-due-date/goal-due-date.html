@@ -20,7 +20,7 @@
 		  <ion-row>
 		    <ion-col>
 			    <ion-item id="input-expense">
-					<ion-datetime  [(ngModel)]="due_date" class='datetime-text' name="due_date" placeholder="Date" displayFormat="MMM YYYY" min="2018" max="3020-10-31"></ion-datetime>
+					<ion-datetime  [(ngModel)]="due_date" class='datetime-text' name="due_date" placeholder="Date" displayFormat="MMM YYYY" [min]="min_date" max="3020-10-31"></ion-datetime>
 				</ion-item>
 			</ion-col>
 		  </ion-row>

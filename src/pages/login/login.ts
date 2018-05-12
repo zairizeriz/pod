@@ -77,7 +77,7 @@ export class LoginPage {
            toast.present();
 
        }else{
-         this.httpprovider.getGoalHome( ).then(
+         this.httpprovider.getGoalHome().then(
          (response) => {
            
            this.goal = response

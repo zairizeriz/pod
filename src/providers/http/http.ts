@@ -186,7 +186,7 @@ getCode(data){
          res => res.json())
        .subscribe(
          data => {
-           resolve(data.data);
+           resolve(data);
            console.log('data')
        }, (err) => {
          reject(err);
@@ -209,7 +209,7 @@ getCode(data){
        .subscribe(
          data => {
            resolve(data.data);
-           console.log('data')
+           console.log(data.data)
        }, (err) => {
          reject(err);
        });

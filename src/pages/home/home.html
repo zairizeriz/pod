@@ -1,20 +1,25 @@
-<ion-header  no-border>
+<ion-header no-border>
   <ion-navbar color="pure-white">
-    <ion-buttons left>
+    <ion-buttons left *ngIf="homeGoal">
       <button ion-button icon-only (click)="goalSaving()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons> 
- <ion-title>Personal Goal</ion-title>
+    </ion-buttons>
+    <ion-buttons left *ngIf="!homeGoal">
+        <button ion-button icon-only (click)="createGoal()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    <ion-title>Personal Goal</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="presentProfileModal()">
         <ion-icon name="menu"></ion-icon>
       </button>
-    </ion-buttons>  
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content  no-bounce>
+<ion-content no-bounce>
   <div class="first-row">
     <!-- <div class="outter-circle circle">
       <img src={{goalsHome.goal_image}} class="circle">
@@ -22,31 +27,35 @@
     <div class="circle-container" style="width: 200px; margin: 0 auto">
       <ks-circle-progress [options]="circleOptions"></ks-circle-progress>
     </div>
-    <img src={{goalsHome.goal_image}} class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
+    <img src={{goalsHome.goal_image}} *ngIf="homeGoal" class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
+    <img src="assets/imgs/nogoal.png" *ngIf="!homeGoal" class="circle" style="position: absolute; margin-top: -180px; left: 0; right: 0;">
     <div class="goal-text">
-      <span class="btn-edit-goal"></span><strong>{{goalsHome.goal_name}}</strong>
+      <span class="btn-edit-goal"></span>
+      <strong>{{goalsHome.goal_name}}</strong>
     </div>
   </div>
   <div class="second-row">
     <div class="total-savings">
-      <span class="amount text-style">RM {{goalsHome.current_amount}}</span><br/>
+      <span class="amount text-style">RM {{goalsHome.current_amount}}</span>
+      <br/>
       <span class="desc bottom-amount text-style2">Current saving</span>
     </div>
   </div>
   <div class="last-row">
     <div class="col1 target-amount">
-      <span class="text-style" (click)="editGoal()"><a style="color: #000000;">RM </a>{{goalsHome.amount}}</span><br/>
+      <span class="text-style" (click)="editGoal()">
+        <a style="color: #000000;">RM </a>{{goalsHome.amount}}</span>
+      <br/>
       <span class="desc text-style2">Target amount</span>
     </div>
     <div class="col2 target-date">
-      <span class="text-style">{{goalsHome.date| date: 'MMM yyyy'}}</span><br/>
+      <span class="text-style">{{goalsHome.date| date: 'MMM yyyy'}}</span>
+      <br/>
       <span class="desc text-style2">Target date</span>
     </div>
     <!-- <div style="clear: both;"></div>
     <button (click)="goPage()">GO PAGE</button> -->
   </div>
-
-
 </ion-content>
 <!-- <ion-footer padding no-border>
   <div style="text-align: center">
