@@ -24,5 +24,18 @@ page-goal-category {
 	}
 	.item-ios ion-avatar img {
     	border-radius: 0%;
-    }		
+    }
+
+
+
+ 	 /*ANDROID CSS*/
+
+	.toolbar-title-md{margin-right: 50px;}
+
+	.item-md ion-avatar[item-left],
+		.item-md ion-thumbnail[item-left],
+		.item-md ion-avatar[item-start],
+		.item-md ion-thumbnail[item-start] {
+		  margin: 13px 0px 0px 0px;
+	}  		   	
 }
